@@ -1,0 +1,58 @@
+{
+  "last_updated": "2026-05",
+  "last_sweep_date": "2026-05",
+  "next_sweep_due": "2026-08",
+  "sweep_sources": ["google_scholar", "openalex", "semantic_scholar"],
+  "datasets": [
+    {
+      "id": "persuade",
+      "display_name": "PERSUADE 2.0",
+      "published_year": 2024,
+      "data_file": "data/persuade.json",
+      "kaggle_url": "https://www.kaggle.com/competitions/feedback-prize-effectiveness",
+      "paper_doi": "10.18653/v1/2024.bea-1.24",
+      "citation_count": 49,
+      "color": "#F59E0B"
+    },
+    {
+      "id": "piilo",
+      "display_name": "PIILO",
+      "published_year": 2023,
+      "data_file": "data/piilo.json",
+      "kaggle_url": null,
+      "paper_doi": null,
+      "citation_count": 14,
+      "color": "#60A5FA"
+    },
+    {
+      "id": "klicke",
+      "display_name": "KLiCKe",
+      "published_year": 2025,
+      "data_file": "data/klicke.json",
+      "kaggle_url": null,
+      "paper_doi": "10.18653/v1/2024.bea-1.25",
+      "citation_count": 6,
+      "color": "#34D399"
+    },
+    {
+      "id": "asap2",
+      "display_name": "ASAP 2.0",
+      "published_year": 2025,
+      "data_file": "data/asap2.json",
+      "kaggle_url": "https://www.kaggle.com/competitions/asap2-ell",
+      "paper_doi": null,
+      "citation_count": 5,
+      "color": "#A78BFA"
+    },
+    {
+      "id": "joewillder",
+      "display_name": "Jo Wilder",
+      "published_year": 2023,
+      "data_file": "data/joewillder.json",
+      "kaggle_url": "https://www.kaggle.com/competitions/predict-student-performance-from-game-play",
+      "paper_doi": null,
+      "citation_count": 2,
+      "color": "#F472B6"
+    }
+  ]
+}

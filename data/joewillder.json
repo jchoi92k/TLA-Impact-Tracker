@@ -1,0 +1,63 @@
+{
+  "dataset": "joewillder",
+  "meta": {
+    "display_name": "Jo Wilder / Predict Student Performance",
+    "published_year": 2023,
+    "description": "Game-based learning dataset from the Kaggle 'Predict Student Performance from Game Play' competition based on the Jo Wilder educational game.",
+    "kaggle_url": "https://www.kaggle.com/competitions/predict-student-performance-from-game-play",
+    "paper_doi": null,
+    "last_updated": "2026-03"
+  },
+  "summary": {
+    "total_citations": 2,
+    "directly_used": 0,
+    "reference_comparison": 1,
+    "incidental_peripheral": 1,
+    "countries": ["USA"],
+    "note": "Limited academic citation traction to date. One possible Scholar false positive (Spanish student project may reference a different Kaggle dataset). Kaggle download counts serve as the primary impact metric."
+  },
+  "papers": [
+    {
+      "id": "joewillder-globusharris-2023",
+      "title": "Diversified Ensembling: An Experiment in Crowdsourced Machine Learning",
+      "authors": ["Globus-Harris et al."],
+      "institutions": ["University of Pennsylvania", "California Institute of Technology", "Amazon Web Services"],
+      "country": ["USA"],
+      "year": 2023,
+      "published_date": "2023",
+      "doi": null,
+      "venue": null,
+      "venue_type": null,
+      "abstract": null,
+      "abstract_source": null,
+      "use_of_dataset": "Unclear — likely methodological reference; no direct mention of this dataset",
+      "connection_strength": "weak",
+      "research_type": "Empirical / crowdsourced ML",
+      "key_takeaway": "Focuses on diversified ensembling via Kaggle-style competition; citation appears peripheral if present at all.",
+      "also_cites": [],
+      "first_tracked": "2026-03",
+      "status": "confirmed"
+    },
+    {
+      "id": "joewillder-untitled-student",
+      "title": "Untitled student project (Spanish)",
+      "authors": ["Unknown"],
+      "institutions": ["Unknown"],
+      "country": ["Unknown"],
+      "year": null,
+      "published_date": null,
+      "doi": null,
+      "venue": null,
+      "venue_type": "student_project",
+      "abstract": null,
+      "abstract_source": null,
+      "use_of_dataset": "References the associated Kaggle competition (Franklin et al. 2023) directly; likely a legitimate citation of the competition dataset",
+      "connection_strength": "moderate",
+      "research_type": "Student project / applied data science",
+      "key_takeaway": "Student built a performance prediction model using the Kaggle competition data. Low academic weight but confirms dataset discoverability beyond English-language research communities.",
+      "also_cites": [],
+      "first_tracked": "2026-03",
+      "status": "flagged"
+    }
+  ]
+}

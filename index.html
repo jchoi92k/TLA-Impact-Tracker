@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TLA Open Datasets — Impact Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F7F6F2;
+      --surface: #FFFFFF;
+      --border: #E0DDD5;
+      --border-light: #ECEAE4;
+      --text: #1C1917;
+      --text-2: #57534E;
+      --text-3: #A8A29E;
+      --accent: #1B4FD8;
+      --strong-bg: #ECFDF5; --strong: #065F46;
+      --moderate-bg: #FFFBEB; --moderate: #92400E;
+      --weak-bg: #FEF2F2; --weak: #991B1B;
+      --flagged-bg: #FAF5FF; --flagged: #6B21A8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(247,246,242,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      height: 52px;
+      display: flex; align-items: center;
+      padding: 0 2rem; gap: 1.5rem;
+    }
+    .nav-brand {
+      font-family: 'Spectral', serif;
+      font-weight: 700; font-size: 1.05rem;
+      color: var(--text); text-decoration: none;
+      letter-spacing: -0.02em; white-space: nowrap;
+    }
+    .nav-brand em { font-style: normal; color: var(--accent); }
+    .nav-ds {
+      display: flex; gap: 0.15rem;
+      overflow-x: auto; scrollbar-width: none;
+    }
+    .nav-ds::-webkit-scrollbar { display: none; }
+    .nav-ds a {
+      font-size: 0.8rem; color: var(--text-2);
+      text-decoration: none; padding: 0.2rem 0.6rem;
+      border-radius: 20px; white-space: nowrap;
+      transition: all 0.15s;
+    }
+    .nav-ds a:hover { background: var(--border-light); color: var(--text); }
+    .nav-ds a.active { color: #fff; }
+    .nav-updated {
+      margin-left: auto; font-size: 0.75rem;
+      color: var(--text-3); white-space: nowrap;
+    }
+
+    /* ── LAYOUT ── */
+    main { max-width: 1080px; margin: 0 auto; padding: 0 2rem 5rem; }
+
+    /* ── HOME ── */
+    .hero {
+      padding: 3rem 0 2.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+    .hero-eyebrow {
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-family: 'Spectral', serif;
+      font-size: clamp(1.9rem, 4vw, 2.6rem);
+      font-weight: 600; line-height: 1.2;
+      letter-spacing: -0.03em; max-width: 660px;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      color: var(--text-2); max-width: 560px;
+      font-size: 0.95rem; line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+    .hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+    .stat-val {
+      font-family: 'Spectral', serif;
+      font-size: 2rem; font-weight: 600; line-height: 1;
+    }
+    .stat-lbl {
+      font-size: 0.72rem; color: var(--text-3);
+      text-transform: uppercase; letter-spacing: 0.05em;
+      margin-top: 0.2rem;
+    }
+
+    .grid-header {
+      display: flex; align-items: baseline;
+      justify-content: space-between; margin-bottom: 1.25rem;
+    }
+    .grid-title {
+      font-family: 'Spectral', serif;
+      font-size: 1.1rem; font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    .grid-meta { font-size: 0.78rem; color: var(--text-3); }
+
+    .dataset-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1rem;
+    }
+    .ds-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.5rem;
+      cursor: pointer; text-decoration: none;
+      display: block; position: relative; overflow: hidden;
+      transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+    }
+    .ds-card::after {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--c);
+    }
+    .ds-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.07);
+      border-color: color-mix(in srgb, var(--c) 30%, var(--border));
+    }
+    .ds-name {
+      font-family: 'Spectral', serif;
+      font-size: 1.25rem; font-weight: 600;
+      letter-spacing: -0.02em; margin-bottom: 0.35rem;
+      color: var(--c);
+    }
+    .ds-year { font-size: 0.75rem; color: var(--text-3); margin-bottom: 0.6rem; }
+    .ds-desc {
+      font-size: 0.78rem; color: var(--text-3); line-height: 1.55;
+      margin-bottom: 1.25rem;
+      display: -webkit-box; -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .ds-count {
+      font-family: 'Spectral', serif;
+      font-size: 2.2rem; font-weight: 600;
+      color: var(--c); line-height: 1;
+    }
+    .ds-count-lbl {
+      font-size: 0.7rem; color: var(--text-3);
+      text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .ds-bar {
+      margin-top: 1rem; padding-top: 1rem;
+      border-top: 1px solid var(--border-light);
+      display: flex; gap: 0;
+    }
+    .ds-bar-seg { height: 6px; border-radius: 3px; margin-right: 2px; min-width: 4px; }
+    .bar-legend {
+      display: flex; gap: 1rem; margin-top: 0.6rem;
+    }
+    .bar-leg-item { font-size: 0.68rem; color: var(--text-3); }
+    .bar-leg-item b { color: var(--text-2); }
+
+    /* ── DATASET PAGE ── */
+    .ds-header {
+      padding: 2.25rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
+    }
+    .back {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-size: 0.78rem; color: var(--text-3);
+      text-decoration: none; margin-bottom: 1.25rem;
+      transition: color 0.15s;
+    }
+    .back:hover { color: var(--accent); }
+    .ds-page-title {
+      font-family: 'Spectral', serif;
+      font-size: clamp(1.7rem, 3.5vw, 2.2rem);
+      font-weight: 600; letter-spacing: -0.03em;
+      margin-bottom: 0.3rem;
+    }
+    .ds-page-doi {
+      font-size: 0.75rem; color: var(--text-3);
+      font-family: 'DM Mono', monospace;
+      margin-bottom: 0.8rem;
+    }
+    .ds-page-doi a { color: var(--accent); text-decoration: none; }
+    .ds-page-doi a:hover { text-decoration: underline; }
+    .ds-page-desc {
+      color: var(--text-2); font-size: 0.9rem;
+      max-width: 680px; line-height: 1.75;
+      margin-bottom: 1.75rem;
+    }
+    .ds-page-stats { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .ds-note {
+      margin-top: 1.25rem; padding: 0.75rem 1rem;
+      background: #FFFBEB; border: 1px solid #FDE68A;
+      border-radius: 8px; font-size: 0.8rem;
+      color: #78350F; max-width: 720px;
+      line-height: 1.5;
+    }
+
+    /* ── FILTERS ── */
+    .filters {
+      display: flex; align-items: center;
+      gap: 0.4rem; flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .filters-label { font-size: 0.75rem; color: var(--text-3); margin-right: 0.15rem; }
+    .f-btn {
+      font-size: 0.75rem; font-family: inherit;
+      padding: 0.28rem 0.7rem; border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--surface); color: var(--text-2);
+      cursor: pointer; transition: all 0.14s; line-height: 1.4;
+    }
+    .f-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .f-btn.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .search {
+      margin-left: auto; padding: 0.3rem 0.8rem;
+      border: 1px solid var(--border); border-radius: 8px;
+      background: var(--surface); font-family: inherit;
+      font-size: 0.8rem; color: var(--text); width: 200px;
+      outline: none; transition: border-color 0.14s;
+    }
+    .search:focus { border-color: var(--accent); }
+    .results-count { font-size: 0.75rem; color: var(--text-3); }
+
+    /* ── PAPER CARDS ── */
+    .papers { display: flex; flex-direction: column; gap: 0.7rem; }
+    .paper {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.2rem 1.4rem;
+      transition: box-shadow 0.15s;
+    }
+    .paper:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+    .paper-row1 { display: flex; gap: 0.8rem; align-items: flex-start; margin-bottom: 0.35rem; }
+    .paper-title {
+      font-family: 'Spectral', serif;
+      font-size: 0.985rem; font-weight: 600;
+      color: var(--text); line-height: 1.4;
+      letter-spacing: -0.01em; flex: 1;
+    }
+    .paper-title a { color: inherit; text-decoration: none; }
+    .paper-title a:hover { color: var(--accent); }
+    .badge {
+      display: inline-flex; align-items: center;
+      padding: 0.15rem 0.5rem; border-radius: 20px;
+      font-size: 0.68rem; font-weight: 500;
+      white-space: nowrap; flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .b-strong { background: var(--strong-bg); color: var(--strong); }
+    .b-moderate { background: var(--moderate-bg); color: var(--moderate); }
+    .b-weak { background: var(--weak-bg); color: var(--weak); }
+    .b-flagged { background: var(--flagged-bg); color: var(--flagged); }
+    .paper-meta {
+      font-size: 0.76rem; color: var(--text-3); margin-bottom: 0.4rem;
+    }
+    .paper-meta .authors { color: var(--text-2); font-weight: 500; }
+    .paper-use { font-size: 0.81rem; color: var(--text-2); line-height: 1.55; }
+    .paper-takeaway {
+      font-size: 0.76rem; color: var(--text-3);
+      font-style: italic; margin-top: 0.25rem; line-height: 1.5;
+    }
+    .paper-abstract {
+      font-size: 0.8rem; color: var(--text-2); line-height: 1.65;
+      margin-top: 0.7rem; padding-top: 0.7rem;
+      border-top: 1px solid var(--border-light);
+      display: none;
+    }
+    .paper-abstract.open { display: block; }
+    .toggle-abs {
+      background: none; border: none; cursor: pointer;
+      font-size: 0.72rem; color: var(--accent);
+      padding: 0; font-family: inherit;
+      margin-top: 0.4rem; display: inline-block;
+    }
+    .toggle-abs:hover { text-decoration: underline; }
+    .also-cites {
+      display: inline-flex; gap: 0.3rem; flex-wrap: wrap;
+      margin-top: 0.4rem;
+    }
+    .also-tag {
+      font-size: 0.68rem; padding: 0.1rem 0.4rem;
+      border-radius: 4px; background: var(--border-light);
+      color: var(--text-3);
+    }
+    .src-tag {
+      font-size: 0.65rem; padding: 0.1rem 0.4rem;
+      border-radius: 4px; background: #EFF6FF;
+      color: #1E40AF; margin-left: 0.3rem;
+    }
+
+    /* ── STATES ── */
+    .loading, .empty {
+      text-align: center; padding: 4rem 2rem;
+      color: var(--text-3); font-size: 0.88rem;
+    }
+    .spinner {
+      display: inline-block; width: 18px; height: 18px;
+      border: 2px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      vertical-align: middle; margin-right: 0.5rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      nav { padding: 0 1rem; }
+      main { padding: 0 1rem 4rem; }
+      .hero h1 { font-size: 1.8rem; }
+      .dataset-grid { grid-template-columns: 1fr; }
+      .nav-updated { display: none; }
+      .search { width: 140px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#/" class="nav-brand">TLA <em>Impact</em></a>
+  <div class="nav-ds" id="navDs"></div>
+  <div class="nav-updated" id="navUpdated"></div>
+</nav>
+
+<main id="app">
+  <div class="loading"><span class="spinner"></span>Loading datasets…</div>
+</main>
+
+<script>
+// ── STATE ──────────────────────────────────────────────────────────────────
+const cache = {};
+let meta = null;
+
+async function fetchJSON(path) {
+  if (cache[path]) return cache[path];
+  const res = await fetch(path);
+  if (!res.ok) throw new Error(`HTTP ${res.status} for ${path}`);
+  cache[path] = await res.json();
+  return cache[path];
+}
+
+async function loadMeta() {
+  if (meta) return meta;
+  meta = await fetchJSON('./data/metadata.json');
+  return meta;
+}
+
+async function loadDataset(id) {
+  return fetchJSON(`./data/${id}.json`);
+}
+
+// ── ROUTING ───────────────────────────────────────────────────────────────
+function getRoute() {
+  const h = location.hash || '#/';
+  if (h.startsWith('#/dataset/')) return { page: 'dataset', id: h.slice(10) };
+  return { page: 'home' };
+}
+
+async function route() {
+  const r = getRoute();
+  try {
+    if (r.page === 'home') await renderHome();
+    else await renderDataset(r.id);
+  } catch (e) {
+    document.getElementById('app').innerHTML =
+      `<div class="loading">Failed to load data.<br><small>${e.message}</small></div>`;
+  }
+}
+
+// ── NAV ───────────────────────────────────────────────────────────────────
+function buildNav(activeId) {
+  const m = meta;
+  if (!m) return;
+  const r = getRoute();
+
+  document.getElementById('navDs').innerHTML = m.datasets.map(d => {
+    const isActive = d.id === activeId;
+    const style = isActive
+      ? `background:${d.color}CC;color:#fff`
+      : '';
+    return `<a href="#/dataset/${d.id}" style="${style}" class="${isActive ? 'active' : ''}">${d.display_name}</a>`;
+  }).join('');
+
+  document.getElementById('navUpdated').textContent =
+    m.last_updated ? `Updated ${m.last_updated}` : '';
+}
+
+// ── HOME ──────────────────────────────────────────────────────────────────
+async function renderHome() {
+  const app = document.getElementById('app');
+  app.innerHTML = '<div class="loading"><span class="spinner"></span>Loading…</div>';
+
+  const m = await loadMeta();
+  buildNav(null);
+
+  const totalCitations = m.datasets.reduce((s, d) => s + (d.citation_count || 0), 0);
+
+  app.innerHTML = `
+    <div class="hero">
+      <div class="hero-eyebrow">TLA Open Datasets</div>
+      <h1>Tracking the research impact of TLA's open datasets</h1>
+      <p>Monitoring how PERSUADE&nbsp;2.0, PIILO, KLiCKe, ASAP&nbsp;2.0, and Jo&nbsp;Wilder are cited and used across academic research worldwide.</p>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-val">${totalCitations}</div>
+          <div class="stat-lbl">Citations tracked</div>
+        </div>
+        <div>
+          <div class="stat-val">${m.datasets.length}</div>
+          <div class="stat-lbl">Open datasets</div>
+        </div>
+        <div>
+          <div class="stat-val">${m.last_updated || '—'}</div>
+          <div class="stat-lbl">Last updated</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-header">
+      <div class="grid-title">Datasets</div>
+      <div class="grid-meta">Next sweep due ${m.next_sweep_due || '—'}</div>
+    </div>
+
+    <div class="dataset-grid">
+      ${m.datasets.map(d => datasetCard(d)).join('')}
+    </div>
+  `;
+}
+
+function datasetCard(d) {
+  const direct = '?', ref = '?', inc = '?'; // summary loaded lazily
+  return `
+    <a href="#/dataset/${d.id}" class="ds-card" style="--c:${d.color}">
+      <div class="ds-name">${d.display_name}</div>
+      <div class="ds-year">Published ${d.published_year}</div>
+      <div class="ds-count">${d.citation_count || 0}</div>
+      <div class="ds-count-lbl">citations tracked</div>
+    </a>
+  `;
+}
+
+// ── DATASET PAGE ──────────────────────────────────────────────────────────
+let _activeFilter = 'all';
+let _search = '';
+let _papers = [];
+
+async function renderDataset(id) {
+  const app = document.getElementById('app');
+  app.innerHTML = '<div class="loading"><span class="spinner"></span>Loading…</div>';
+
+  const [m, data] = await Promise.all([loadMeta(), loadDataset(id)]);
+  buildNav(id);
+
+  const cfg = m.datasets.find(d => d.id === id) || {};
+  const color = cfg.color || '#1B4FD8';
+  const s = data.summary || {};
+  _papers = data.papers || [];
+  _activeFilter = 'all';
+  _search = '';
+
+  const totalCited = _papers.length;
+  const confirmed = _papers.filter(p => p.status === 'confirmed').length;
+  const flagged = _papers.filter(p => p.status === 'flagged').length;
+
+  const doiLine = data.meta?.paper_doi
+    ? `<div class="ds-page-doi">Dataset paper: <a href="https://doi.org/${data.meta.paper_doi}" target="_blank">${data.meta.paper_doi} ↗</a></div>`
+    : '';
+
+  const noteLine = s.note
+    ? `<div class="ds-note"><strong>Note:</strong> ${s.note}</div>`
+    : '';
+
+  app.innerHTML = `
+    <div class="ds-header">
+      <a href="#/" class="back">← All datasets</a>
+      <div class="ds-page-title" style="color:${color}">${data.meta?.display_name || id}</div>
+      ${doiLine}
+      <div class="ds-page-desc">${data.meta?.description || ''}</div>
+      <div class="ds-page-stats">
+        <div>
+          <div class="stat-val">${s.total_citations || _papers.length}</div>
+          <div class="stat-lbl">Total citations</div>
+        </div>
+        <div>
+          <div class="stat-val">${s.directly_used || '—'}</div>
+          <div class="stat-lbl">Direct use</div>
+        </div>
+        <div>
+          <div class="stat-val">${s.reference_comparison || '—'}</div>
+          <div class="stat-lbl">Reference</div>
+        </div>
+        <div>
+          <div class="stat-val">${s.incidental_peripheral || '—'}</div>
+          <div class="stat-lbl">Incidental</div>
+        </div>
+        ${flagged > 0 ? `<div><div class="stat-val" style="color:var(--flagged)">${flagged}</div><div class="stat-lbl">Flagged</div></div>` : ''}
+      </div>
+      ${noteLine}
+    </div>
+
+    <div class="filters" id="filters">
+      <span class="filters-label">Filter:</span>
+      <button class="f-btn on"   onclick="filt('all',this)">All (${_papers.length})</button>
+      <button class="f-btn"      onclick="filt('strong',this)">Strong</button>
+      <button class="f-btn"      onclick="filt('moderate',this)">Moderate</button>
+      <button class="f-btn"      onclick="filt('weak',this)">Weak</button>
+      ${flagged > 0 ? `<button class="f-btn" onclick="filt('flagged',this)">⚑ Flagged (${flagged})</button>` : ''}
+      <input class="search" type="search" placeholder="Search…" oninput="srch(this.value)">
+    </div>
+
+    <div id="paperList" class="papers"></div>
+  `;
+
+  renderPapers();
+}
+
+function filt(val, btn) {
+  _activeFilter = val;
+  document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  renderPapers();
+}
+
+function srch(val) {
+  _search = val.toLowerCase();
+  renderPapers();
+}
+
+function renderPapers() {
+  const el = document.getElementById('paperList');
+  if (!el) return;
+
+  let list = _papers;
+
+  if (_activeFilter === 'flagged') {
+    list = list.filter(p => p.status === 'flagged');
+  } else if (_activeFilter !== 'all') {
+    list = list.filter(p => p.connection_strength === _activeFilter);
+  }
+
+  if (_search) {
+    list = list.filter(p =>
+      (p.title || '').toLowerCase().includes(_search) ||
+      (Array.isArray(p.authors) ? p.authors : [p.authors || '']).join(' ').toLowerCase().includes(_search) ||
+      (p.venue || '').toLowerCase().includes(_search) ||
+      (p.abstract || '').toLowerCase().includes(_search) ||
+      (p.key_takeaway || '').toLowerCase().includes(_search) ||
+      (p.use_of_dataset || '').toLowerCase().includes(_search)
+    );
+  }
+
+  if (list.length === 0) {
+    el.innerHTML = '<div class="empty">No papers match this filter.</div>';
+    return;
+  }
+
+  el.innerHTML = list.map((p, i) => paperCard(p, i)).join('');
+}
+
+function paperCard(p, i) {
+  const badgeCls = p.status === 'flagged' ? 'b-flagged'
+    : p.connection_strength === 'strong' ? 'b-strong'
+    : p.connection_strength === 'moderate' ? 'b-moderate'
+    : 'b-weak';
+
+  const badgeTxt = p.status === 'flagged' ? '⚑ Flagged'
+    : p.connection_strength === 'strong' ? '● Strong'
+    : p.connection_strength === 'moderate' ? '● Moderate'
+    : '● Weak';
+
+  const authors = Array.isArray(p.authors)
+    ? p.authors.join(', ')
+    : (p.authors || '');
+
+  const venueParts = [p.venue, p.year].filter(Boolean);
+  const doiLink = p.doi
+    ? ` · <a href="https://doi.org/${p.doi}" target="_blank" style="color:var(--accent);text-decoration:none">DOI ↗</a>`
+    : '';
+
+  const srcTag = p.metadata_source === 'openalex'
+    ? '<span class="src-tag">OpenAlex</span>'
+    : p.metadata_source === 'tracker_pdf'
+    ? '<span class="src-tag" style="background:#F0FDF4;color:#166534">PDF tracker</span>'
+    : '';
+
+  const alsoCites = p.also_cites?.length
+    ? `<div class="also-cites">${p.also_cites.map(c => `<span class="also-tag">also cites ${c.toUpperCase()}</span>`).join('')}</div>`
+    : '';
+
+  const hasAbstract = !!p.abstract;
+  const absSection = hasAbstract ? `
+    <button class="toggle-abs" onclick="toggleAbs(${i})">Show abstract</button>
+    <div class="paper-abstract" id="abs-${i}">${p.abstract}</div>
+  ` : '';
+
+  return `
+    <div class="paper" id="p-${i}">
+      <div class="paper-row1">
+        <div class="paper-title">
+          ${p.doi
+            ? `<a href="https://doi.org/${p.doi}" target="_blank">${p.title}</a>`
+            : (p.title || '<em>Title not yet indexed</em>')}
+          ${srcTag}
+        </div>
+        <span class="badge ${badgeCls}">${badgeTxt}</span>
+      </div>
+      <div class="paper-meta">
+        ${authors ? `<span class="authors">${authors}</span>` : ''}
+        ${venueParts.length ? ` · ${venueParts.join(', ')}` : ''}
+        ${doiLink}
+      </div>
+      ${p.use_of_dataset ? `<div class="paper-use">${p.use_of_dataset}</div>` : ''}
+      ${p.key_takeaway && p.key_takeaway !== p.use_of_dataset
+        ? `<div class="paper-takeaway">${p.key_takeaway}</div>` : ''}
+      ${alsoCites}
+      ${absSection}
+    </div>
+  `;
+}
+
+function toggleAbs(i) {
+  const el = document.getElementById(`abs-${i}`);
+  const btn = el.previousElementSibling;
+  el.classList.toggle('open');
+  btn.textContent = el.classList.contains('open') ? 'Hide abstract' : 'Show abstract';
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────
+window.addEventListener('hashchange', route);
+route();
+</script>
+</body>
+</html>
