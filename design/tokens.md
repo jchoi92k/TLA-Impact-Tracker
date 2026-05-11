@@ -53,6 +53,8 @@ CSS variables defined in [`tokens.css`](./tokens.css). This document explains **
 | `--ds-piilo` | `#60A5FA` | PIILO |
 | `--ds-klicke` | `#34D399` | KLiCKe |
 | `--ds-asap2` | `#A78BFA` | ASAP 2.0 |
+| `--ds-aide` | `#F43F5E` | AIDE |
+| `--ds-joewillder` | `#F472B6` | Jo Wilder |
 
 **Rule:** Confine dataset color to one identifying chip or a 3-pixel rule per surface. **Do not tint backgrounds, fills, or large surfaces with dataset colors** — at the page level, dataset identity is contextual (you're already on its page), not a visual theme.
 

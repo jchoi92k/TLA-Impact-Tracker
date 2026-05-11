@@ -47,6 +47,26 @@
       "paper_doi": null,
       "citation_count": 5,
       "color": "#A78BFA"
+    },
+    {
+      "id": "aide",
+      "display_name": "AIDE",
+      "published_year": 2024,
+      "data_file": "data/aide.json",
+      "kaggle_url": "https://kaggle.com/competitions/llm-detect-ai-generated-text",
+      "paper_doi": null,
+      "citation_count": 16,
+      "color": "#F43F5E"
+    },
+    {
+      "id": "joewillder",
+      "display_name": "Jo Wilder",
+      "published_year": 2023,
+      "data_file": "data/joewillder.json",
+      "kaggle_url": "https://www.kaggle.com/competitions/predict-student-performance-from-game-play",
+      "paper_doi": null,
+      "citation_count": 1,
+      "color": "#F472B6"
     }
   ]
 }

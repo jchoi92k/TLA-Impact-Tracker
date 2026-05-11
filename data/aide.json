@@ -1,0 +1,550 @@
+{
+  "dataset": "aide",
+  "meta": {
+    "display_name": "AIDE",
+    "published_year": 2024,
+    "description": "AI Detection for Essays — a dataset of student-written and LLM-generated essays across seven prompts, released via a Kaggle competition (LLM – Detect AI Generated Text). Built by Vanderbilt University and The Learning Agency Lab to support open research on automatic detection of AI-generated student writing.",
+    "kaggle_url": "https://kaggle.com/competitions/llm-detect-ai-generated-text",
+    "paper_doi": null,
+    "last_updated": "2026-05"
+  },
+  "summary": {
+    "total_citations": 16,
+    "directly_used": 8,
+    "reference_comparison": 5,
+    "incidental_peripheral": 3,
+    "countries": [
+      "Canada",
+      "China",
+      "HR",
+      "India",
+      "MA",
+      "New Zealand",
+      "Romania",
+      "UAE",
+      "USA"
+    ],
+    "note": "Newly added 2026-05. Tracked via two GS clusters (15261419915393241598, 7439484690250537891). First sweep pending."
+  },
+  "papers": [
+    {
+      "id": "aide-future-2024",
+      "dataset": "aide",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://www.mdpi.com/2218-6581/13/8/112",
+      "title": "The future of intelligent healthcare: A systematic analysis and discussion on the integration and impact of robots using large language models for healthcare",
+      "authors": [
+        "Souren Pashangpour",
+        "Goldie Nejat"
+      ],
+      "institutions": [
+        "University of Toronto",
+        "Toronto Rehabilitation Institute",
+        "Baycrest Hospital",
+        "Health Sciences North"
+      ],
+      "country": [
+        "Canada"
+      ],
+      "year": 2024,
+      "published_date": null,
+      "doi": "10.3390/robotics13080112",
+      "venue": "Robotics",
+      "venue_type": null,
+      "full_citation": "Pashangpour, S., & Nejat, G. (2024). The future of intelligent healthcare: A systematic analysis and discussion on the integration and impact of robots using large language models for healthcare. Robotics, 13(8), 112.",
+      "abstract": "The potential use of large language models (LLMs) in healthcare robotics can help address the significant demand put on healthcare systems around the world with respect to an aging demographic and a shortage of healthcare professionals. Even though LLMs have already been integrated into medicine to assist both clinicians and patients, the integration of LLMs within healthcare robots has not yet been explored for clinical settings. In this perspective paper, we investigate the groundbreaking developments in robotics and LLMs to uniquely identify the needed system requirements for designing health-specific LLM-based robots in terms of multi-modal communication through human–robot interactions (HRIs), semantic reasoning, and task planning. Furthermore, we discuss the ethical issues, open challenges, and potential future research directions for this emerging innovative field.",
+      "abstract_source": "openalex",
+      "connection_strength": "weak",
+      "research_type": "Healthcare LLM robotics (off-topic)",
+      "key_takeaway": "Weak connection. Perspective paper on integrating LLMs into healthcare robotics for aging populations. ",
+      "also_cites": [],
+      "first_tracked": "2026-05",
+      "status": "confirmed",
+      "ai_suggestion": "review"
+    },
+    {
+      "id": "aide-safeguarding-2024",
+      "dataset": "aide",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://ieeexplore.ieee.org/abstract/document/10544590/",
+      "title": "Safeguarding authenticity in text with BERT-powered detection of AI-generated content",
+      "authors": [
+        "Utsho Chakraborty",
+        "Jaydeep Gheewala",
+        "Sheshang Degadwala",
+        "Dhairya Vyas",
+        "Mukesh Soni"
+      ],
+      "institutions": [
+        "Gujarat Technological University",
+        "Sardar Vallabhbhai National Institute of Technology Surat",
+        "Maharaja Sayajirao University of Baroda"
+      ],
+      "country": [
+        "India"
+      ],
+      "year": 2024,
+      "published_date": null,
+      "doi": "10.1109/icict60155.2024.10544590",
+      "venue": "2024 International Conference on Inventive Computation Technologies (ICICT)",
+      "venue_type": null,
+      "full_citation": "Chakraborty, U., Gheewala, J., Degadwala, S., Vyas, D., & Soni, M. (2024, April). Safeguarding authenticity in text with BERT-powered detection of AI-generated content. In 2024 International Conference on Inventive Computation Technologies (ICICT) (pp. 34-37). IEEE.",
+      "abstract": "This research study explores the crucial domain of upholding textual authenticity by introducing a comprehensive method for identifying AI-generated content, employing BERT (Bidirectional Encoder Representations from Transformers). In a time when Artificial Intelligence (AI) significantly shapes written communication, it becomes imperative to differentiate between text produced by humans and that generated by machines. The proposed approach utilizes the capabilities of BERT by delving into contextual embedding, revealing complex patterns that serve as indicators of AI origin. Through meticulous experimentation and evaluation, we substantiate the effectiveness of our method in precisely discerning AI-generated text. This contribution adds to the ongoing endeavors to safeguard the integrity of human-authored content in the ever-evolving digital landscape.",
+      "abstract_source": "openalex",
+      "connection_strength": "strong",
+      "research_type": "AI-text detection / BERT",
+      "key_takeaway": "Strong connection. Builds a BERT-based detector for AI-generated text using contextual embeddings. AIDE/LLM-Detect-AI-Generated-Text Kaggle data is the most likely training source for this detection task.",
+      "also_cites": [],
+      "first_tracked": "2026-05",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "aide-detection-2025",
+      "dataset": "aide",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://www.sciencedirect.com/science/article/pii/S095741742502024X",
+      "title": "Detection of artificial intelligence-generated essays for academic assessment integrity using large language models",
+      "authors": [
+        "Mohammed Qorich",
+        "Rajae El Ouazzani"
+      ],
+      "institutions": [
+        "Université Moulay Ismail de Meknes"
+      ],
+      "country": [
+        "MA"
+      ],
+      "year": 2025,
+      "published_date": null,
+      "doi": "10.1016/j.eswa.2025.128405",
+      "venue": "Expert Systems With Applications",
+      "venue_type": null,
+      "full_citation": "Qorich, M., & El Ouazzani, R. (2025). Detection of artificial intelligence-generated essays for academic assessment integrity using large language models. Expert Systems With Applications, 291, 128405.",
+      "abstract": "Across various fields of human life, the lightning adoption of generative artificial intelligence (AI) tools is driven by their ease of use and ability to produce high-quality outputs, transforming communication and productivity. However, the growing popularity and influence of models such as ChatGPT have raised concerns in education regarding academic integrity, as AI-generated content challenges the authenticity of student work and complicates traditional assessment practices. Existing plagiarism detection tools, such as Turnitin and GPTZero, attempt to identify AI-generated content; however, their reliability remains limited, as most struggle to accurately differentiate between human and AI essays. To address existing tools limitations, we propose a novel detection model leveraging three large language models (LLMs): Generative Pre-trained Transformer 2 (GPT-2), Robustly Optimized BERT Pretraining Approach (RoBERTa), and Bidirectional and Auto-Regressive Transformers (BART). We first fine-tuned each model on two large-scale datasets to evaluate their effectiveness in distinguishing between human and AI-generated essays. To further enhance the performance, we applied both manual and automated hyperparameter optimization techniques, including Random Search, Grid Search, and Bayesian Optimization. Building on these experiments, we developed our BART-CNN model, which incorporates the best-performing BART configuration with an additional convolutional head classifier. Our BART-CNN model achieved impressive Macro F1-scores of 99.78 % and 98.10 % on the Kaggle and Hugging Face datasets, respectively, and demonstrated significant performance gains over baseline methods in cross-domain validation. Our study offers a critical advancement in AI plagiarism detection, helping to uphold academic standards and the assessment quality in an evolving AI landscape.",
+      "abstract_source": "manual",
+      "connection_strength": "strong",
+      "research_type": "AI-text detection / LLM classifiers",
+      "key_takeaway": "Strong connection. Expert Systems With Applications paper on using LLMs to detect AI-generated essays for academic-integrity enforcement. AIDE is almost certainly among the benchmark datasets used.",
+      "also_cites": [],
+      "first_tracked": "2026-05",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "aide-understanding-2024",
+      "dataset": "aide",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://arxiv.org/abs/2407.21058",
+      "title": "Understanding the interplay of scale, data, and bias in language models: A case study with bert",
+      "authors": [
+        "M Ali",
+        "S Panda",
+        "Q Shen",
+        "M Wick",
+        "A Kobren"
+      ],
+      "institutions": null,
+      "country": [],
+      "year": 2024,
+      "published_date": null,
+      "doi": null,
+      "venue": "arXiv preprint arXiv:2407.21058",
+      "venue_type": null,
+      "full_citation": "Ali, M., Panda, S., Shen, Q., Wick, M., & Kobren, A. (2024). Understanding the interplay of scale, data, and bias in language models: A case study with bert. arXiv preprint arXiv:2407.21058.",
+      "abstract": "In the current landscape of language model research, larger models, larger datasets and more compute seems to be the only way to advance towards intelligence. While there have been extensive studies of scaling laws and models' scaling behaviors, the effect of scale on a model's social biases and stereotyping tendencies has received less attention. In this study, we explore the influence of model scale and pre-training data on its learnt social biases. We focus on BERT -- an extremely popular language model -- and investigate biases as they show up during language modeling (upstream), as well as during classification applications after fine-tuning (downstream). Our experiments on four architecture sizes of BERT demonstrate that pre-training data substantially influences how upstream biases evolve with model scale. With increasing scale, models pre-trained on large internet scrapes like Common Crawl exhibit higher toxicity, whereas models pre-trained on moderated data sources like Wikipedia show greater gender stereotypes. However, downstream biases generally decrease with increasing model scale, irrespective of the pre-training data. Our results highlight the qualitative role of pre-training data in the biased behavior of language models, an often overlooked aspect in the study of scale. Through a detailed case study of BERT, we shed light on the complex interplay of data and model scale, and investigate how it translates to concrete biases.",
+      "abstract_source": "arxiv_api",
+      "connection_strength": "weak",
+      "research_type": "BERT scaling / social-bias study",
+      "key_takeaway": "Weak connection. Studies how pre-training data and model scale affect BERT's social biases (upstream + downstream). Unrelated to AI-text detection.",
+      "also_cites": [],
+      "first_tracked": "2026-05",
+      "status": "confirmed",
+      "ai_suggestion": "review"
+    },
+    {
+      "id": "aide-human-2026",
+      "dataset": "aide",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://link.springer.com/article/10.1007/s00521-026-11872-z",
+      "title": "Human versus AI generated text classification using deep learning and transformers",
+      "authors": [
+        "Ishaani Priyadarshini",
+        "Jyotir Moy Chatterjee",
+        "Prisha Rawat"
+      ],
+      "institutions": [
+        "Everett Community College",
+        "Graphic Era University",
+        "Infosys (India)"
+      ],
+      "country": [
+        "USA",
+        "India"
+      ],
+      "year": 2026,
+      "published_date": null,
+      "doi": "10.1007/s00521-026-11872-z",
+      "venue": "Neural Computing and Applications",
+      "venue_type": null,
+      "full_citation": "Priyadarshini, I., Chatterjee, J. M., & Rawat, P. (2026). Human versus AI generated text classification using deep learning and transformers. Neural Computing and Applications, 38(5), 143.",
+      "abstract": "Among the significant expansion of large language modules, concerns about their possible abuse occupy the fore. In context to the above statement, the differentiation between human-authored and AI (Artificial Intelligence)-generated texts has surfaced as a challenge, demanding resilient classification mechanisms to trim possible unfavorable repercussions. This document delves into this urgent plight through a thorough quest aimed at distinguishing between human and AI-generated texts, harnessing a wide expanse of machine learning (ML) and deep learning (DL) approaches. By juxtaposing ancient algorithms, amalgamation methods, and state-of-the-art transformer-based frameworks like Bidirectional Encoder Representations from Transformers (BERT), Generative pre-trained transformers (GPT), eXtreme Language understanding NETwork (XLNet), and Text-to-Text Transfer Transformer (T5), the exploration strives to specify adequate detection mechanisms. In totality 22 algorithms have been assessed, encompassing traditional ML, DL methodologies, ensembles, and transformer architectures Through the relative analysis of these models, the scrutiny trials reveal practical detection mechanisms. Through the comprehensive appraisals across three unique datasets, operating metrics like precision, accuracy, precision, F1-score, Area Under Curve (AUC), and training time, the exploration labors to furnish valuable perspectives into AI-generated text classification while examining the moral and juridical significances connected to its abuse. Additionally, the study recognizes the complexities introduced by different languages and cultures, highlighting the importance of adapting and refining processing strategies to ensure that detection mechanisms remain effective across diverse linguistic and cultural settings. Besides, it was sensed that GPT declared unequaled enactment across all three datasets, lauding an accuracy exceeding 99%, underlining its ability to distinguish between human and AI-generated texts.",
+      "abstract_source": "manual",
+      "connection_strength": "strong",
+      "research_type": "AI-text classification / transformers",
+      "key_takeaway": "Strong connection. Direct topic match — human-vs-AI text classification using deep-learning + transformer methods. AIDE/LLM-Detect-AI-Generated-Text is the canonical dataset for this task.",
+      "also_cites": [],
+      "first_tracked": "2026-05",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "aide-genai-2025",
+      "dataset": "aide",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://aclanthology.org/2025.genaidetect-1.45/",
+      "title": "Genai content detection task 3: Cross-domain machine generated text detection challenge",
+      "authors": [
+        "Liam Dugan",
+        "Andrew Zhu",
+        "Firoj Alam",
+        "Preslav Nakov",
+        "Marianna Apidianaki",
+        "Chris Callison-Burch"
+      ],
+      "institutions": null,
+      "country": [],
+      "year": 2025,
+      "published_date": null,
+      "doi": "10.48550/arxiv.2501.08913",
+      "venue": "Proceedings of the 1stWorkshop on GenAI Content Detection (GenAIDetect)",
+      "venue_type": null,
+      "full_citation": "Dugan, L., Zhu, A., Alam, F., Nakov, P., Apidianaki, M., & Callison-Burch, C. (2025, January). Genai content detection task 3: Cross-domain machine generated text detection challenge. In Proceedings of the 1stWorkshop on GenAI Content Detection (GenAIDetect) (pp. 377-388).",
+      "abstract": "Recently there have been many shared tasks targeting the detection of generated text from Large Language Models (LLMs). However, these shared tasks tend to focus either on cases where text is limited to one particular domain or cases where text can be from many domains, some of which may not be seen during test time. In this shared task, using the newly released RAID benchmark, we aim to answer whether or not models can detect generated text from a large, yet fixed, number of domains and LLMs, all of which are seen during training. Over the course of three months, our task was attempted by 9 teams with 23 detector submissions. We find that multiple participants were able to obtain accuracies of over 99% on machine-generated text from RAID while maintaining a 5% False Positive Rate -- suggesting that detectors are able to robustly detect text from many domains and models simultaneously. We discuss potential interpretations of this result and provide directions for future research.",
+      "abstract_source": "openalex",
+      "connection_strength": "moderate",
+      "research_type": "AI-text detection / shared task",
+      "key_takeaway": "Moderate connection. Reports on a GenAI Content Detection shared task using the RAID benchmark (cross-domain machine-generated text). RAID is a sister-resource to AIDE in the same problem space; this is a related-work paper, not direct AIDE use.",
+      "also_cites": [],
+      "first_tracked": "2026-05",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "aide-detecting-2025",
+      "dataset": "aide",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://ieeexplore.ieee.org/abstract/document/11016416/",
+      "title": "Detecting AI-generated text: A Bi-GRU with linguistic features approach",
+      "authors": [
+        "Abdelhadi Hireche",
+        "Saja Al-Dabet",
+        "Mohammed Mediani",
+        "Abdelkader Nasreddine Belkacem"
+      ],
+      "institutions": [
+        "United Arab Emirates University"
+      ],
+      "country": [
+        "UAE"
+      ],
+      "year": 2025,
+      "published_date": null,
+      "doi": "10.1109/educon62633.2025.11016416",
+      "venue": "2025 IEEE Global Engineering Education Conference (EDUCON)",
+      "venue_type": null,
+      "full_citation": "Hireche, A., Al-Dabet, S., Mediani, M., & Belkacem, A. N. (2025, April). Detecting AI-generated text: A Bi-GRU with linguistic features approach. In 2025 IEEE Global Engineering Education Conference (EDUCON) (pp. 1-7). IEEE.",
+      "abstract": "The advances in artificial intelligence (AI) technology can transform education. However, the growing infusion of AI technologies into academic environments raises important ethical issues that are essential for safeguarding academic integrity and quality. This paper proposes a detection framework that utilizes linguistic features and a Bidirectional Gated Recurrent Unit (Bi-GRU) model to identify AI-generated texts. The framework extracts perplexity values, readability measures, syntactic complexity metrics, and lexical diversity indicators, which are fed into a Bi-GRU classifier. Trained on an extended version of the DAIGT dataset and evaluated on the Deepfake dataset, the model achieved an accuracy of 98 % with F1 score of 97 % when tested on the DAIGT dataset. It also achieved an accuracy of <tex xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">$\\mathbf{7 2 \\%}$</tex> and an F1 score of <tex xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">$\\mathbf{7 9 \\%}$</tex> on the Deepfake dataset, outperforming state-of-the-art methodologies in these datasets. These findings highlight the potential of combining linguistic feature analysis with deep learning to develop efficient, interpretable, and domain-adaptive systems for AI text detection, addressing the critical need for automating authenticity and maintaining integrity in content generation.",
+      "abstract_source": "openalex",
+      "connection_strength": "strong",
+      "research_type": "AI-text detection / Bi-GRU",
+      "key_takeaway": "Strong connection. Explicitly trains on an extended version of the DAIGT dataset (DAIGT = Detect AI Generated Text = AIDE) and evaluates a Bi-GRU + linguistic-features classifier — 98% accuracy on DAIGT. IEEE EDUCON 2025.",
+      "also_cites": [],
+      "first_tracked": "2026-05",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "aide-deep-2025",
+      "dataset": "aide",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://ieeexplore.ieee.org/abstract/document/10857545/",
+      "title": "Deep learning strategies for identifying machine-generated text",
+      "authors": [
+        "Annepaka Yadagiri",
+        "Partha Pakray"
+      ],
+      "institutions": [
+        "National Institute Of Technology Silchar"
+      ],
+      "country": [
+        "India"
+      ],
+      "year": 2025,
+      "published_date": null,
+      "doi": "10.1109/imcom64595.2025.10857545",
+      "venue": "2025 19th International conference on ubiquitous information management and communication (IMCOM)",
+      "venue_type": null,
+      "full_citation": "Yadagiri, A., & Pakray, P. (2025, January). Deep learning strategies for identifying machine-generated text. In 2025 19th International conference on ubiquitous information management and communication (IMCOM) (pp. 1-8). IEEE.",
+      "abstract": "Generative AIs like LLMs are now accessible to the general public. For example, students can utilize these tools to create essays or complete theses. However, how is a teacher supposed to determine if a text was composed by the student or an AI? Using deep learning techniques, we investigate novel and classic approaches for detecting text created by artificial intelligence. We also study the more complex instance when the AI is asked to write the text in a way that a human would not recognize as AI-generated, as we discovered that categorization is more challenging in this scenario. For our studies, we used llm-detect-ai-generated text from the Kaggle competition dataset, which included texts written by students and texts produced using different LLMs. Our top systems achieve an accuracy of 0.98% and F1 scores of more than 0.98% in classifying simple and complex texts produced by humans and AI-Genereted. The systems combine features such as TF-IDF vectorization, word2Vec, and word embedding properties. Our findings demonstrate that these additional characteristics significantly enhance the performance of several classifiers. Compared to deep learning models, our best-performing model for detecting AI-generated text outperforms even the fine-tuned ROBERTA-Open-AI classifier, achieving an accuracy of 0.98%. This underscores the efficacy of our proposed approach in distinguishing between human and AI-generated content.",
+      "abstract_source": "openalex",
+      "connection_strength": "strong",
+      "research_type": "AI-text detection / deep learning",
+      "key_takeaway": "Strong connection. Explicitly uses the 'llm-detect-ai-generated-text Kaggle competition dataset' (= AIDE) to evaluate deep-learning detection across simple and adversarial AI-text scenarios. 0.98 accuracy + F1 reported.",
+      "also_cites": [],
+      "first_tracked": "2026-05",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "aide-dactyl-2025",
+      "dataset": "aide",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://arxiv.org/abs/2508.00619",
+      "title": "DACTYL: Diverse Adversarial Corpus of Texts Yielded from Large Language Models",
+      "authors": [
+        "S Thorat",
+        "A Caines"
+      ],
+      "institutions": null,
+      "country": [],
+      "year": 2025,
+      "published_date": null,
+      "doi": null,
+      "venue": "arXiv preprint arXiv:2508.00619",
+      "venue_type": null,
+      "full_citation": "Thorat, S., & Caines, A. (2025). DACTYL: Diverse Adversarial Corpus of Texts Yielded from Large Language Models. arXiv preprint arXiv:2508.00619.",
+      "abstract": "Existing AIG (AI-generated) text detectors struggle in real-world settings despite succeeding in internal testing, suggesting that they may not be robust enough. We rigorously examine the machine-learning procedure to build these detectors to address this. Most current AIG text detection datasets focus on zero-shot generations, but little work has been done on few-shot or one-shot generations, where LLMs are given human texts as an example. In response, we introduce the Diverse Adversarial Corpus of Texts Yielded from Language models (DACTYL), a challenging AIG text detection dataset focusing on one-shot/few-shot generations. We also include texts from domain-specific continued-pre-trained (CPT) language models, where we fully train all parameters using a memory-efficient optimization approach. Many existing AIG text detectors struggle significantly on our dataset, indicating a potential vulnerability to one-shot/few-shot and CPT-generated texts. We also train our own classifiers using two approaches: standard binary cross-entropy (BCE) optimization and a more recent approach, deep X-risk optimization (DXO). While BCE-trained classifiers marginally outperform DXO classifiers on the DACTYL test set, the latter excels on out-of-distribution (OOD) texts. In our mock deployment scenario in student essay detection with an OOD student essay dataset, the best DXO classifier outscored the best BCE-trained classifier by 50.56 macro-F1 score points at the lowest false positive rates for both. Our results indicate that DXO classifiers generalize better without overfitting to the test set. Our experiments highlight several areas of improvement for AIG text detectors.",
+      "abstract_source": "arxiv_api",
+      "connection_strength": "moderate",
+      "research_type": "AI-text detection / adversarial corpus",
+      "key_takeaway": "Moderate connection. Introduces DACTYL — an adversarial AI-text corpus focused on one-shot/few-shot generations and continued-pre-trained models. Sister-resource to AIDE; demonstrates that existing detectors (likely including AIDE-trained ones) fail on DACTYL.",
+      "also_cites": [],
+      "first_tracked": "2026-05",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "aide-efficient-2025",
+      "dataset": "aide",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://ieeexplore.ieee.org/abstract/document/11148942/",
+      "title": "An Efficient Finetuning Method for LLM generated text detection in Power Grid",
+      "authors": [
+        "Yixin Jiang",
+        "Junxian Li",
+        "Ximing Zhang",
+        "Wenqian Xu",
+        "Zhihong Liang",
+        "Yiwei Yang",
+        "Kaitian Huang",
+        "Leyu Bi"
+      ],
+      "institutions": [
+        "China Southern Power Grid (China)"
+      ],
+      "country": [
+        "China"
+      ],
+      "year": 2025,
+      "published_date": null,
+      "doi": "10.1109/iccc65529.2025.11148942",
+      "venue": "2025 IEEE/CIC International Conference on Communications in China (ICCC)",
+      "venue_type": null,
+      "full_citation": "Jiang, Y., Li, J., Zhang, X., Xu, W., Liang, Z., Yang, Y., ... & Bi, L. (2025, August). An Efficient Finetuning Method for LLM generated text detection in Power Grid. In 2025 IEEE/CIC International Conference on Communications in China (ICCC) (pp. 1-6). IEEE.",
+      "abstract": "The increasing prevalence of Large Language Models (LLMs) in various sectors, including the power grid industry, has raised concerns regarding the detection of AI-generated content, particularly in expert technical documents. Existing detection methods, while effective in some cases, often struggle with the diverse and complex nature of power grid documents. This paper introduces a novel approach for detecting LLMgenerated text in electrical engineering documents by efficiently fine-tuning the ChatGLM-6B model using Low-Rank Adaptation (LoRA). Our method leverages the rich domain-specific knowledge embedded in the LLM, while minimizing computational overhead and memory usage. Experimental results demonstrate that our approach significantly outperforms current state-of-theart methods, achieving $91.47 \\%$ accuracy on the Kaggle dataset, 97.23% on the LLM-Detector dataset, and 87.65% on the power system dataset. This work provides a robust and efficient solution for LLM-generated text detection in the power grid sector, offering high generalization ability and scalability.",
+      "abstract_source": "openalex",
+      "connection_strength": "moderate",
+      "research_type": "AI-text detection / domain adaptation",
+      "key_takeaway": "Moderate connection. Fine-tunes ChatGLM-6B with LoRA for LLM-text detection in power-grid engineering documents. Primary domain is power grid, but explicitly cross-evaluates on the Kaggle dataset (= AIDE) with 91.47% accuracy.",
+      "also_cites": [],
+      "first_tracked": "2026-05",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "aide-future-2026",
+      "dataset": "aide",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://link.springer.com/chapter/10.1007/978-981-95-1875-3_15",
+      "title": "The Future of Higher Education in the Era of Generative AI",
+      "authors": [
+        "John Williams"
+      ],
+      "institutions": [
+        "University of Otago"
+      ],
+      "country": [
+        "New Zealand"
+      ],
+      "year": 2026,
+      "published_date": null,
+      "doi": "10.1007/978-981-95-1875-3_15",
+      "venue": "Artificial Intelligence and Academic Integrity: Navigating Ethical Challenges of AI in Education",
+      "venue_type": null,
+      "full_citation": "Williams, J. (2026). The Future of Higher Education in the Era of Generative AI. In Artificial Intelligence and Academic Integrity: Navigating Ethical Challenges of AI in Education (pp. 269-285). Singapore: Springer Nature Singapore.",
+      "abstract": "This chapter examines near-term future of university-level humanities and business education in the era of generative AI (GAI) by considering the fundamentals of higher education in the humanities and business disciplines and outlines the key issues. To frame these...",
+      "abstract_source": "page_meta",
+      "connection_strength": "weak",
+      "research_type": "Higher-ed GenAI policy",
+      "key_takeaway": "Weak connection. Book chapter on the future of humanities + business higher education in the GenAI era. Generic policy/ethics discussion.",
+      "also_cites": [],
+      "first_tracked": "2026-05",
+      "status": "confirmed",
+      "ai_suggestion": "review"
+    },
+    {
+      "id": "aide-large-2024",
+      "dataset": "aide",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://ieeexplore.ieee.org/abstract/document/10811263/",
+      "title": "Using Large Language Models for Students' Essays Plagiarism Detection",
+      "authors": [
+        "Darko Andročec"
+      ],
+      "institutions": [
+        "University of Zagreb"
+      ],
+      "country": [
+        "HR"
+      ],
+      "year": 2024,
+      "published_date": null,
+      "doi": "10.1109/ciees62939.2024.10811263",
+      "venue": "2024 5th International Conference on Communications, Information, Electronic and Energy Systems (CIEES)",
+      "venue_type": null,
+      "full_citation": "Andročec, D. (2024, November). Using Large Language Models for Students’ Essays Plagiarism Detection. In 2024 5th International Conference on Communications, Information, Electronic and Energy Systems (CIEES) (pp. 1-5). IEEE.",
+      "abstract": "Large language models are used and fine-tuned today for different tasks. In educational environment, one problematic usage of this technology is for creation of plagiarism work. The focus of this work is to use large language models to detect plagiarised student essays. The recent relevant Kaggle competition \"Detect AI Generated Text\" is analysed. The top most accurate solutions in this competition used the ensembles of various large language models. In the efficiency track of the competition, winning solutions used more classical machine learning methods. We also analyse the main datasets used to finetune the LLM and machine learning models for students’ essays plagiarism detection. The most accurate models use comprehensive set of essay data and ensemble of different large language models.",
+      "abstract_source": "openalex",
+      "connection_strength": "strong",
+      "research_type": "AI-text detection / competition analysis",
+      "key_takeaway": "Strong connection. Directly analyzes the 'Detect AI Generated Text' Kaggle competition (= AIDE) — reviews the top accurate solutions (LLM ensembles) and the efficiency-track winners (classical ML). Methodological dissection of AIDE's solution space.",
+      "also_cites": [],
+      "first_tracked": "2026-05",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "aide-comparative-2025",
+      "dataset": "aide",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://www.scitepress.org/Papers/2025/135702/135702.pdf",
+      "title": "A Comparative Study of ML Approaches for Detecting AI-Generated Essays",
+      "authors": [
+        "Mihai Nechita",
+        "Mădălina Răschip"
+      ],
+      "institutions": [
+        "Alexandru Ioan Cuza University"
+      ],
+      "country": [
+        "Romania"
+      ],
+      "year": 2025,
+      "published_date": null,
+      "doi": "10.5220/0013570200003967",
+      "venue": null,
+      "venue_type": null,
+      "full_citation": "Nechita, M., & Raschip, M. (2025). A Comparative Study of ML Approaches for Detecting AI-Generated Essays.",
+      "abstract": "Recent advancements in generative AI introduced a significant challenge to academic credibility and integrity. The current paper presents a comprehensive study of traditional machine learning methods and complex neural network models such as recurrent neural networks and Transformer-based models to detect AI-generated essays. A two-step training of the Transformer-based model was proposed. The aim of the pretraining step is to move the general language model closer to our problem. The models used obtain a good AUC score for classification, outperforming the SOTA zero-shot detection approaches. The results show that Transformer architectures not only outperform other methods on the validation datasets but also exhibit increased robustness across different sampling parameters. The generalization to new datasets as well as the performance of the models at a small level of FPR was evaluated. In order to enhance transparency, the explainability of the proposed models through the LIME and SHAP approaches was explored.",
+      "abstract_source": "manual",
+      "connection_strength": "strong",
+      "research_type": "AI-text detection / ML comparison",
+      "key_takeaway": "Strong connection. Cross-listed paper — also appears in PERSUADE's cited-by. Comparative study of traditional ML and Transformer-based models for AI-generated essay detection with two-step pretraining. AIDE is among the canonical training corpora for this task.",
+      "also_cites": [],
+      "first_tracked": "2026-05",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "aide-assessing-2024",
+      "dataset": "aide",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://link.springer.com/chapter/10.1007/978-981-96-6300-2_28",
+      "title": "Assessing Maryland Watermark Robustness Against Paraphrasing Attacks",
+      "authors": [
+        "Rajiv Kumar"
+      ],
+      "institutions": null,
+      "country": [],
+      "year": 2024,
+      "published_date": null,
+      "doi": "10.1007/978-981-96-6300-2_28",
+      "venue": "International Conference on Innovations in Data Analytics",
+      "venue_type": null,
+      "full_citation": "Kumar, R. (2024, December). Assessing Maryland Watermark Robustness Against Paraphrasing Attacks. In International Conference on Innovations in Data Analytics (pp. 397-432). Singapore: Springer Nature Singapore.",
+      "abstract": "The rise of large language models (LLMs) and the potential for misuse necessitate the development of reliable methods to identify and authenticate machine-generated content. The Maryland Watermark, proposed by Kirchenbauer et al. (Robust distortion-free watermarks...",
+      "abstract_source": "page_meta",
+      "connection_strength": "moderate",
+      "research_type": "AI-text watermarking",
+      "key_takeaway": "Moderate connection. Evaluates the Maryland Watermark (Kirchenbauer et al.) robustness against paraphrasing attacks. Watermarking is an alternative-detection approach adjacent to AIDE-style classifiers; relevant for understanding the AI-text-detection landscape.",
+      "also_cites": [],
+      "first_tracked": "2026-05",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "aide-telescope-0000",
+      "dataset": "aide",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://openreview.net/forum?id=TNpLRNUf70",
+      "title": "Telescope: Improving Zero Shot Detection of LLM Generated Content With Token Repetition",
+      "authors": [
+        "JF Cooper",
+        "C Nassif"
+      ],
+      "institutions": null,
+      "country": [],
+      "year": null,
+      "published_date": null,
+      "doi": null,
+      "venue": "openreview.net",
+      "venue_type": null,
+      "full_citation": "Cooper, J. F., & Nassif, C. Telescope: Improving Zero Shot Detection of LLM Generated Content With Token Repetition.",
+      "abstract": "Distinguishing Large Language Model (LLM) generated text from human writing is a critical and difficult challenge. While LLMs are trained to write like humans, we hypothesize that this training leaves an indelible mark. LLMs develop a particularly strong aversion to token repetition very early in training. This bias persists as a \"Vestigial Heuristic'' (a developmental artifact) that is activated in LLM-generated text, separating LLM from human writing. To probe this phenomenon, we introduce Telescope Perplexity, a metric that evaluates the token repetition of the model, $P(s_i | s_{1:i})$. Our empirical investigation reveals that the Telescope Perplexity signature emerges early in pre-training, and Telescope Perplexity empirically enables highly effective zero-shot LLM detection. We show state-of-the-art or competitive performance across diverse datasets (including modern evaluation sets we introduce), reference models, and perturbation schemes with greater efficiency than other methods.",
+      "abstract_source": "page_meta",
+      "connection_strength": "moderate",
+      "research_type": "Zero-shot AI-text detection",
+      "key_takeaway": "Moderate connection. Telescope Perplexity — a zero-shot metric based on LLMs' early-training aversion to token repetition. Doesn't train on AIDE (it's training-free), but evaluated on detection benchmarks alongside it.",
+      "also_cites": [],
+      "first_tracked": "2026-05",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "aide-beyond-2025",
+      "dataset": "aide",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://aclanthology.org/2025.emnlp-main.600/",
+      "title": "Beyond Checkmate: Exploring the Creative Choke Points for AI Generated Texts",
+      "authors": [
+        "Association for Computational Linguistics 2025",
+        "Lee, Dongwon",
+        "Nahar, Mahjabin",
+        "Tripto, Nafis",
+        "Venkatraman, Saranya"
+      ],
+      "institutions": [
+        "Pennsylvania State University"
+      ],
+      "country": [
+        "USA"
+      ],
+      "year": 2025,
+      "published_date": null,
+      "doi": "10.48448/9gej-3229",
+      "venue": "Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing",
+      "venue_type": null,
+      "full_citation": "Tripto, N. I., Venkatraman, S., Nahar, M., & Lee, D. (2025, November). Beyond Checkmate: Exploring the Creative Choke Points for AI Generated Texts. In Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (pp. 11964-11981).",
+      "abstract": "The rapid advancement of Large Language Models (LLMs) has revolutionized text generation but also raised concerns about potential misuse, making detecting LLM-generated text (AI text) increasingly essential. While prior work has focused on identifying AI text and effectively textitcheckmating it, our study investigates a less-explored territory: portraying the nuanced distinctions between human and AI texts across text segments (introduction, body, and conclusion). Whether LLMs excel or falter in incorporating linguistic ingenuity across text segments, the results will critically inform their viability and boundaries as effective creative assistants to humans. Through an analogy with the structure of chess games, comprising opening, middle, and end games, we analyze segment-specific patterns to reveal where the most striking differences lie. Although AI texts closely resemble human writing in the body segment due to its length, deeper analysis shows a higher divergence in features dependent on the continuous flow of language, making it the most informative segment for detection. Additionally, human texts exhibit greater stylistic variation across segments, offering a new lens for distinguishing them from AI. Overall, our findings provide fresh insights into human-AI text differences and pave the way for more effective and interpretable detection strategies. Codes available at https://simpleurl.tech/TGKBi.",
+      "abstract_source": "openalex",
+      "connection_strength": "strong",
+      "research_type": "AI-text detection / segment-level analysis",
+      "key_takeaway": "Strong connection. EMNLP 2025 paper analyzing where human and AI text differ across essay segments (intro/body/conclusion), framed via a chess-game analogy. AIDE likely among the detection benchmarks.",
+      "also_cites": [],
+      "first_tracked": "2026-05",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    }
+  ]
+}

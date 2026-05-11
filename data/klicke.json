@@ -50,7 +50,8 @@
       "also_cites": [],
       "first_tracked": "2026-03",
       "status": "confirmed",
-      "ai_suggestion": "approve"
+      "ai_suggestion": "approve",
+      "dataset": "klicke"
     },
     {
       "id": "klicke-hui-2025",
@@ -83,7 +84,8 @@
       "also_cites": [],
       "first_tracked": "2026-03",
       "status": "confirmed",
-      "ai_suggestion": "approve"
+      "ai_suggestion": "approve",
+      "dataset": "klicke"
     },
     {
       "id": "klicke-tian-2026",
@@ -114,7 +116,8 @@
       "also_cites": [],
       "first_tracked": "2026-03",
       "status": "confirmed",
-      "ai_suggestion": "review"
+      "ai_suggestion": "review",
+      "dataset": "klicke"
     },
     {
       "id": "klicke-linking-2026",
@@ -133,8 +136,8 @@
       "doi": "10.1016/j.jslw.2025.101276",
       "venue": "Journal of Second Language Writing",
       "venue_type": null,
-      "abstract": "Recent studies leveraging keystroke logging have identified associations between features\nof the writing process and the written product (eg, writing quality, text cohesion). However, a …",
-      "abstract_source": "needs_manual",
+      "abstract": "Recent studies leveraging keystroke logging have identified associations between features of the writing process and the written product (e.g., writing quality, text cohesion). However, a more comprehensive understanding of how the temporal and behavioral dynamics of writing relate to the development of argument elements is still needed. This study examined the relationship between writing behaviors captured through keystroke features (e.g., pauses, revisions, bursts, process variance) and the construction of argument elements (e.g., positions, claims, evidence, counterclaims, rebuttals) among adult first-language (L1) and second language (L2) English writers. The dataset consisted of 400 argumentative essays (200 from L1 writers and 200 from L2 writers) with accompanying keystroke logs. Each essay was manually annotated for argument elements, and keystroke measures were computed for each element. Multinomial mixed-effects logistic regression models were used to identify distinct keystroke patterns associated with different argument elements and with native language. Results revealed that writers behaved differently in P-burst length, pause duration, and proportion of deletions when formulating different argument elements. Additionally, L1 and L2 writers exhibited distinct patterns when composing claims (relative to evidence) and when constructing counterclaims and rebuttals (relative to other elements), suggesting differing cognitive demands and rhetorical strategies between the two groups.",
+      "abstract_source": "manual",
       "connection_strength": "strong",
       "research_type": "Writing process / keystroke logging",
       "key_takeaway": "Likely strong connection. Investigates writing-process features and argument-element production via keystroke logging in L1 and L2 writers — squarely in KLiCKe's research wheelhouse. Abstract was truncated in the scrape; verify on full read.",

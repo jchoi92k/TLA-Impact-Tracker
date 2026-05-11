@@ -89,10 +89,12 @@
    as identifiers (a chip, a left border), never as surface tint.
    Per design/principles.md §6 (Color Used Functionally). */
 :root {
-  --ds-persuade:   #F59E0B;
-  --ds-piilo:      #60A5FA;
-  --ds-klicke:     #34D399;
-  --ds-asap2:      #A78BFA;
+  --ds-persuade:    #F59E0B;
+  --ds-piilo:       #60A5FA;
+  --ds-klicke:      #34D399;
+  --ds-asap2:       #A78BFA;
+  --ds-aide:        #F43F5E;
+  --ds-joewillder:  #F472B6;
 }
 
 /* ── Reset ─────────────────────────────────────────────────────── */

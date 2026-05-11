@@ -1,0 +1,48 @@
+{
+  "dataset": "joewillder",
+  "meta": {
+    "display_name": "Jo Wilder",
+    "published_year": 2023,
+    "description": "Predict Student Performance from Game Play — a Kaggle competition dataset using interactions from PBS KIDS' Jo Wilder and the Capitol Case game to study learning behavior.",
+    "kaggle_url": "https://www.kaggle.com/competitions/predict-student-performance-from-game-play",
+    "paper_doi": null,
+    "last_updated": "2026-05"
+  },
+  "summary": {
+    "total_citations": 1,
+    "directly_used": 0,
+    "reference_comparison": 1,
+    "incidental_peripheral": 0,
+    "countries": [],
+    "note": "Restored 2026-05 with new GS cluster ID (18066787241480024486). First sweep pending."
+  },
+  "papers": [
+    {
+      "id": "joewillder-predicci-0000",
+      "dataset": "joewillder",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://upcommons.upc.edu/server/api/core/bitstreams/8b6a671b-eecb-49ac-8d88-616e5743f056/content",
+      "title": "Predicción del rendimiento de los estudiantes en el aprendizaje basado en juegos",
+      "authors": [
+        "E Gurei"
+      ],
+      "institutions": null,
+      "country": [],
+      "year": null,
+      "published_date": null,
+      "doi": null,
+      "venue": "Predicción del rendimiento de los estudiantes en el aprendizaje basado en juegos",
+      "venue_type": null,
+      "full_citation": "Gurei, E. Predicción del rendimiento de los estudiantes en el aprendizaje basado en juegos (Bachelor's thesis, Universitat Politècnica de Catalunya).",
+      "abstract": "The goal of this thesis final degree project is to enhance the efficacy of game-based learning by using data science methodologies. In order to evaluate student performance in real time, a predictive model is created through the analysis of educational game logs supplied by a Kaggle competition. The interactive adventure game, which stars Jo Wilder, encourages historical and critical research of two historical movements in Wisconsin. Students compile historical data from many sources and create reasons for a conclusion using primary and secondary sources. The Kaggle tournament aims to increase scientific understanding of game-based learning's knowledge tracing techniques. Online learning environments and intelligent tutoring systems are the main contexts in which knowledge tracing techniques have been developed and investigated. Their use in educational games has, however, received little attention. Despite the growing popularity of game-based learning in a variety of educational contexts, the use of data science and learning analytics techniques to enhance these approaches is constrained by the absence of open datasets. Field Day Lab, a public research lab devoted to creating educational games for diverse disciplines and age groups and using game data to comprehend how people learn, is the organization behind the tournament. The goal of this effort is to create a machine learning model that can forecast student success during game play in real time. If the project is successful, it might boost the efficiency of educational games, provide analytics tools and dashboards for teachers, and encourage more people to use game-based learning platforms.",
+      "abstract_source": "manual",
+      "connection_strength": "moderate",
+      "research_type": "Student performance prediction (game-based learning)",
+      "key_takeaway": "Likely-strong connection (verify). Spanish-language thesis/project on improving game-based learning effectiveness via data-science methodologies. Topic squarely matches the Jo Wilder Kaggle competition's goal of predicting student performance from gameplay data. Abstract is truncated — open the paper before promoting.",
+      "also_cites": [],
+      "first_tracked": "2026-05",
+      "status": "confirmed",
+      "ai_suggestion": "review"
+    }
+  ]
+}
