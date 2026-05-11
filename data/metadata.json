@@ -1,8 +1,12 @@
 {
   "last_updated": "2026-05",
   "last_sweep_date": "2026-05",
-  "next_sweep_due": "2026-08",
-  "sweep_sources": ["google_scholar", "openalex", "semantic_scholar"],
+  "next_sweep_due": "2026-06",
+  "sweep_sources": [
+    "google_scholar",
+    "openalex",
+    "semantic_scholar"
+  ],
   "datasets": [
     {
       "id": "persuade",
@@ -10,8 +14,8 @@
       "published_year": 2024,
       "data_file": "data/persuade.json",
       "kaggle_url": "https://www.kaggle.com/competitions/feedback-prize-effectiveness",
-      "paper_doi": "10.18653/v1/2024.bea-1.24",
-      "citation_count": 49,
+      "paper_doi": "10.1016/j.asw.2024.100865",
+      "citation_count": 57,
       "color": "#F59E0B"
     },
     {
@@ -21,7 +25,7 @@
       "data_file": "data/piilo.json",
       "kaggle_url": null,
       "paper_doi": null,
-      "citation_count": 14,
+      "citation_count": 9,
       "color": "#60A5FA"
     },
     {
@@ -30,7 +34,7 @@
       "published_year": 2025,
       "data_file": "data/klicke.json",
       "kaggle_url": null,
-      "paper_doi": "10.18653/v1/2024.bea-1.25",
+      "paper_doi": "10.17239/jowr-2025.17.01.02",
       "citation_count": 6,
       "color": "#34D399"
     },
@@ -43,16 +47,6 @@
       "paper_doi": null,
       "citation_count": 5,
       "color": "#A78BFA"
-    },
-    {
-      "id": "joewillder",
-      "display_name": "Jo Wilder",
-      "published_year": 2023,
-      "data_file": "data/joewillder.json",
-      "kaggle_url": "https://www.kaggle.com/competitions/predict-student-performance-from-game-play",
-      "paper_doi": null,
-      "citation_count": 2,
-      "color": "#F472B6"
     }
   ]
 }

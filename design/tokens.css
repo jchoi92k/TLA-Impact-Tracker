@@ -1,0 +1,115 @@
+/* ─────────────────────────────────────────────────────────────────
+   The Learning Agency — Design Tokens
+   Paste this into a <style> block or include as a stylesheet.
+   See design/tokens.md for rationale; design/principles.md for usage rules.
+   ───────────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Brand ─────────────────────────────────────────────────────
+     Sourced from live CSS on the-learning-agency.com (teal family)
+     and the-learning-agency-lab.com (orange). */
+  --teal:        #1ea69a;   /* primary brand — load-bearing accent */
+  --teal-2:      #40b797;   /* lighter teal, secondary fill / hover */
+  --teal-3:      #00897e;   /* darker teal, emphasized text */
+  --teal-bg:     #e9f6f4;   /* tinted surface for callouts */
+  --orange:      #F7943B;   /* Lab brand — reserve for one accent role */
+  --orange-bg:   #fef0e1;
+  --blue:        #6196ff;   /* their secondary accent, links/hover */
+
+  /* ── Neutrals ──────────────────────────────────────────────────
+     Cool off-white background, near-black ink. */
+  --bg:          #F8FAFC;
+  --surface:     #FFFFFF;
+  --ink:         #2A2A2A;   /* body text */
+  --slate:       #54595F;   /* secondary text */
+  --slate-2:     #6B7280;   /* tertiary text, captions */
+  --slate-3:     #9CA3AF;   /* placeholder / disabled */
+  --border:      #E5E5E5;   /* component borders */
+  --border-2:    #EFEFEF;   /* subtle internal dividers */
+
+  /* ── Functional status colors ──────────────────────────────────
+     Use ONLY for state, never decoration. (Carbon Design rule.) */
+  --strong:      #047857; --strong-bg:   #ECFDF5;   /* success / strong-engagement */
+  --moderate:    #B45309; --moderate-bg: #FFFBEB;   /* attention / moderate */
+  --weak:        #B91C1C; --weak-bg:     #FEF2F2;   /* warning / weak */
+  --flagged:     #7C3AED; --flagged-bg:  #F5F3FF;   /* needs review */
+
+  /* ── Type scale ────────────────────────────────────────────────
+     14px base; minor-third (1.2) scale rounded for legibility. */
+  --t-xs:        0.68rem;   /* labels, eyebrow text */
+  --t-sm:        0.78rem;   /* secondary UI, meta */
+  --t-base:      0.88rem;   /* body / card content */
+  --t-md:        1rem;      /* section headings */
+  --t-lg:        1.25rem;   /* page subtitles */
+  --t-xl:        1.55rem;   /* primary headings */
+  --t-2xl:       2rem;      /* page titles */
+  --t-hero:      clamp(1.7rem, 3.5vw, 2.3rem);
+
+  /* ── Weight tokens ─────────────────────────────────────────────
+     Use weight (not size) for inline emphasis. */
+  --w-regular:   400;
+  --w-medium:    500;
+  --w-semibold:  600;
+  --w-bold:      700;
+
+  /* ── Spacing ──────────────────────────────────────────────────
+     Use multiples; don't invent new spacing values. */
+  --sp-1:        0.25rem;   /*  4px */
+  --sp-2:        0.5rem;    /*  8px */
+  --sp-3:        0.75rem;   /* 12px */
+  --sp-4:        1rem;      /* 16px */
+  --sp-5:        1.25rem;   /* 20px */
+  --sp-6:        1.5rem;    /* 24px */
+  --sp-8:        2rem;      /* 32px */
+  --sp-10:       2.5rem;    /* 40px */
+  --sp-12:       3rem;      /* 48px */
+
+  /* ── Radius ────────────────────────────────────────────────────
+     Light radii throughout — restraint per Carbon/Refactoring UI. */
+  --r-sm:        5px;
+  --r-md:        7px;
+  --r-lg:        10px;
+  --r-pill:      20px;
+
+  /* ── Shadows ───────────────────────────────────────────────────
+     Use sparingly. Internal tools rarely need elevation. */
+  --shadow-1:    0 2px 8px rgba(0, 0, 0, 0.03);
+  --shadow-2:    0 4px 14px rgba(0, 0, 0, 0.04);
+  --shadow-3:    0 8px 24px rgba(0, 0, 0, 0.06);
+
+  /* ── Motion ────────────────────────────────────────────────────
+     Single duration token; only animate state changes. */
+  --motion:      0.12s;
+  --motion-2:    0.2s;
+  --ease:        cubic-bezier(.4, 0, .2, 1);
+}
+
+/* ── Per-dataset colors (TLA Impact Tracker–specific) ─────────────
+   Datasets have inherent color identities — preserve them only
+   as identifiers (a chip, a left border), never as surface tint.
+   Per design/principles.md §6 (Color Used Functionally). */
+:root {
+  --ds-persuade:   #F59E0B;
+  --ds-piilo:      #60A5FA;
+  --ds-klicke:     #34D399;
+  --ds-asap2:      #A78BFA;
+}
+
+/* ── Reset ─────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Base ──────────────────────────────────────────────────────── */
+html { tab-size: 4; }
+body {
+  font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a { color: var(--teal); text-decoration: none; }
+a:hover { text-decoration: underline; }
+code, .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+button { font-family: inherit; }

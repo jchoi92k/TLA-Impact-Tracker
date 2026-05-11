@@ -5,16 +5,19 @@
     "published_year": 2025,
     "description": "Keystroke Logging in Composition Knowledge and Experience dataset — a large corpus of argumentative essays with accompanying keystroke logs from L1 and L2 writers.",
     "kaggle_url": null,
-    "paper_doi": "10.18653/v1/2024.bea-1.25",
+    "paper_doi": "10.17239/jowr-2025.17.01.02",
     "openalex_id": "W4410999734",
-    "last_updated": "2026-05-11"
+    "last_updated": "2026-05"
   },
   "summary": {
     "total_citations": 6,
     "directly_used": 2,
     "reference_comparison": 3,
     "incidental_peripheral": 1,
-    "countries": [],
+    "countries": [
+      "GB",
+      "US"
+    ],
     "note": "Two papers directly use KLiCKe data; three reference it as a related corpus. One entry (Supriyadi et al.) flagged as likely false positive by tracker. One title discrepancy: tracker lists a Tian & Crossley paper titled 'Linking Writing Processes to Argument Elements' but OpenAlex indexes a different Tian & Crossley paper ('Keystroke logging' book chapter) also citing KLiCKe — may be two separate papers."
   },
   "papers": [
@@ -23,9 +26,17 @@
       "metadata_source": "openalex",
       "openalex_id": "https://openalex.org/W4411710652",
       "title": "Zooming in on the process-product nexus of meaning-related revisions: A micro-analytic approach to keystroke logging data",
-      "authors": ["Sathena Chan", "Daniel M.K. Lam"],
-      "institutions": ["University of Bedfordshire", "University of Glasgow"],
-      "country": ["GB"],
+      "authors": [
+        "Sathena Chan",
+        "Daniel M.K. Lam"
+      ],
+      "institutions": [
+        "University of Bedfordshire",
+        "University of Glasgow"
+      ],
+      "country": [
+        "GB"
+      ],
       "year": 2025,
       "published_date": "2025-06-27",
       "doi": "10.1016/j.jslw.2025.101228",
@@ -33,22 +44,32 @@
       "venue_type": "journal",
       "abstract": "While many writing studies to date show that higher-proficiency and lower-proficiency L2 writers have distinct writing behaviours, there is relatively little research into meaning-related revisions — changes which influence the meaning of the text as compared to surface-level changes related to grammar or format, and whether and how such revisions make a text-level impact. Taking a micro-analytic approach, the current study examined the real-time revision behaviours of six adolescent L1 English and L2 writers, captured by a keystroke logging programme. The analysis compared measures of context and orientation of meaning-related revisions between the two groups, qualitatively examining specific ways revisions do or do not contribute to enhancing the evolving text. Findings revealed that L2 writers focused more on local-level revisions while L1 writers' revisions often had a text-level impact (e.g., coherence, argumentation). Based on findings, we discuss the value of examining textual impact of meaning-related revisions using keystroke logging data for diagnostic feedback, and make recommendations for teaching writing and feedback activities in the L2 writing classroom.",
       "abstract_source": "openalex",
-      "use_of_dataset": "Unclear — micro-analytic keystroke logging study; may reference KLiCKe as a methodological comparison",
       "connection_strength": "moderate",
       "research_type": "Empirical / qualitative writing process analysis",
       "key_takeaway": "Moderate connection. Examines meaning-related revisions via keystroke logging; KLiCKe likely referenced as a related corpus or methodological touchstone.",
       "also_cites": [],
       "first_tracked": "2026-03",
-      "status": "confirmed"
+      "status": "confirmed",
+      "ai_suggestion": "approve"
     },
     {
       "id": "klicke-hui-2025",
       "metadata_source": "openalex",
       "openalex_id": "https://openalex.org/W4416513875",
       "title": "Automated Detection of Writing Phases: An Unsupervised Learning Validation of the Hayes & Flower Cognitive Writing Model",
-      "authors": ["Jaelyn Hui", "Mukul Gupta", "Nestor Michael C. Tiglao", "Joseph Thibault"],
-      "institutions": ["University of Maryland, College Park", "Riverside Technology"],
-      "country": ["US"],
+      "authors": [
+        "Jaelyn Hui",
+        "Mukul Gupta",
+        "Nestor Michael C. Tiglao",
+        "Joseph Thibault"
+      ],
+      "institutions": [
+        "University of Maryland, College Park",
+        "Riverside Technology"
+      ],
+      "country": [
+        "US"
+      ],
       "year": 2025,
       "published_date": "2025-10-27",
       "doi": "10.1109/isncc66965.2025.11250401",
@@ -56,22 +77,30 @@
       "venue_type": "conference",
       "abstract": "The 1980 Hayes and Flower model established that writing is comprised of three distinct cognitive processes: Planning, Translating, and Revising. This model has been foundational to writing studies, yet has lacked large-scale computational validation. This paper presents a novel methodology to address this gap. Using 135,178 minute-by-minute observations from 4,618 sessions in the KLiCKe keystroke logging corpus, we first used the Elbow Method to empirically confirm the optimal number of behavioral clusters is three. We then applied K-Means clustering to partition the data. The resulting three clusters mapped precisely onto the theoretical phases, and provide empirical percentages of time spent in each phase in argumentative writing: Planning (43.5% of time), Translating (46.3%), Revising (10.2%). Post-clustering analysis confirmed that clusters matched their expected behavioral signatures; for example, the Planning cluster was characterized by extensive pause time (94.7% of interval), while Translating was dominated by word production. To our knowledge, this study represents the first large-scale, unsupervised machine learning validation of the Hayes & Flower model, and provides a scalable, nonintrusive method for future writing process analysis.",
       "abstract_source": "openalex",
-      "use_of_dataset": "Direct — 135,178 observations from 4,618 sessions in KLiCKe used as the primary corpus",
       "connection_strength": "strong",
       "research_type": "Empirical / computational / unsupervised ML",
       "key_takeaway": "Strong connection. KLiCKe used to provide first large-scale ML validation of the Hayes & Flower writing model, confirming three distinct cognitive writing phases.",
       "also_cites": [],
       "first_tracked": "2026-03",
-      "status": "confirmed"
+      "status": "confirmed",
+      "ai_suggestion": "approve"
     },
     {
       "id": "klicke-tian-2026",
       "metadata_source": "openalex",
       "openalex_id": "https://openalex.org/W7118182842",
       "title": "Keystroke logging",
-      "authors": ["Yu Tian", "Scott A. Crossley"],
-      "institutions": ["Arizona State University", "Vanderbilt University"],
-      "country": ["US"],
+      "authors": [
+        "Yu Tian",
+        "Scott A. Crossley"
+      ],
+      "institutions": [
+        "Arizona State University",
+        "Vanderbilt University"
+      ],
+      "country": [
+        "US"
+      ],
       "year": 2026,
       "published_date": "2026-01-05",
       "doi": "10.1075/rmal.15.15tia",
@@ -79,82 +108,95 @@
       "venue_type": "book_chapter",
       "abstract": "Keystroke logging serves as a non-intrusive method for capturing the temporal dynamics of text production, making it a valuable tool in applied linguistics research. In this chapter, we introduce the technical and practical details involved in implementing web-based keystroke logging data collection using FlexKeyLogger as an example. We also present some commonly used measures to operationalize writing behaviors and discuss how these measures align with cognitive processes underlying text composition. We then summarize and review recent studies that leverage keystroke logging to investigate diverse topics in applied linguistics, demonstrating its versatility and research potential. Finally, we address key ethical considerations, challenges associated with data collection and interpretation, and potential future directions.",
       "abstract_source": "openalex",
-      "use_of_dataset": "Likely reference/comparison — methodology overview chapter in applied linguistics; KLiCKe likely cited as an example corpus",
       "connection_strength": "moderate",
       "research_type": "Book chapter / methodological overview",
       "key_takeaway": "Moderate connection. Methodology overview chapter on keystroke logging in applied linguistics research; KLiCKe likely cited as a reference corpus. Note: the tracker also lists a separate Tian & Crossley paper titled 'Linking Writing Processes to Argument Elements' — that paper may be distinct and is not yet indexed in OpenAlex.",
       "also_cites": [],
       "first_tracked": "2026-03",
-      "status": "confirmed"
+      "status": "confirmed",
+      "ai_suggestion": "review"
     },
     {
-      "id": "klicke-tian-argument",
-      "metadata_source": "tracker_pdf",
-      "openalex_id": null,
-      "title": "Linking Writing Processes to Argument Elements: Insights from Keystroke Logging in L1 and L2 Writers",
-      "authors": null,
+      "id": "klicke-linking-2026",
+      "dataset": "klicke",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://www.sciencedirect.com/science/article/pii/S1060374325001018",
+      "title": "Linking writing processes to argument elements: Insights from keystroke logging in L1 and L2 writers",
+      "authors": [
+        "Y Tian",
+        "S Crossley"
+      ],
       "institutions": null,
-      "country": null,
-      "year": null,
+      "country": [],
+      "year": 2026,
       "published_date": null,
-      "doi": null,
-      "venue": null,
+      "doi": "10.1016/j.jslw.2025.101276",
+      "venue": "Journal of Second Language Writing",
       "venue_type": null,
-      "abstract": null,
-      "abstract_source": null,
-      "use_of_dataset": "Direct — 400 argumentative essays with accompanying keystroke logs used as the primary dataset",
+      "abstract": "Recent studies leveraging keystroke logging have identified associations between features\nof the writing process and the written product (eg, writing quality, text cohesion). However, a …",
+      "abstract_source": "needs_manual",
       "connection_strength": "strong",
-      "research_type": "Empirical / writing process analysis",
-      "key_takeaway": "Strong connection. KLiCKe used to examine relationships between keystroke behaviors and argument element construction across L1 and L2 writers. Note: this may be the same paper as klicke-tian-2026 under a different title representation, or a separate unindexed paper.",
+      "research_type": "Writing process / keystroke logging",
+      "key_takeaway": "Likely strong connection. Investigates writing-process features and argument-element production via keystroke logging in L1 and L2 writers — squarely in KLiCKe's research wheelhouse. Abstract was truncated in the scrape; verify on full read.",
       "also_cites": [],
-      "first_tracked": "2026-03",
-      "status": "flagged"
+      "first_tracked": "2026-05",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
     },
     {
-      "id": "klicke-supriyadi-2025",
-      "metadata_source": "tracker_pdf",
-      "openalex_id": null,
-      "title": "Enhancing Students' Essay Writing Skills Through the IELTS Task 2 Model Essay Approach",
-      "authors": null,
-      "institutions": null,
-      "country": null,
-      "year": null,
-      "published_date": null,
-      "doi": null,
-      "venue": null,
-      "venue_type": null,
-      "abstract": null,
-      "abstract_source": null,
-      "use_of_dataset": "Unclear — likely incidental; Crossley cited in introduction but possibly in reference to a different paper",
-      "connection_strength": "weak",
-      "research_type": "Quasi-experimental / pedagogy",
-      "key_takeaway": "Weak connection. Focus is on IELTS writing instruction; KLiCKe citation appears incidental if present at all. Flagged as likely Scholar false positive in tracker.",
-      "also_cites": [],
-      "first_tracked": "2026-03",
-      "status": "flagged"
-    },
-    {
-      "id": "klicke-cislaru-2025",
-      "metadata_source": "tracker_pdf",
-      "openalex_id": null,
+      "id": "klicke-text-2027",
+      "dataset": "klicke",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://scholarworks.aub.edu.lb/items/4bd7310a-dfa1-4b49-a641-5cbe28a3dc23",
       "title": "The Pro-TEXT Corpus: A Generically Diverse Resource of Writing Keylogs and Finished Texts in French",
-      "authors": null,
+      "authors": [
+        "G Cislaru",
+        "M Sfeir"
+      ],
       "institutions": null,
-      "country": null,
-      "year": null,
+      "country": [],
+      "year": 2027,
       "published_date": null,
       "doi": null,
       "venue": null,
       "venue_type": null,
-      "abstract": null,
-      "abstract_source": null,
-      "use_of_dataset": "Likely reference/comparison — introduces a new French keystroke logging corpus; KLiCKe likely cited as a comparable English-language resource",
+      "abstract": "This article introduces the Pro-TEXT corpus, a collection of product data in the form of finished texts and process data in the form keystroke logs written in French and annotated for rewriting operations, burst types, and linguistic features. The corpus consists of six sub-corpora (Academic, Adult, Children, Dyslexia, Professional, and Translation) and presents a unique example of openly available data generated by diverse writers of varying expertise in a range of domains and genres in French. The corpus can support research in the areas of school writing, academic writing, and professional writing. It can also support the teaching of writing, while informing teacher training. A web platform developed for the corpus allows users to query the corpus and visualize various features of real-time text production.",
+      "abstract_source": "page_meta",
       "connection_strength": "moderate",
-      "research_type": "Corpus introduction / resource paper",
-      "key_takeaway": "Moderate connection. Pro-TEXT positioned as a French-language parallel to corpora like KLiCKe; confirms KLiCKe's status as a reference point in keystroke logging corpus development.",
+      "research_type": "Keystroke logging corpus (French)",
+      "key_takeaway": "Moderate connection. Introduces Pro-TEXT, a French keystroke logging corpus across academic, adult, children, dyslexia, professional, and translation writers. Sister-resource to KLiCKe in a different language; useful for cross-corpus comparison.",
       "also_cites": [],
-      "first_tracked": "2026-03",
-      "status": "confirmed"
+      "first_tracked": "2026-05",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "klicke-enhancing-2025",
+      "dataset": "klicke",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://ieflj.uniku.ac.id/pub/article/view/52",
+      "title": "ENHANCING STUDENTS'ESSAY WRITING SKILLS THROUGH THE IELTS TASK 2 MODEL ESSAY APPROACH",
+      "authors": [
+        "A Supriyadi",
+        "IW Anwar",
+        "M Octasary"
+      ],
+      "institutions": null,
+      "country": [],
+      "year": 2025,
+      "published_date": null,
+      "doi": null,
+      "venue": "Indonesian EFL",
+      "venue_type": null,
+      "abstract": "This study investigates the effectiveness of using IELTS Writing Task 2 model essays as a pedagogical tool to enhance students' academic essay writing skills. Recognizing the challenges many learners face in organizing ideas, developing arguments, and using appropriate academic language langusge, this research explorer how exposure to high-quality model essays can improve students' writing performance. A classroom based intervention was conducted with undergraduate English language leaners, incoperating model essays analysis, guided practice, and peer feedback. Pre and post intervention writing assessment, along with student reflections, were used to evaluate the impact. The results of this study indicate that using IELTS Writing Task 2 as a model for essay instruction leads to a statistically and pedagogically significant improvement in students' writing abilities. The mean score for the pre-test was 3.95 (SD=0.78), and the post test mean rose to 4.70 (SD=0.67). The difference was statistically significant with p &lt; 0.001. The finding indicate that students demonstrated notable improvements in coherence, cohesion, cocabulary usage, and task response. Moreover, students reported increased confidence and better understanding of essay structure and argumentation techniques. This study concludes that integrating IELTS Test 2 model essays into writing instruction is an effective strategy for developing students' academic writing competence.",
+      "abstract_source": "page_meta",
+      "connection_strength": "weak",
+      "research_type": "EFL writing pedagogy",
+      "key_takeaway": "Weak connection. Classroom intervention on IELTS Task 2 model essays to improve undergraduate EFL writing. No keystroke logging or KLiCKe-specific work; appears in cited-by likely as a peripheral essay-writing citation.",
+      "also_cites": [],
+      "first_tracked": "2026-05",
+      "status": "confirmed",
+      "ai_suggestion": "review"
     }
   ]
 }

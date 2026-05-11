@@ -1,6 +1,15 @@
 # Local review tooling — never commit
 misc/
 
+# Deprecated scripts/tools kept for reference (any folder named "legacy")
+legacy/
+
+# Auto-rotated data backups (kept locally only)
+data/*.json.bak.*
+
+# Claude Code local cache
+.claude/
+
 # Astro build output
 dist/
 .astro/

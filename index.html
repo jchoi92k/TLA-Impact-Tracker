@@ -5,348 +5,530 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TLA Open Datasets — Impact Tracker</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
+    /* ─── TOKENS (sourced from the-learning-agency.com + lab) ─── */
     :root {
-      --bg: #F7F6F2;
-      --surface: #FFFFFF;
-      --border: #E0DDD5;
-      --border-light: #ECEAE4;
-      --text: #1C1917;
-      --text-2: #57534E;
-      --text-3: #A8A29E;
-      --accent: #1B4FD8;
-      --strong-bg: #ECFDF5; --strong: #065F46;
-      --moderate-bg: #FFFBEB; --moderate: #92400E;
-      --weak-bg: #FEF2F2; --weak: #991B1B;
-      --flagged-bg: #FAF5FF; --flagged: #6B21A8;
+      --teal:    #1ea69a;
+      --teal-2:  #40b797;
+      --teal-3:  #00897e;
+      --teal-bg: #e9f6f4;
+      --orange:  #F7943B;
+      --blue:    #6196ff;
+
+      --bg:        #F8FAFC;
+      --surface:   #FFFFFF;
+      --ink:       #2A2A2A;
+      --slate:     #54595F;
+      --slate-2:   #6B7280;
+      --slate-3:   #9CA3AF;
+      --border:    #E5E5E5;
+      --border-2:  #EFEFEF;
+
+      --strong:    #047857; --strong-bg:   #ECFDF5;
+      --moderate:  #B45309; --moderate-bg: #FFFBEB;
+      --weak:      #B91C1C; --weak-bg:     #FEF2F2;
+      --flagged:   #7C3AED; --flagged-bg:  #F5F3FF;
     }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'DM Sans', system-ui, sans-serif;
+      font-family: 'Montserrat', system-ui, sans-serif;
       background: var(--bg);
-      color: var(--text);
-      font-size: 15px;
-      line-height: 1.6;
+      color: var(--ink);
+      font-size: 14px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* ── NAV ── */
-    nav {
+    a { color: var(--teal); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code, .mono { font-family: 'JetBrains Mono', monospace; }
+
+    /* ─── HEADER (two-row: nav + search) ─── */
+    /* Per design/principles.md §3: search and current-view rank higher than brand;
+       resolve nav crowding by ranking, not balancing. Search gets its own row. */
+    header.top {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(247,246,242,0.9);
+      background: rgba(248, 250, 252, 0.94);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
-      height: 52px;
-      display: flex; align-items: center;
-      padding: 0 2rem; gap: 1.5rem;
     }
-    .nav-brand {
-      font-family: 'Spectral', serif;
-      font-weight: 700; font-size: 1.05rem;
-      color: var(--text); text-decoration: none;
-      letter-spacing: -0.02em; white-space: nowrap;
+    .nav-main {
+      padding: 0 1.5rem;
+      height: 46px;
+      display: flex; align-items: center; gap: 1rem;
     }
-    .nav-brand em { font-style: normal; color: var(--accent); }
+    .brand {
+      font-weight: 700; font-size: 0.82rem;
+      letter-spacing: 0; color: var(--ink);
+      white-space: nowrap;
+    }
+    .brand .accent { color: var(--teal); }
+
     .nav-ds {
       display: flex; gap: 0.15rem;
       overflow-x: auto; scrollbar-width: none;
     }
     .nav-ds::-webkit-scrollbar { display: none; }
     .nav-ds a {
-      font-size: 0.8rem; color: var(--text-2);
-      text-decoration: none; padding: 0.2rem 0.6rem;
-      border-radius: 20px; white-space: nowrap;
-      transition: all 0.15s;
+      color: var(--slate); font-size: 0.76rem; font-weight: 500;
+      padding: 0.3rem 0.7rem; border-radius: 6px;
+      white-space: nowrap; transition: all 0.12s;
     }
-    .nav-ds a:hover { background: var(--border-light); color: var(--text); }
-    .nav-ds a.active { color: #fff; }
+    .nav-ds a:hover { background: var(--border-2); color: var(--ink); text-decoration: none; }
+    .nav-ds a.active { background: var(--teal); color: #fff; }
+
     .nav-updated {
-      margin-left: auto; font-size: 0.75rem;
-      color: var(--text-3); white-space: nowrap;
+      margin-left: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; color: var(--slate-3);
+      white-space: nowrap;
+      letter-spacing: 0.02em;
     }
 
-    /* ── LAYOUT ── */
-    main { max-width: 1080px; margin: 0 auto; padding: 0 2rem 5rem; }
+    .nav-search-row {
+      padding: 0.55rem 1.5rem 0.7rem;
+      border-top: 1px solid var(--border-2);
+    }
+    .nav-search {
+      width: 100%;
+      max-width: 1180px;
+      display: block; margin: 0 auto;
+      padding: 0.55rem 0.9rem 0.55rem 2.4rem;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%239CA3AF'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'/></svg>") no-repeat 0.85rem center / 16px 16px;
+      font-family: inherit; font-size: 0.85rem; color: var(--ink);
+      outline: none; transition: border-color 0.12s, box-shadow 0.12s;
+    }
+    .nav-search::placeholder { color: var(--slate-3); }
+    .nav-search:focus { border-color: var(--teal); box-shadow: 0 0 0 3px var(--teal-bg); }
 
-    /* ── HOME ── */
+    /* ─── LAYOUT ─── */
+    main { max-width: 1180px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+    .empty, .loading {
+      text-align: center; padding: 3rem 2rem;
+      color: var(--slate-2); font-size: 0.85rem;
+    }
+    .show-more {
+      display: flex; justify-content: center; padding: 0.85rem 0 0;
+    }
+    .show-more button {
+      font-family: inherit; font-size: 0.78rem; font-weight: 500;
+      padding: 0.45rem 1.1rem; border-radius: 6px;
+      border: 1px solid var(--border); background: var(--surface);
+      color: var(--slate); cursor: pointer;
+    }
+    .show-more button:hover { border-color: var(--teal); color: var(--teal); }
+    .show-more .count { color: var(--slate-3); margin-left: 0.4rem; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; }
+    .spinner {
+      display: inline-block; width: 16px; height: 16px;
+      border: 2px solid var(--border); border-top-color: var(--teal);
+      border-radius: 50%; animation: spin 0.7s linear infinite;
+      vertical-align: middle; margin-right: 0.5rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ─── HERO ─── */
     .hero {
       padding: 3rem 0 2.5rem;
       border-bottom: 1px solid var(--border);
       margin-bottom: 2.5rem;
     }
     .hero-eyebrow {
-      font-size: 0.72rem; font-weight: 600;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 1rem;
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 0.9rem;
     }
     .hero h1 {
-      font-family: 'Spectral', serif;
-      font-size: clamp(1.9rem, 4vw, 2.6rem);
-      font-weight: 600; line-height: 1.2;
-      letter-spacing: -0.03em; max-width: 660px;
-      margin-bottom: 1rem;
+      font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+      font-weight: 700; line-height: 1.15;
+      letter-spacing: -0.02em;
+      max-width: 720px; margin-bottom: 0.85rem;
     }
     .hero p {
-      color: var(--text-2); max-width: 560px;
-      font-size: 0.95rem; line-height: 1.75;
-      margin-bottom: 2rem;
+      color: var(--slate); max-width: 620px;
+      font-size: 0.93rem; line-height: 1.65;
+      margin-bottom: 1.75rem;
     }
-    .hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+    .stat-row { display: flex; gap: 2.5rem; flex-wrap: wrap; }
     .stat-val {
-      font-family: 'Spectral', serif;
-      font-size: 2rem; font-weight: 600; line-height: 1;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.55rem; font-weight: 500; line-height: 1;
+      color: var(--ink);
     }
     .stat-lbl {
-      font-size: 0.72rem; color: var(--text-3);
-      text-transform: uppercase; letter-spacing: 0.05em;
-      margin-top: 0.2rem;
+      font-size: 0.66rem; color: var(--slate-2);
+      text-transform: uppercase; letter-spacing: 0.08em;
+      margin-top: 0.3rem; font-weight: 600;
+      display: inline-flex; align-items: center; gap: 0.3rem;
     }
 
-    .grid-header {
-      display: flex; align-items: baseline;
-      justify-content: space-between; margin-bottom: 1.25rem;
+    /* ─── INFO TOOLTIP (i) ─── */
+    .info-tip {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 13px; height: 13px; border-radius: 50%;
+      background: var(--slate-3); color: #fff;
+      font-size: 9px; font-weight: 700; font-style: normal;
+      font-family: system-ui, sans-serif;
+      cursor: help; position: relative;
+      letter-spacing: 0; text-transform: none;
+      transition: background 0.12s;
     }
-    .grid-title {
-      font-family: 'Spectral', serif;
-      font-size: 1.1rem; font-weight: 600;
-      letter-spacing: -0.02em;
+    .info-tip:hover { background: var(--slate); }
+    .info-tip::after {
+      content: attr(data-tip);
+      position: absolute; bottom: calc(100% + 6px); left: 50%;
+      transform: translateX(-50%);
+      width: max-content; max-width: 280px;
+      padding: 0.55rem 0.75rem;
+      background: var(--ink); color: #F5F5F5;
+      font-size: 0.72rem; font-weight: 400; font-style: normal;
+      letter-spacing: 0; text-transform: none;
+      border-radius: 6px; line-height: 1.5;
+      white-space: normal; text-align: left;
+      pointer-events: none; opacity: 0;
+      transition: opacity 0.15s;
+      z-index: 50; box-shadow: 0 4px 14px rgba(0,0,0,0.15);
     }
-    .grid-meta { font-size: 0.78rem; color: var(--text-3); }
+    .info-tip::before {
+      content: ''; position: absolute; bottom: 100%; left: 50%;
+      transform: translateX(-50%); margin-bottom: -2px;
+      border: 4px solid transparent; border-top-color: var(--ink);
+      opacity: 0; transition: opacity 0.15s; pointer-events: none;
+    }
+    .info-tip:hover::after, .info-tip:hover::before { opacity: 1; }
 
-    .dataset-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-      gap: 1rem;
+    /* ─── SECTIONS ─── */
+    .sec-head {
+      display: flex; align-items: baseline; justify-content: space-between;
+      margin: 0 0 1.1rem;
+    }
+    .sec-head h2 {
+      font-size: 0.95rem; font-weight: 700;
+      letter-spacing: -0.01em; color: var(--ink);
+    }
+    .sec-head .meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: var(--slate-3);
+    }
+
+    /* ─── DATASET CARDS ─── */
+    .ds-grid {
+      display: grid; gap: 0.85rem;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      margin-bottom: 2.75rem;
     }
     .ds-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 14px; padding: 1.5rem;
-      cursor: pointer; text-decoration: none;
-      display: block; position: relative; overflow: hidden;
-      transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
-    }
-    .ds-card::after {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: var(--c);
+      border-left: 3px solid var(--c);
+      border-radius: 7px;
+      padding: 1.1rem 1.2rem;
+      cursor: pointer; display: block; color: inherit;
+      transition: transform 0.12s, box-shadow 0.12s, border-color 0.12s;
     }
     .ds-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(0,0,0,0.07);
-      border-color: color-mix(in srgb, var(--c) 30%, var(--border));
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+      text-decoration: none;
     }
-    .ds-name {
-      font-family: 'Spectral', serif;
-      font-size: 1.25rem; font-weight: 600;
-      letter-spacing: -0.02em; margin-bottom: 0.35rem;
-      color: var(--c);
+    .ds-card-name {
+      font-size: 0.95rem; font-weight: 700;
+      color: var(--ink); margin-bottom: 0.18rem;
+      letter-spacing: -0.01em;
     }
-    .ds-year { font-size: 0.75rem; color: var(--text-3); margin-bottom: 0.6rem; }
-    .ds-desc {
-      font-size: 0.78rem; color: var(--text-3); line-height: 1.55;
-      margin-bottom: 1.25rem;
-      display: -webkit-box; -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical; overflow: hidden;
+    .ds-card-year {
+      font-size: 0.7rem; color: var(--slate-3);
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 0.9rem;
     }
-    .ds-count {
-      font-family: 'Spectral', serif;
-      font-size: 2.2rem; font-weight: 600;
+    .ds-card-count {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.75rem; font-weight: 500;
       color: var(--c); line-height: 1;
     }
-    .ds-count-lbl {
-      font-size: 0.7rem; color: var(--text-3);
-      text-transform: uppercase; letter-spacing: 0.06em;
+    .ds-card-lbl {
+      font-size: 0.65rem; color: var(--slate-2);
+      text-transform: uppercase; letter-spacing: 0.08em;
+      font-weight: 600; margin-top: 0.25rem;
     }
-    .ds-bar {
-      margin-top: 1rem; padding-top: 1rem;
-      border-top: 1px solid var(--border-light);
-      display: flex; gap: 0;
-    }
-    .ds-bar-seg { height: 6px; border-radius: 3px; margin-right: 2px; min-width: 4px; }
-    .bar-legend {
-      display: flex; gap: 1rem; margin-top: 0.6rem;
-    }
-    .bar-leg-item { font-size: 0.68rem; color: var(--text-3); }
-    .bar-leg-item b { color: var(--text-2); }
 
-    /* ── DATASET PAGE ── */
+    /* ─── PILL ROWS ─── */
+    .cross-pills, .pill-row {
+      display: flex; align-items: center; gap: 0.35rem;
+      flex-wrap: wrap; margin-bottom: 1.25rem;
+    }
+    .pill-label {
+      font-size: 0.68rem; color: var(--slate-3);
+      text-transform: uppercase; letter-spacing: 0.08em;
+      margin-right: 0.3rem; font-weight: 600;
+    }
+    .pill {
+      font-family: inherit; font-size: 0.76rem; font-weight: 500;
+      padding: 0.32rem 0.78rem; border-radius: 20px;
+      border: 1px solid var(--border); background: var(--surface);
+      color: var(--slate); cursor: pointer;
+      transition: all 0.12s;
+    }
+    .pill:hover { border-color: var(--teal); color: var(--teal); }
+    .pill.on {
+      background: var(--teal); border-color: var(--teal); color: #fff;
+    }
+    .pill-search {
+      margin-left: auto;
+      padding: 0.32rem 0.7rem;
+      border: 1px solid var(--border); border-radius: 6px;
+      background: var(--surface); font-family: inherit;
+      font-size: 0.76rem; color: var(--ink); width: 200px;
+      outline: none;
+    }
+    .pill-search:focus { border-color: var(--teal); }
+
+    /* ─── DATASET PAGE HEADER ─── */
     .ds-header {
-      padding: 2.25rem 0 2rem;
+      padding: 2rem 0 1.5rem;
       border-bottom: 1px solid var(--border);
-      margin-bottom: 2rem;
-    }
-    .back {
-      display: inline-flex; align-items: center; gap: 0.35rem;
-      font-size: 0.78rem; color: var(--text-3);
-      text-decoration: none; margin-bottom: 1.25rem;
-      transition: color 0.15s;
-    }
-    .back:hover { color: var(--accent); }
-    .ds-page-title {
-      font-family: 'Spectral', serif;
-      font-size: clamp(1.7rem, 3.5vw, 2.2rem);
-      font-weight: 600; letter-spacing: -0.03em;
-      margin-bottom: 0.3rem;
-    }
-    .ds-page-doi {
-      font-size: 0.75rem; color: var(--text-3);
-      font-family: 'DM Mono', monospace;
-      margin-bottom: 0.8rem;
-    }
-    .ds-page-doi a { color: var(--accent); text-decoration: none; }
-    .ds-page-doi a:hover { text-decoration: underline; }
-    .ds-page-desc {
-      color: var(--text-2); font-size: 0.9rem;
-      max-width: 680px; line-height: 1.75;
-      margin-bottom: 1.75rem;
-    }
-    .ds-page-stats { display: flex; gap: 2rem; flex-wrap: wrap; }
-    .ds-note {
-      margin-top: 1.25rem; padding: 0.75rem 1rem;
-      background: #FFFBEB; border: 1px solid #FDE68A;
-      border-radius: 8px; font-size: 0.8rem;
-      color: #78350F; max-width: 720px;
-      line-height: 1.5;
-    }
-
-    /* ── FILTERS ── */
-    .filters {
-      display: flex; align-items: center;
-      gap: 0.4rem; flex-wrap: wrap;
       margin-bottom: 1.5rem;
     }
-    .filters-label { font-size: 0.75rem; color: var(--text-3); margin-right: 0.15rem; }
-    .f-btn {
-      font-size: 0.75rem; font-family: inherit;
-      padding: 0.28rem 0.7rem; border-radius: 20px;
-      border: 1px solid var(--border);
-      background: var(--surface); color: var(--text-2);
-      cursor: pointer; transition: all 0.14s; line-height: 1.4;
+    .back-link {
+      display: inline-flex; align-items: center;
+      font-size: 0.74rem; color: var(--slate-2);
+      margin-bottom: 1rem;
     }
-    .f-btn:hover { border-color: var(--accent); color: var(--accent); }
-    .f-btn.on { background: var(--accent); border-color: var(--accent); color: #fff; }
-    .search {
-      margin-left: auto; padding: 0.3rem 0.8rem;
-      border: 1px solid var(--border); border-radius: 8px;
-      background: var(--surface); font-family: inherit;
-      font-size: 0.8rem; color: var(--text); width: 200px;
-      outline: none; transition: border-color 0.14s;
+    .back-link:hover { color: var(--teal); text-decoration: none; }
+    .ds-title {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700; letter-spacing: -0.02em;
+      margin-bottom: 0.25rem; color: var(--c);
     }
-    .search:focus { border-color: var(--accent); }
-    .results-count { font-size: 0.75rem; color: var(--text-3); }
+    .ds-doi {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.73rem; color: var(--slate-3);
+      margin-bottom: 0.9rem;
+    }
+    .ds-desc {
+      color: var(--slate); font-size: 0.9rem;
+      line-height: 1.7; max-width: 720px; margin-bottom: 1.5rem;
+    }
 
-    /* ── PAPER CARDS ── */
-    .papers { display: flex; flex-direction: column; gap: 0.7rem; }
+    /* ─── NARRATIVE BLURB ─── */
+    .narrative {
+      background: var(--teal-bg);
+      border: 1px solid #c5e7e2;
+      border-radius: 7px;
+      padding: 1rem 1.2rem;
+      margin: 1.5rem 0 0;
+      max-width: 820px;
+    }
+    .narrative-lbl {
+      font-size: 0.64rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--teal-3); margin-bottom: 0.45rem;
+    }
+    .narrative-text {
+      font-size: 0.88rem; line-height: 1.65; color: var(--ink);
+      margin-bottom: 0.7rem;
+    }
+    .narrative .btn-action { font-size: 0.7rem; }
+
+    /* ─── PAPER CARDS ─── */
+    .papers { display: flex; flex-direction: column; gap: 0.55rem; }
+
     .paper {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 10px; padding: 1.2rem 1.4rem;
-      transition: box-shadow 0.15s;
+      border-radius: 7px;
+      padding: 1rem 1.2rem;
+      transition: box-shadow 0.12s, border-color 0.12s;
     }
-    .paper:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
-    .paper-row1 { display: flex; gap: 0.8rem; align-items: flex-start; margin-bottom: 0.35rem; }
+    .paper:hover {
+      border-color: #cbd5d3;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .paper-head {
+      display: flex; gap: 0.7rem;
+      align-items: flex-start;
+      margin-bottom: 0.4rem;
+    }
     .paper-title {
-      font-family: 'Spectral', serif;
-      font-size: 0.985rem; font-weight: 600;
-      color: var(--text); line-height: 1.4;
-      letter-spacing: -0.01em; flex: 1;
+      font-size: 0.92rem; font-weight: 600;
+      line-height: 1.4; flex: 1;
+      letter-spacing: -0.005em;
     }
-    .paper-title a { color: inherit; text-decoration: none; }
-    .paper-title a:hover { color: var(--accent); }
+    .paper-title a { color: var(--ink); }
+    .paper-title a:hover { color: var(--teal); text-decoration: none; }
+    .paper-badges {
+      display: flex; gap: 0.3rem; flex-wrap: wrap;
+      flex-shrink: 0; align-items: center;
+    }
     .badge {
       display: inline-flex; align-items: center;
-      padding: 0.15rem 0.5rem; border-radius: 20px;
-      font-size: 0.68rem; font-weight: 500;
-      white-space: nowrap; flex-shrink: 0;
-      margin-top: 2px;
+      font-size: 0.64rem; font-weight: 600;
+      padding: 0.18rem 0.55rem; border-radius: 20px;
+      white-space: nowrap; letter-spacing: 0.02em;
     }
     .b-strong { background: var(--strong-bg); color: var(--strong); }
     .b-moderate { background: var(--moderate-bg); color: var(--moderate); }
     .b-weak { background: var(--weak-bg); color: var(--weak); }
     .b-flagged { background: var(--flagged-bg); color: var(--flagged); }
+    .b-new {
+      background: var(--orange); color: #fff;
+      font-weight: 700; letter-spacing: 0.06em;
+    }
+    .b-ds {
+      font-weight: 700; text-decoration: none;
+    }
+    .b-ds:hover { text-decoration: none; opacity: 0.85; }
+
     .paper-meta {
-      font-size: 0.76rem; color: var(--text-3); margin-bottom: 0.4rem;
+      font-size: 0.74rem; color: var(--slate-2);
+      margin-bottom: 0.5rem;
     }
-    .paper-meta .authors { color: var(--text-2); font-weight: 500; }
-    .paper-use { font-size: 0.81rem; color: var(--text-2); line-height: 1.55; }
+    .paper-meta .authors {
+      color: var(--ink); font-weight: 500;
+    }
     .paper-takeaway {
-      font-size: 0.76rem; color: var(--text-3);
-      font-style: italic; margin-top: 0.25rem; line-height: 1.5;
-    }
-    .paper-abstract {
-      font-size: 0.8rem; color: var(--text-2); line-height: 1.65;
-      margin-top: 0.7rem; padding-top: 0.7rem;
-      border-top: 1px solid var(--border-light);
-      display: none;
-    }
-    .paper-abstract.open { display: block; }
-    .toggle-abs {
-      background: none; border: none; cursor: pointer;
-      font-size: 0.72rem; color: var(--accent);
-      padding: 0; font-family: inherit;
-      margin-top: 0.4rem; display: inline-block;
-    }
-    .toggle-abs:hover { text-decoration: underline; }
-    .also-cites {
-      display: inline-flex; gap: 0.3rem; flex-wrap: wrap;
-      margin-top: 0.4rem;
-    }
-    .also-tag {
-      font-size: 0.68rem; padding: 0.1rem 0.4rem;
-      border-radius: 4px; background: var(--border-light);
-      color: var(--text-3);
-    }
-    .src-tag {
-      font-size: 0.65rem; padding: 0.1rem 0.4rem;
-      border-radius: 4px; background: #EFF6FF;
-      color: #1E40AF; margin-left: 0.3rem;
+      font-size: 0.82rem; color: var(--ink);
+      line-height: 1.55;
     }
 
-    /* ── STATES ── */
-    .loading, .empty {
-      text-align: center; padding: 4rem 2rem;
-      color: var(--text-3); font-size: 0.88rem;
+    .paper-actions {
+      display: flex; gap: 0.4rem; align-items: center;
+      margin-top: 0.7rem;
+      padding-top: 0.65rem;
+      border-top: 1px solid var(--border-2);
     }
-    .spinner {
-      display: inline-block; width: 18px; height: 18px;
-      border: 2px solid var(--border);
-      border-top-color: var(--accent);
-      border-radius: 50%;
-      animation: spin 0.7s linear infinite;
-      vertical-align: middle; margin-right: 0.5rem;
+    .btn-action {
+      font-family: inherit;
+      font-size: 0.72rem; font-weight: 500;
+      padding: 0.3rem 0.65rem; border-radius: 5px;
+      border: 1px solid var(--border); background: var(--surface);
+      color: var(--slate); cursor: pointer;
+      transition: all 0.1s;
     }
-    @keyframes spin { to { transform: rotate(360deg); } }
+    .btn-action:hover {
+      border-color: var(--teal); color: var(--teal);
+    }
+    .btn-action.copied {
+      background: var(--teal); color: #fff; border-color: var(--teal);
+    }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 600px) {
-      nav { padding: 0 1rem; }
-      main { padding: 0 1rem 4rem; }
-      .hero h1 { font-size: 1.8rem; }
-      .dataset-grid { grid-template-columns: 1fr; }
+    /* ─── PAPER DETAIL PANEL ─── */
+    .paper-detail {
+      margin-top: 0.7rem;
+      padding: 0.95rem 1rem;
+      background: var(--bg);
+      border: 1px solid var(--border-2);
+      border-radius: 6px;
+    }
+    .detail-list {
+      display: grid;
+      grid-template-columns: minmax(110px, max-content) 1fr;
+      gap: 0.55rem 1rem;
+    }
+    .detail-list dt {
+      font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--slate-2); padding-top: 0.2rem;
+    }
+    .detail-list dd {
+      font-size: 0.83rem; line-height: 1.6;
+      color: var(--ink);
+    }
+    .detail-list dd a { color: var(--teal); font-weight: 500; }
+    .citation {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.76rem; line-height: 1.65;
+      white-space: pre-wrap; color: var(--ink);
+    }
+    .abstract {
+      font-size: 0.83rem; line-height: 1.7; color: var(--ink);
+    }
+
+    /* ─── SEARCH VIEW ─── */
+    .search-head {
+      padding: 1.5rem 0 1.25rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+    }
+    .search-head h2 {
+      font-size: 1.05rem; font-weight: 700;
+      color: var(--ink); margin-bottom: 0.25rem;
+    }
+    .search-head .meta {
+      font-size: 0.78rem; color: var(--slate-2);
+    }
+    .search-group { margin-bottom: 1.75rem; }
+    .search-group-head {
+      display: flex; align-items: center; gap: 0.6rem;
+      margin-bottom: 0.6rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 1px solid var(--border-2);
+    }
+    .search-group-name {
+      font-size: 0.78rem; font-weight: 700;
+      color: var(--c);
+      letter-spacing: 0.02em;
+    }
+    .search-group-count {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; color: var(--slate-3);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 780px) {
+      .nav-main { padding: 0 1rem; gap: 0.5rem; }
+      .nav-search-row { padding: 0.5rem 1rem 0.6rem; }
       .nav-updated { display: none; }
-      .search { width: 140px; }
+      main { padding: 0 1rem 3rem; }
+      .stat-row { gap: 1.5rem; }
+      .ds-grid { grid-template-columns: 1fr; }
+      .detail-list { grid-template-columns: 1fr; gap: 0.25rem 0; }
+      .detail-list dt { margin-top: 0.6rem; }
     }
   </style>
 </head>
 <body>
 
-<nav>
-  <a href="#/" class="nav-brand">TLA <em>Impact</em></a>
-  <div class="nav-ds" id="navDs"></div>
-  <div class="nav-updated" id="navUpdated"></div>
-</nav>
+<header class="top">
+  <nav class="nav-main">
+    <a href="#/" class="brand">TLA · <span class="accent">Impact</span></a>
+    <div class="nav-ds" id="navDs"></div>
+    <div class="nav-updated" id="navUpdated"></div>
+  </nav>
+  <div class="nav-search-row">
+    <input class="nav-search" id="navSearch" placeholder="Search across all papers, authors, institutions, or topics…" oninput="onSearchInput(this.value)" autocomplete="off">
+  </div>
+</header>
 
 <main id="app">
-  <div class="loading"><span class="spinner"></span>Loading datasets…</div>
+  <div class="loading"><span class="spinner"></span>Loading…</div>
 </main>
 
 <script>
-// ── STATE ──────────────────────────────────────────────────────────────────
+// ── STATE ─────────────────────────────────────────────────────────
 const cache = {};
 let meta = null;
+let allPapersCache = null;
+let _crossFilter = 'all';
+let _crossShowAll = false;
+const CROSS_LIMIT = 30;
+let _dsFilter = 'all';
+let _dsSearch = '';
+let _dsPapers = [];
 
+// ── ESCAPE ────────────────────────────────────────────────────────
+function esc(s) {
+  return String(s ?? '').replace(/[&<>"']/g, c =>
+    ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+}
+
+// ── FETCHERS ──────────────────────────────────────────────────────
 async function fetchJSON(path) {
   if (cache[path]) return cache[path];
   const res = await fetch(path);
@@ -354,112 +536,188 @@ async function fetchJSON(path) {
   cache[path] = await res.json();
   return cache[path];
 }
-
 async function loadMeta() {
   if (meta) return meta;
   meta = await fetchJSON('./data/metadata.json');
   return meta;
 }
-
 async function loadDataset(id) {
   return fetchJSON(`./data/${id}.json`);
 }
+async function loadAllPapers() {
+  if (allPapersCache) return allPapersCache;
+  const m = await loadMeta();
+  const datasets = await Promise.all(
+    m.datasets.map(d => loadDataset(d.id).catch(() => null))
+  );
+  const all = [];
+  datasets.forEach((data, i) => {
+    if (!data) return;
+    const ds = m.datasets[i];
+    (data.papers || []).forEach(p => all.push({ ...p, _ds: ds }));
+  });
+  allPapersCache = all;
+  return all;
+}
 
-// ── ROUTING ───────────────────────────────────────────────────────────────
+// ── ROUTING ───────────────────────────────────────────────────────
 function getRoute() {
   const h = location.hash || '#/';
   if (h.startsWith('#/dataset/')) return { page: 'dataset', id: h.slice(10) };
+  if (h.startsWith('#/search')) {
+    const qstr = h.split('?')[1] || '';
+    const q = decodeURIComponent((qstr.match(/(?:^|&)q=([^&]*)/) || [,''])[1]);
+    return { page: 'search', q };
+  }
   return { page: 'home' };
 }
-
 async function route() {
   const r = getRoute();
   try {
-    if (r.page === 'home') await renderHome();
-    else await renderDataset(r.id);
+    if (r.page === 'dataset')      await renderDataset(r.id);
+    else if (r.page === 'search')  await renderSearch(r.q);
+    else                           await renderHome();
   } catch (e) {
     document.getElementById('app').innerHTML =
-      `<div class="loading">Failed to load data.<br><small>${e.message}</small></div>`;
+      `<div class="loading">Failed to load.<br><small>${esc(e.message)}</small></div>`;
   }
 }
 
-// ── NAV ───────────────────────────────────────────────────────────────────
+// ── NAV ───────────────────────────────────────────────────────────
 function buildNav(activeId) {
   const m = meta;
   if (!m) return;
-  const r = getRoute();
-
   document.getElementById('navDs').innerHTML = m.datasets.map(d => {
     const isActive = d.id === activeId;
-    const style = isActive
-      ? `background:${d.color}CC;color:#fff`
-      : '';
-    return `<a href="#/dataset/${d.id}" style="${style}" class="${isActive ? 'active' : ''}">${d.display_name}</a>`;
+    return `<a href="#/dataset/${esc(d.id)}" class="${isActive ? 'active' : ''}">${esc(d.display_name)}</a>`;
   }).join('');
-
   document.getElementById('navUpdated').textContent =
     m.last_updated ? `Updated ${m.last_updated}` : '';
+  const r = getRoute();
+  const ns = document.getElementById('navSearch');
+  if (ns && r.page !== 'search' && !ns.matches(':focus')) ns.value = '';
 }
 
-// ── HOME ──────────────────────────────────────────────────────────────────
+let _searchTimer = null;
+function onSearchInput(val) {
+  clearTimeout(_searchTimer);
+  _searchTimer = setTimeout(() => {
+    if (val.trim().length < 2) {
+      if (location.hash.startsWith('#/search')) location.hash = '#/';
+      return;
+    }
+    const q = encodeURIComponent(val.trim());
+    if (!location.hash.startsWith(`#/search?q=${q}`)) {
+      location.hash = `#/search?q=${q}`;
+    }
+  }, 220);
+}
+
+// ── HOME ──────────────────────────────────────────────────────────
 async function renderHome() {
   const app = document.getElementById('app');
   app.innerHTML = '<div class="loading"><span class="spinner"></span>Loading…</div>';
-
   const m = await loadMeta();
   buildNav(null);
 
-  const totalCitations = m.datasets.reduce((s, d) => s + (d.citation_count || 0), 0);
+  const totalCites = m.datasets.reduce((s, d) => s + (d.citation_count || 0), 0);
 
   app.innerHTML = `
     <div class="hero">
-      <div class="hero-eyebrow">TLA Open Datasets</div>
-      <h1>Tracking the research impact of TLA's open datasets</h1>
-      <p>Monitoring how PERSUADE&nbsp;2.0, PIILO, KLiCKe, ASAP&nbsp;2.0, and Jo&nbsp;Wilder are cited and used across academic research worldwide.</p>
-      <div class="hero-stats">
-        <div>
-          <div class="stat-val">${totalCitations}</div>
-          <div class="stat-lbl">Citations tracked</div>
-        </div>
-        <div>
-          <div class="stat-val">${m.datasets.length}</div>
-          <div class="stat-lbl">Open datasets</div>
-        </div>
-        <div>
-          <div class="stat-val">${m.last_updated || '—'}</div>
-          <div class="stat-lbl">Last updated</div>
-        </div>
+      <div class="hero-eyebrow">TLA Open Datasets · Impact Tracker</div>
+      <h1>How our open datasets are being used in research worldwide.</h1>
+      <p>Tracking citations of PERSUADE 2.0, PIILO, KLiCKe, and ASAP 2.0 across academic literature. Updated monthly.</p>
+      <div class="stat-row">
+        <div><div class="stat-val">${totalCites}</div><div class="stat-lbl">Citations tracked</div></div>
+        <div><div class="stat-val">${m.datasets.length}</div><div class="stat-lbl">Open datasets</div></div>
+        <div><div class="stat-val">${esc(m.last_updated || '—')}</div><div class="stat-lbl">Last updated</div></div>
       </div>
     </div>
 
-    <div class="grid-header">
-      <div class="grid-title">Datasets</div>
-      <div class="grid-meta">Next sweep due ${m.next_sweep_due || '—'}</div>
+    <div class="sec-head">
+      <h2>Datasets</h2>
+      <span class="meta">Next sweep · ${esc(m.next_sweep_due || '—')}</span>
     </div>
+    <div class="ds-grid">${m.datasets.map(dsCard).join('')}</div>
 
-    <div class="dataset-grid">
-      ${m.datasets.map(d => datasetCard(d)).join('')}
+    <div class="sec-head" style="margin-top:2.5rem">
+      <h2>Browse across datasets</h2>
+      <span class="meta" id="crossMeta">loading…</span>
+    </div>
+    <div class="cross-pills">
+      <button class="pill on" onclick="crossFilt('all', this)">All</button>
+      <button class="pill" onclick="crossFilt('new', this)">New this quarter</button>
+      <button class="pill" onclick="crossFilt('strong', this)">Strong</button>
+      <button class="pill" onclick="crossFilt('moderate', this)">Moderate</button>
+      <button class="pill" onclick="crossFilt('weak', this)">Weak</button>
+    </div>
+    <div id="crossList" class="papers">
+      <div class="loading"><span class="spinner"></span>Loading papers…</div>
     </div>
   `;
+
+  await loadAllPapers();
+  renderCross();
 }
 
-function datasetCard(d) {
-  const direct = '?', ref = '?', inc = '?'; // summary loaded lazily
+function dsCard(d) {
   return `
-    <a href="#/dataset/${d.id}" class="ds-card" style="--c:${d.color}">
-      <div class="ds-name">${d.display_name}</div>
-      <div class="ds-year">Published ${d.published_year}</div>
-      <div class="ds-count">${d.citation_count || 0}</div>
-      <div class="ds-count-lbl">citations tracked</div>
+    <a href="#/dataset/${esc(d.id)}" class="ds-card" style="--c:${d.color}">
+      <div class="ds-card-name">${esc(d.display_name)}</div>
+      <div class="ds-card-year">Published ${d.published_year}</div>
+      <div class="ds-card-count">${d.citation_count || 0}</div>
+      <div class="ds-card-lbl">Citations tracked</div>
     </a>
   `;
 }
 
-// ── DATASET PAGE ──────────────────────────────────────────────────────────
-let _activeFilter = 'all';
-let _search = '';
-let _papers = [];
+function crossFilt(val, btn) {
+  _crossFilter = val;
+  _crossShowAll = false;  // reset expansion when filter changes
+  document.querySelectorAll('.cross-pills .pill').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  renderCross();
+}
 
+function crossShowAll() {
+  _crossShowAll = true;
+  renderCross();
+}
+
+function renderCross() {
+  const el = document.getElementById('crossList');
+  const metaEl = document.getElementById('crossMeta');
+  if (!el || !allPapersCache) return;
+  const lastSweep = meta?.last_sweep_date;
+
+  let list = allPapersCache.slice();
+  if (_crossFilter === 'strong')   list = list.filter(p => p.connection_strength === 'strong');
+  else if (_crossFilter === 'moderate') list = list.filter(p => p.connection_strength === 'moderate');
+  else if (_crossFilter === 'weak')     list = list.filter(p => p.connection_strength === 'weak');
+  else if (_crossFilter === 'new')      list = list.filter(p => p.first_tracked === lastSweep);
+
+  list.sort((a, b) => (b.year || 0) - (a.year || 0));
+  const total = list.length;
+  const truncated = !_crossShowAll && total > CROSS_LIMIT;
+  if (truncated) list = list.slice(0, CROSS_LIMIT);
+
+  if (metaEl) {
+    metaEl.textContent = truncated
+      ? `${CROSS_LIMIT} most recent of ${total}`
+      : `${total} ${total === 1 ? 'paper' : 'papers'}`;
+  }
+
+  if (list.length === 0) {
+    el.innerHTML = '<div class="empty">No papers match this filter.</div>';
+    return;
+  }
+  const more = truncated
+    ? `<div class="show-more"><button onclick="crossShowAll()">Show all<span class="count">${total - CROSS_LIMIT} more</span></button></div>`
+    : '';
+  el.innerHTML = list.map((p, i) => paperCard(p, `c${i}`, true)).join('') + more;
+}
+
+// ── DATASET PAGE ──────────────────────────────────────────────────
 async function renderDataset(id) {
   const app = document.getElementById('app');
   app.innerHTML = '<div class="loading"><span class="spinner"></span>Loading…</div>';
@@ -468,180 +726,292 @@ async function renderDataset(id) {
   buildNav(id);
 
   const cfg = m.datasets.find(d => d.id === id) || {};
-  const color = cfg.color || '#1B4FD8';
+  const color = cfg.color || 'var(--teal)';
   const s = data.summary || {};
-  _papers = data.papers || [];
-  _activeFilter = 'all';
-  _search = '';
-
-  const totalCited = _papers.length;
-  const confirmed = _papers.filter(p => p.status === 'confirmed').length;
-  const flagged = _papers.filter(p => p.status === 'flagged').length;
+  _dsPapers = data.papers || [];
+  _dsFilter = 'all';
+  _dsSearch = '';
 
   const doiLine = data.meta?.paper_doi
-    ? `<div class="ds-page-doi">Dataset paper: <a href="https://doi.org/${data.meta.paper_doi}" target="_blank">${data.meta.paper_doi} ↗</a></div>`
+    ? `<div class="ds-doi">paper: <a href="https://doi.org/${esc(data.meta.paper_doi)}" target="_blank">${esc(data.meta.paper_doi)} ↗</a></div>`
     : '';
 
-  const noteLine = s.note
-    ? `<div class="ds-note"><strong>Note:</strong> ${s.note}</div>`
-    : '';
+  const flagged = _dsPapers.filter(p => p.status === 'flagged').length;
 
   app.innerHTML = `
-    <div class="ds-header">
-      <a href="#/" class="back">← All datasets</a>
-      <div class="ds-page-title" style="color:${color}">${data.meta?.display_name || id}</div>
+    <div class="ds-header" style="--c:${color}">
+      <a href="#/" class="back-link">← All datasets</a>
+      <div class="ds-title">${esc(data.meta?.display_name || id)}</div>
       ${doiLine}
-      <div class="ds-page-desc">${data.meta?.description || ''}</div>
-      <div class="ds-page-stats">
-        <div>
-          <div class="stat-val">${s.total_citations || _papers.length}</div>
-          <div class="stat-lbl">Total citations</div>
-        </div>
-        <div>
-          <div class="stat-val">${s.directly_used || '—'}</div>
-          <div class="stat-lbl">Direct use</div>
-        </div>
-        <div>
-          <div class="stat-val">${s.reference_comparison || '—'}</div>
-          <div class="stat-lbl">Reference</div>
-        </div>
-        <div>
-          <div class="stat-val">${s.incidental_peripheral || '—'}</div>
-          <div class="stat-lbl">Incidental</div>
-        </div>
-        ${flagged > 0 ? `<div><div class="stat-val" style="color:var(--flagged)">${flagged}</div><div class="stat-lbl">Flagged</div></div>` : ''}
+      <div class="ds-desc">${esc(data.meta?.description || '')}</div>
+      <div class="stat-row">
+        <div><div class="stat-val" style="color:${color}">${s.total_citations || _dsPapers.length}</div><div class="stat-lbl">Total</div></div>
+        ${s.directly_used != null ? `<div><div class="stat-val">${s.directly_used}</div><div class="stat-lbl">Direct use <span class="info-tip" data-tip="AI-judged from each paper&#39;s abstract: the paper directly uses ${esc(cfg.display_name || id)} for training, evaluation, or experiments. These three buckets (Direct / Reference / Incidental) are auto-computed from connection_strength — they&#39;re interpretive guesses, not verified counts. Override in the tracker if you disagree.">i</span></div></div>` : ''}
+        ${s.reference_comparison != null ? `<div><div class="stat-val">${s.reference_comparison}</div><div class="stat-lbl">Reference <span class="info-tip" data-tip="AI-judged: the paper references ${esc(cfg.display_name || id)} for benchmarking, comparison, or builds on related methods — without directly using the dataset for experiments.">i</span></div></div>` : ''}
+        ${s.incidental_peripheral != null ? `<div><div class="stat-val">${s.incidental_peripheral}</div><div class="stat-lbl">Incidental <span class="info-tip" data-tip="AI-judged: the paper mentions ${esc(cfg.display_name || id)} peripherally (in a survey, related-work list, or background section) without substantive engagement.">i</span></div></div>` : ''}
+        ${flagged ? `<div><div class="stat-val" style="color:var(--flagged)">${flagged}</div><div class="stat-lbl">Flagged</div></div>` : ''}
       </div>
-      ${noteLine}
+      <div class="narrative">
+        <div class="narrative-lbl">Impact summary</div>
+        <div class="narrative-text" id="narrativeText"></div>
+        <button class="btn-action" onclick="copyNarrative(this)">Copy summary</button>
+      </div>
     </div>
 
-    <div class="filters" id="filters">
-      <span class="filters-label">Filter:</span>
-      <button class="f-btn on"   onclick="filt('all',this)">All (${_papers.length})</button>
-      <button class="f-btn"      onclick="filt('strong',this)">Strong</button>
-      <button class="f-btn"      onclick="filt('moderate',this)">Moderate</button>
-      <button class="f-btn"      onclick="filt('weak',this)">Weak</button>
-      ${flagged > 0 ? `<button class="f-btn" onclick="filt('flagged',this)">⚑ Flagged (${flagged})</button>` : ''}
-      <input class="search" type="search" placeholder="Search…" oninput="srch(this.value)">
+    <div class="pill-row">
+      <span class="pill-label">Filter</span>
+      <button class="pill on" onclick="dsFilt('all', this)">All (${_dsPapers.length})</button>
+      <button class="pill" onclick="dsFilt('strong', this)">Strong</button>
+      <button class="pill" onclick="dsFilt('moderate', this)">Moderate</button>
+      <button class="pill" onclick="dsFilt('weak', this)">Weak</button>
+      ${flagged ? `<button class="pill" onclick="dsFilt('flagged', this)">⚑ Flagged (${flagged})</button>` : ''}
+      <input class="pill-search" type="search" placeholder="Search papers…" oninput="dsSrch(this.value)">
     </div>
-
-    <div id="paperList" class="papers"></div>
+    <div id="dsList" class="papers"></div>
   `;
 
-  renderPapers();
+  document.getElementById('narrativeText').textContent = generateNarrative(cfg, data);
+  renderDsPapers();
 }
 
-function filt(val, btn) {
-  _activeFilter = val;
-  document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('on'));
+function generateNarrative(cfg, data) {
+  const s = data.summary || {};
+  const papers = data.papers || [];
+  const total = s.total_citations || papers.length;
+  const years = papers.map(p => p.year).filter(Boolean).sort((a, b) => a - b);
+  const yr = years.length
+    ? (years[0] === years[years.length-1] ? `${years[0]}` : `${years[0]}–${years[years.length-1]}`)
+    : '—';
+  const direct = s.directly_used, ref = s.reference_comparison, inc = s.incidental_peripheral;
+
+  let blurb = `${cfg.display_name} has been cited ${total} times across ${yr}.`;
+  const parts = [];
+  if (direct) parts.push(`${direct} ${direct === 1 ? 'paper uses' : 'papers use'} the dataset directly`);
+  if (ref) parts.push(`${ref} reference it for benchmarking or comparison`);
+  if (inc) parts.push(`${inc} ${inc === 1 ? 'is an incidental mention' : 'are incidental mentions'}`);
+  if (parts.length) blurb += ` ${parts.join('; ')}.`;
+  const countries = s.countries || [];
+  if (countries.length) {
+    const top = countries.slice(0, 6);
+    blurb += ` Research originates from ${countries.length} ${countries.length === 1 ? 'country' : 'countries'} (${top.join(', ')}${countries.length > 6 ? ', and others' : ''}).`;
+  }
+  if (s.note) blurb += ` ${s.note}`;
+  return blurb;
+}
+
+function copyNarrative(btn) {
+  const txt = document.getElementById('narrativeText')?.textContent || '';
+  copyText(txt, btn);
+}
+
+function dsFilt(val, btn) {
+  _dsFilter = val;
+  document.querySelectorAll('.pill-row .pill').forEach(b => b.classList.remove('on'));
   btn.classList.add('on');
-  renderPapers();
+  renderDsPapers();
 }
-
-function srch(val) {
-  _search = val.toLowerCase();
-  renderPapers();
+function dsSrch(val) {
+  _dsSearch = val.toLowerCase();
+  renderDsPapers();
 }
-
-function renderPapers() {
-  const el = document.getElementById('paperList');
+function renderDsPapers() {
+  const el = document.getElementById('dsList');
   if (!el) return;
-
-  let list = _papers;
-
-  if (_activeFilter === 'flagged') {
-    list = list.filter(p => p.status === 'flagged');
-  } else if (_activeFilter !== 'all') {
-    list = list.filter(p => p.connection_strength === _activeFilter);
-  }
-
-  if (_search) {
-    list = list.filter(p =>
-      (p.title || '').toLowerCase().includes(_search) ||
-      (Array.isArray(p.authors) ? p.authors : [p.authors || '']).join(' ').toLowerCase().includes(_search) ||
-      (p.venue || '').toLowerCase().includes(_search) ||
-      (p.abstract || '').toLowerCase().includes(_search) ||
-      (p.key_takeaway || '').toLowerCase().includes(_search) ||
-      (p.use_of_dataset || '').toLowerCase().includes(_search)
-    );
-  }
-
+  let list = _dsPapers;
+  if (_dsFilter === 'flagged') list = list.filter(p => p.status === 'flagged');
+  else if (_dsFilter !== 'all') list = list.filter(p => p.connection_strength === _dsFilter);
+  if (_dsSearch) list = list.filter(p => matchesQuery(p, _dsSearch));
   if (list.length === 0) {
     el.innerHTML = '<div class="empty">No papers match this filter.</div>';
     return;
   }
-
-  el.innerHTML = list.map((p, i) => paperCard(p, i)).join('');
+  el.innerHTML = list.map((p, i) => paperCard(p, `d${i}`, false)).join('');
 }
 
-function paperCard(p, i) {
-  const badgeCls = p.status === 'flagged' ? 'b-flagged'
-    : p.connection_strength === 'strong' ? 'b-strong'
-    : p.connection_strength === 'moderate' ? 'b-moderate'
-    : 'b-weak';
+// ── SEARCH VIEW ───────────────────────────────────────────────────
+async function renderSearch(query) {
+  const app = document.getElementById('app');
+  app.innerHTML = '<div class="loading"><span class="spinner"></span>Searching…</div>';
+  await loadMeta();
+  buildNav(null);
+  const ns = document.getElementById('navSearch');
+  if (ns) ns.value = query;
 
-  const badgeTxt = p.status === 'flagged' ? '⚑ Flagged'
-    : p.connection_strength === 'strong' ? '● Strong'
-    : p.connection_strength === 'moderate' ? '● Moderate'
-    : '● Weak';
+  const all = await loadAllPapers();
+  const q = query.toLowerCase();
+  const matches = all.filter(p => matchesQuery(p, q));
 
-  const authors = Array.isArray(p.authors)
-    ? p.authors.join(', ')
-    : (p.authors || '');
+  const groups = {};
+  matches.forEach(p => {
+    const id = p._ds?.id || 'unknown';
+    (groups[id] ??= []).push(p);
+  });
 
+  let html = `
+    <div class="search-head">
+      <h2>Search: "${esc(query)}"</h2>
+      <div class="meta">${matches.length} ${matches.length === 1 ? 'result' : 'results'} across ${Object.keys(groups).length} ${Object.keys(groups).length === 1 ? 'dataset' : 'datasets'}</div>
+    </div>
+  `;
+
+  if (matches.length === 0) {
+    html += '<div class="empty">No matching papers. Try a different query.</div>';
+  } else {
+    for (const ds of meta.datasets) {
+      const list = groups[ds.id];
+      if (!list?.length) continue;
+      html += `
+        <div class="search-group" style="--c:${ds.color}">
+          <div class="search-group-head">
+            <a href="#/dataset/${esc(ds.id)}" class="search-group-name">${esc(ds.display_name)}</a>
+            <span class="search-group-count">${list.length} ${list.length === 1 ? 'match' : 'matches'}</span>
+          </div>
+          <div class="papers">${list.map((p, i) => paperCard(p, `s${ds.id}${i}`, false)).join('')}</div>
+        </div>
+      `;
+    }
+  }
+  app.innerHTML = html;
+}
+
+function matchesQuery(p, q) {
+  if (!q) return true;
+  const fields = [
+    p.title, p.venue, p.abstract,
+    p.key_takeaway, p.research_type,
+    Array.isArray(p.authors) ? p.authors.join(' ') : p.authors,
+    Array.isArray(p.institutions) ? p.institutions.join(' ') : p.institutions,
+    Array.isArray(p.country) ? p.country.join(' ') : p.country,
+    p.full_citation, p.doi,
+  ];
+  const blob = fields.filter(Boolean).join(' ').toLowerCase();
+  return q.split(/\s+/).every(term => blob.includes(term));
+}
+
+// ── PAPER CARD ────────────────────────────────────────────────────
+function paperCard(p, key, showDs) {
+  const lastSweep = meta?.last_sweep_date;
+  const isNew = !!(lastSweep && p.first_tracked === lastSweep);
+
+  const dsBadge = (showDs && p._ds)
+    ? `<a href="#/dataset/${esc(p._ds.id)}" class="badge b-ds" style="background:${p._ds.color}20;color:${p._ds.color}">${esc(p._ds.display_name)}</a>`
+    : '';
+
+  const newPill = isNew ? '<span class="badge b-new">NEW</span>' : '';
+
+  const strength = p.connection_strength;
+  const strengthBadge =
+    p.status === 'flagged' ? '<span class="badge b-flagged">⚑ Flagged</span>' :
+    strength === 'strong'   ? '<span class="badge b-strong">Strong</span>' :
+    strength === 'moderate' ? '<span class="badge b-moderate">Moderate</span>' :
+    strength === 'weak'     ? '<span class="badge b-weak">Weak</span>' : '';
+
+  const authors = Array.isArray(p.authors) ? p.authors.join(', ') : (p.authors || '');
   const venueParts = [p.venue, p.year].filter(Boolean);
-  const doiLink = p.doi
-    ? ` · <a href="https://doi.org/${p.doi}" target="_blank" style="color:var(--accent);text-decoration:none">DOI ↗</a>`
-    : '';
 
-  const srcTag = p.metadata_source === 'openalex'
-    ? '<span class="src-tag">OpenAlex</span>'
-    : p.metadata_source === 'tracker_pdf'
-    ? '<span class="src-tag" style="background:#F0FDF4;color:#166534">PDF tracker</span>'
-    : '';
+  const hasDetail = p.full_citation || p.abstract || p.gs_link ||
+    (Array.isArray(p.institutions) && p.institutions.length) ||
+    (Array.isArray(p.also_cites) && p.also_cites.length);
 
-  const alsoCites = p.also_cites?.length
-    ? `<div class="also-cites">${p.also_cites.map(c => `<span class="also-tag">also cites ${c.toUpperCase()}</span>`).join('')}</div>`
-    : '';
-
-  const hasAbstract = !!p.abstract;
-  const absSection = hasAbstract ? `
-    <button class="toggle-abs" onclick="toggleAbs(${i})">Show abstract</button>
-    <div class="paper-abstract" id="abs-${i}">${p.abstract}</div>
-  ` : '';
+  const titleHTML = p.doi
+    ? `<a href="https://doi.org/${esc(p.doi)}" target="_blank">${esc(p.title || 'Untitled')}</a>`
+    : esc(p.title || 'Untitled');
 
   return `
-    <div class="paper" id="p-${i}">
-      <div class="paper-row1">
-        <div class="paper-title">
-          ${p.doi
-            ? `<a href="https://doi.org/${p.doi}" target="_blank">${p.title}</a>`
-            : (p.title || '<em>Title not yet indexed</em>')}
-          ${srcTag}
-        </div>
-        <span class="badge ${badgeCls}">${badgeTxt}</span>
+    <div class="paper" id="p-${key}">
+      <div class="paper-head">
+        <div class="paper-title">${titleHTML}</div>
+        <div class="paper-badges">${dsBadge}${newPill}${strengthBadge}</div>
       </div>
       <div class="paper-meta">
-        ${authors ? `<span class="authors">${authors}</span>` : ''}
-        ${venueParts.length ? ` · ${venueParts.join(', ')}` : ''}
-        ${doiLink}
+        ${authors ? `<span class="authors">${esc(authors)}</span>` : ''}
+        ${venueParts.length ? ` · ${esc(venueParts.join(', '))}` : ''}
       </div>
-      ${p.use_of_dataset ? `<div class="paper-use">${p.use_of_dataset}</div>` : ''}
-      ${p.key_takeaway && p.key_takeaway !== p.use_of_dataset
-        ? `<div class="paper-takeaway">${p.key_takeaway}</div>` : ''}
-      ${alsoCites}
-      ${absSection}
+      ${p.key_takeaway ? `<div class="paper-takeaway">${esc(p.key_takeaway)}</div>` : ''}
+      ${hasDetail ? `
+        <div class="paper-actions">
+          <button class="btn-action" onclick="toggleDetail('${key}', this)">Show details</button>
+          ${p.full_citation ? `<button class="btn-action" onclick="copyCitation('${key}', this)">Copy citation</button>` : ''}
+        </div>
+        <div class="paper-detail" id="d-${key}" style="display:none">
+          ${paperDetail(p, key)}
+        </div>
+      ` : ''}
     </div>
   `;
 }
 
-function toggleAbs(i) {
-  const el = document.getElementById(`abs-${i}`);
-  const btn = el.previousElementSibling;
-  el.classList.toggle('open');
-  btn.textContent = el.classList.contains('open') ? 'Hide abstract' : 'Show abstract';
+function paperDetail(p, key) {
+  const rows = [];
+  if (p.full_citation) {
+    rows.push(['Citation', `<div class="citation" id="cite-${key}">${esc(p.full_citation)}</div>`]);
+  }
+  if (p.venue) rows.push(['Venue', esc(p.venue)]);
+  if (p.research_type) rows.push(['Research type', esc(p.research_type)]);
+  if (Array.isArray(p.institutions) && p.institutions.length) {
+    rows.push(['Institutions', p.institutions.map(esc).join(' · ')]);
+  }
+  if (Array.isArray(p.country) && p.country.length) {
+    rows.push(['Countries', p.country.map(esc).join(', ')]);
+  }
+  if (Array.isArray(p.also_cites) && p.also_cites.length) {
+    rows.push(['Also cites', p.also_cites.map(c =>
+      `<a href="#/dataset/${esc(c)}">${esc(c.toUpperCase())}</a>`).join(' · ')]);
+  }
+  const links = [];
+  if (p.doi)      links.push(`<a href="https://doi.org/${esc(p.doi)}" target="_blank">DOI ↗</a>`);
+  if (p.gs_link)  links.push(`<a href="${esc(p.gs_link)}" target="_blank">Open paper ↗</a>`);
+  if (links.length) rows.push(['Links', links.join(' · ')]);
+  if (p.abstract) {
+    rows.push(['Abstract', `<div class="abstract">${esc(p.abstract)}</div>`]);
+  }
+  if (!rows.length) return '<div class="empty">No additional details.</div>';
+  return `<dl class="detail-list">${rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl>`;
 }
 
-// ── INIT ──────────────────────────────────────────────────────────────────
+function toggleDetail(key, btn) {
+  const el = document.getElementById(`d-${key}`);
+  if (!el) return;
+  const open = el.style.display !== 'none';
+  el.style.display = open ? 'none' : 'block';
+  btn.textContent = open ? 'Show details' : 'Hide details';
+}
+
+function copyCitation(key, btn) {
+  const el = document.getElementById(`cite-${key}`);
+  if (el) copyText(el.textContent, btn);
+}
+
+function copyText(text, btn) {
+  if (!text) return;
+  const done = () => {
+    const original = btn.textContent;
+    btn.textContent = 'Copied';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1400);
+  };
+  if (navigator.clipboard?.writeText) {
+    navigator.clipboard.writeText(text).then(done, () => fallbackCopy(text, done));
+  } else {
+    fallbackCopy(text, done);
+  }
+}
+function fallbackCopy(text, done) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); done(); }
+  catch (e) { /* swallow */ }
+  document.body.removeChild(ta);
+}
+
+// ── INIT ──────────────────────────────────────────────────────────
 window.addEventListener('hashchange', route);
 route();
 </script>
