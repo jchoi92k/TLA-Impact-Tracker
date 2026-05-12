@@ -480,6 +480,198 @@
       font-size: 0.7rem; color: var(--slate-3);
     }
 
+    /* ─── DATASET ACCESS BUTTONS ─── */
+    .ds-access {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 0.85rem 0 1.5rem;
+    }
+    .ds-access a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.45rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      font-size: 0.8rem; font-weight: 600;
+      color: var(--ink); background: var(--surface);
+      transition: border-color 0.12s, color 0.12s;
+    }
+    .ds-access a:hover {
+      border-color: var(--c, var(--teal));
+      color: var(--c, var(--teal));
+      text-decoration: none;
+    }
+    .ds-access a .arrow { color: var(--slate-3); }
+    .ds-access .license {
+      align-self: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; color: var(--slate-3);
+      letter-spacing: 0.02em;
+    }
+
+    /* ─── CITE DATASET BLOCK ─── */
+    .cite-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 1rem 1.2rem;
+      margin: 1.25rem 0;
+      max-width: 820px;
+    }
+    .cite-lbl {
+      font-size: 0.64rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--slate-2); margin-bottom: 0.5rem;
+    }
+    .cite-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem; line-height: 1.65;
+      color: var(--ink);
+      background: var(--bg);
+      padding: 0.65rem 0.8rem; border-radius: 5px;
+      white-space: pre-wrap;
+      margin-bottom: 0.6rem;
+    }
+    .cite-text a { word-break: break-all; }
+
+    /* ─── RECENT ADDITIONS WIDGET ─── */
+    .recent-list { display: flex; flex-direction: column; gap: 0.45rem; }
+    .recent-row {
+      display: grid;
+      grid-template-columns: max-content 1fr max-content;
+      gap: 0.75rem; align-items: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--c, var(--border));
+      border-radius: 6px;
+      padding: 0.65rem 0.9rem;
+      font-size: 0.85rem;
+    }
+    .recent-row:hover { border-color: #cbd5d3; }
+    .recent-row a { color: var(--ink); }
+    .recent-row a:hover { color: var(--teal); text-decoration: none; }
+    .recent-row .ds-chip {
+      font-size: 0.66rem; font-weight: 700; letter-spacing: 0.04em;
+      padding: 0.18rem 0.55rem; border-radius: 16px;
+    }
+    .recent-row .when {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; color: var(--slate-3);
+    }
+    .recent-row .ttl {
+      font-size: 0.85rem; font-weight: 500;
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+
+    /* ─── EXPORT MENU ─── */
+    .export-wrap { position: relative; display: inline-block; }
+    .export-btn {
+      font-family: inherit; font-size: 0.75rem; font-weight: 500;
+      padding: 0.32rem 0.78rem; border-radius: 20px;
+      border: 1px solid var(--border); background: var(--surface);
+      color: var(--slate); cursor: pointer;
+      transition: all 0.12s;
+    }
+    .export-btn:hover { border-color: var(--teal); color: var(--teal); }
+    .export-menu {
+      display: none; position: absolute; top: calc(100% + 4px); right: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      min-width: 180px; z-index: 30;
+      overflow: hidden;
+    }
+    .export-menu.open { display: block; }
+    .export-menu button {
+      display: flex; align-items: center; gap: 0.5rem;
+      width: 100%; padding: 0.55rem 0.85rem;
+      font-family: inherit; font-size: 0.78rem;
+      background: none; border: none; color: var(--ink);
+      cursor: pointer; text-align: left;
+    }
+    .export-menu button:hover { background: var(--bg); color: var(--teal); }
+    .export-menu .meta {
+      font-size: 0.7rem; color: var(--slate-3); margin-left: auto;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ─── PERMALINK ICON (deep-link to paper) ─── */
+    .btn-permalink {
+      background: none; border: none; cursor: pointer;
+      font-size: 0.95rem; color: var(--slate-3);
+      padding: 0 0.2rem; line-height: 1;
+      transition: color 0.12s;
+    }
+    .btn-permalink:hover { color: var(--teal); }
+    .btn-permalink.copied { color: var(--strong); }
+    .paper.deep-linked {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px var(--teal-bg);
+    }
+
+    /* ─── ABOUT PAGE ─── */
+    .about-page { max-width: 760px; padding: 2rem 0 4rem; }
+    .about-page h1 {
+      font-size: 1.7rem; font-weight: 700;
+      letter-spacing: -0.02em; margin-bottom: 0.5rem;
+    }
+    .about-page .lede {
+      color: var(--slate); font-size: 0.98rem;
+      line-height: 1.7; margin-bottom: 2.25rem;
+    }
+    .about-page h2 {
+      font-size: 1.05rem; font-weight: 700;
+      margin: 2rem 0 0.6rem;
+      letter-spacing: -0.01em;
+    }
+    .about-page p {
+      color: var(--ink); font-size: 0.9rem;
+      line-height: 1.75; margin-bottom: 0.85rem;
+      max-width: 680px;
+    }
+    .about-page ul {
+      margin: 0.4rem 0 1rem 1.25rem;
+      font-size: 0.88rem; line-height: 1.75;
+    }
+    .about-page li { margin-bottom: 0.35rem; }
+    .about-page code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      background: var(--bg); padding: 0.08rem 0.35rem;
+      border-radius: 3px;
+    }
+    .about-page .source-table {
+      width: 100%; border-collapse: collapse;
+      margin: 0.5rem 0 1.5rem;
+      font-size: 0.84rem;
+    }
+    .about-page .source-table th, .about-page .source-table td {
+      padding: 0.5rem 0.7rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border-2);
+      vertical-align: top;
+    }
+    .about-page .source-table th {
+      font-size: 0.66rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--slate-2);
+    }
+    .about-page .meta-row {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: var(--slate-3);
+      margin-top: 2.5rem; padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ─── NAV ABOUT LINK ─── */
+    .nav-about {
+      font-size: 0.72rem; color: var(--slate-3);
+      font-weight: 500; padding: 0.3rem 0.5rem;
+      border-radius: 5px;
+      margin-right: 0.4rem;
+    }
+    .nav-about:hover { color: var(--teal); text-decoration: none; }
+    .nav-about.active { color: var(--teal); }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 780px) {
       .nav-main { padding: 0 1rem; gap: 0.5rem; }
@@ -499,6 +691,7 @@
   <nav class="nav-main">
     <a href="#/" class="brand">TLA · <span class="accent">Impact</span></a>
     <div class="nav-ds" id="navDs"></div>
+    <a href="#/about" class="nav-about" id="navAboutLink">About</a>
     <div class="nav-updated" id="navUpdated"></div>
   </nav>
   <div class="nav-search-row">
@@ -563,7 +756,13 @@ async function loadAllPapers() {
 // ── ROUTING ───────────────────────────────────────────────────────
 function getRoute() {
   const h = location.hash || '#/';
-  if (h.startsWith('#/dataset/')) return { page: 'dataset', id: h.slice(10) };
+  if (h.startsWith('#/about')) return { page: 'about' };
+  if (h.startsWith('#/dataset/')) {
+    const after = h.slice(10);
+    const [id, qstr] = after.split('?');
+    const params = new URLSearchParams(qstr || '');
+    return { page: 'dataset', id, paper: params.get('paper') || null };
+  }
   if (h.startsWith('#/search')) {
     const qstr = h.split('?')[1] || '';
     const q = decodeURIComponent((qstr.match(/(?:^|&)q=([^&]*)/) || [,''])[1]);
@@ -574,8 +773,9 @@ function getRoute() {
 async function route() {
   const r = getRoute();
   try {
-    if (r.page === 'dataset')      await renderDataset(r.id);
+    if (r.page === 'dataset')      await renderDataset(r.id, r.paper);
     else if (r.page === 'search')  await renderSearch(r.q);
+    else if (r.page === 'about')   await renderAbout();
     else                           await renderHome();
   } catch (e) {
     document.getElementById('app').innerHTML =
@@ -596,6 +796,8 @@ function buildNav(activeId) {
   const r = getRoute();
   const ns = document.getElementById('navSearch');
   if (ns && r.page !== 'search' && !ns.matches(':focus')) ns.value = '';
+  const aboutLink = document.getElementById('navAboutLink');
+  if (aboutLink) aboutLink.classList.toggle('active', r.page === 'about');
 }
 
 let _searchTimer = null;
@@ -611,6 +813,98 @@ function onSearchInput(val) {
       location.hash = `#/search?q=${q}`;
     }
   }, 220);
+}
+
+// ── ABOUT ─────────────────────────────────────────────────────────
+async function renderAbout() {
+  const app = document.getElementById('app');
+  app.innerHTML = '<div class="loading"><span class="spinner"></span>Loading…</div>';
+  const m = await loadMeta();
+  buildNav(null);
+
+  const total = m.datasets.reduce((s, d) => s + (d.citation_count || 0), 0);
+
+  app.innerHTML = `
+    <div class="about-page">
+      <h1>About this tracker</h1>
+      <p class="lede">
+        The TLA Open Datasets Impact Tracker monitors how The Learning Agency's open datasets
+        — PERSUADE&nbsp;2.0, PIILO, KLiCKe, ASAP&nbsp;2.0, AIDE, and Jo&nbsp;Wilder — are cited
+        in academic research. As of ${esc(m.last_updated || '')}, the tracker covers
+        <strong>${total} citing papers</strong> across <strong>${m.datasets.length} datasets</strong>.
+      </p>
+
+      <h2>How citations are discovered</h2>
+      <p>
+        Each quarter (now monthly), an automated sweep queries Google Scholar's
+        "Cited by" page for each dataset's anchor paper and extracts the full list of
+        citing works. Where available, paper metadata (full citation, authors,
+        institutions, country) is enriched via the OpenAlex API and arXiv. For datasets
+        without a peer-reviewed anchor paper, citations are tracked via search on the
+        dataset's DOI or Kaggle URL.
+      </p>
+      <p>
+        Discovery is intentionally generous: Google Scholar surfaces more citations
+        than indexed-journal databases (it covers preprints, theses, and conference
+        papers), at the cost of some false positives. The review step (below) filters those out.
+      </p>
+
+      <h2>How papers are reviewed</h2>
+      <p>
+        New citing papers go through a two-stage review before appearing on the site:
+      </p>
+      <ul>
+        <li><strong>AI pre-judgment.</strong> For each paper, an LLM reads the abstract
+          and assigns: connection strength (strong / moderate / weak), a 1–2 sentence
+          interpretive takeaway, and a short research-type label. Papers with weak or
+          unclear connections are flagged for manual review rather than auto-approved.</li>
+        <li><strong>Human review.</strong> A TLA team member reviews AI suggestions,
+          adjusts where needed, and approves or rejects each paper before it lands on
+          this site. Rejected papers are remembered to prevent re-surfacing next sweep.</li>
+      </ul>
+
+      <h2>What "connection strength" means</h2>
+      <table class="source-table">
+        <thead><tr><th>Label</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Strong</strong></td><td>The paper directly uses the dataset for training, evaluation, or experiments. The abstract typically names it explicitly.</td></tr>
+          <tr><td><strong>Moderate</strong></td><td>The paper references the dataset for comparison, builds on closely related methods, or treats it as a sister-resource — without using it as the experimental subject.</td></tr>
+          <tr><td><strong>Weak</strong></td><td>The paper mentions the dataset peripherally — survey, related-work list, or background — with no substantive engagement.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Honest caveats</h2>
+      <ul>
+        <li>The reviewer LLM sees only the abstract, not the full paper. Where an abstract doesn't name the dataset by name, the strength label is a hedged inference from topic + the fact that GS placed the paper in the "Cited by" cluster.</li>
+        <li>Reproducibility: a different LLM run on the same abstract should produce the same bucket, but borderline moderate/weak cases are genuinely uncertain. Human reviewers correct these on a per-paper basis.</li>
+        <li>The "Direct use / Reference / Incidental" counts on each dataset page are auto-derived from the strength labels. They are interpretive groupings, not verified counts.</li>
+        <li>Google Scholar's "Cited by" lists are imperfect — they miss some citations and include some false positives. We rely on them as the discovery starting point, not the source of truth.</li>
+      </ul>
+
+      <h2>Open source + reproducibility</h2>
+      <p>
+        The site code, dataset metadata, and citation records are open at
+        <a href="https://github.com/jchoi92k/TLA-Impact-Tracker" target="_blank">github.com/jchoi92k/TLA-Impact-Tracker</a>.
+        Each per-paper JSON record exposes its provenance: <code>abstract_source</code>
+        (openalex / arxiv_api / page_meta / manual), <code>metadata_source</code>
+        (gs_scrape / tracker_pdf / manual), and <code>first_tracked</code> (which monthly sweep first added the paper).
+      </p>
+
+      <h2>Cite or reuse data from this site</h2>
+      <p>
+        Each dataset page includes a "Cite this dataset" block. The raw paper records
+        are available in JSON at <code>/data/&lt;dataset-id&gt;.json</code> — feel free
+        to fetch them for your own analyses. If you build something on top of this
+        tracker, drop us a note.
+      </p>
+
+      <div class="meta-row">
+        Last data refresh: ${esc(m.last_updated || '—')} &nbsp;·&nbsp;
+        Next sweep due: ${esc(m.next_sweep_due || '—')} &nbsp;·&nbsp;
+        Maintained by The Learning Agency
+      </div>
+    </div>
+  `;
 }
 
 // ── HOME ──────────────────────────────────────────────────────────
@@ -641,6 +935,14 @@ async function renderHome() {
     <div class="ds-grid">${m.datasets.map(dsCard).join('')}</div>
 
     <div class="sec-head" style="margin-top:2.5rem">
+      <h2>Recent additions</h2>
+      <span class="meta" id="recentMeta">loading…</span>
+    </div>
+    <div id="recentList" class="recent-list">
+      <div class="loading"><span class="spinner"></span>Loading…</div>
+    </div>
+
+    <div class="sec-head" style="margin-top:2.5rem">
       <h2>Browse across datasets</h2>
       <span class="meta" id="crossMeta">loading…</span>
     </div>
@@ -657,7 +959,45 @@ async function renderHome() {
   `;
 
   await loadAllPapers();
+  renderRecent();
   renderCross();
+}
+
+function renderRecent() {
+  const el = document.getElementById('recentList');
+  const metaEl = document.getElementById('recentMeta');
+  if (!el || !allPapersCache) return;
+  // Sort by first_tracked (most recent first), break ties by year desc
+  const sorted = allPapersCache.slice().sort((a, b) => {
+    const ta = a.first_tracked || ''; const tb = b.first_tracked || '';
+    if (ta !== tb) return tb.localeCompare(ta);
+    return (b.year || 0) - (a.year || 0);
+  });
+  const recent = sorted.slice(0, 8);
+  if (!recent.length) {
+    el.innerHTML = '<div class="empty">No papers yet.</div>';
+    if (metaEl) metaEl.textContent = '';
+    return;
+  }
+  const newest = recent[0]?.first_tracked;
+  if (metaEl) metaEl.textContent = newest ? `newest tracked ${newest}` : '';
+
+  el.innerHTML = recent.map(p => {
+    const ds = p._ds;
+    const link = p.doi
+      ? `https://doi.org/${esc(p.doi)}`
+      : (p.gs_link || `#/dataset/${esc(ds?.id || '')}?paper=${esc(p.id)}`);
+    return `
+      <div class="recent-row" style="--c:${ds?.color || 'var(--border)'}">
+        <a href="#/dataset/${esc(ds?.id || '')}?paper=${esc(p.id)}"
+           class="ds-chip"
+           style="background:${ds?.color}22;color:${ds?.color}">${esc(ds?.display_name || '')}</a>
+        <a href="${esc(link)}" ${link.startsWith('#') ? '' : 'target="_blank"'} class="ttl"
+           title="${esc(p.title || '')}">${esc(p.title || 'Untitled')}</a>
+        <span class="when">${esc(p.first_tracked || '')} · ${esc(p.year || '')}</span>
+      </div>
+    `;
+  }).join('');
 }
 
 function dsCard(d) {
@@ -718,7 +1058,7 @@ function renderCross() {
 }
 
 // ── DATASET PAGE ──────────────────────────────────────────────────
-async function renderDataset(id) {
+async function renderDataset(id, focusPaperId) {
   const app = document.getElementById('app');
   app.innerHTML = '<div class="loading"><span class="spinner"></span>Loading…</div>';
 
@@ -732,8 +1072,23 @@ async function renderDataset(id) {
   _dsFilter = 'all';
   _dsSearch = '';
 
-  const doiLine = data.meta?.paper_doi
-    ? `<div class="ds-doi">paper: <a href="https://doi.org/${esc(data.meta.paper_doi)}" target="_blank">${esc(data.meta.paper_doi)} ↗</a></div>`
+  const doiLine = cfg.paper_doi
+    ? `<div class="ds-doi">paper: <a href="https://doi.org/${esc(cfg.paper_doi)}" target="_blank">${esc(cfg.paper_doi)} ↗</a></div>`
+    : '';
+
+  // Dataset access buttons (Kaggle / DOI / license)
+  const accessLinks = [];
+  if (cfg.kaggle_url) {
+    accessLinks.push(`<a href="${esc(cfg.kaggle_url)}" target="_blank">📊 Get the dataset on Kaggle <span class="arrow">↗</span></a>`);
+  }
+  if (cfg.paper_doi) {
+    accessLinks.push(`<a href="https://doi.org/${esc(cfg.paper_doi)}" target="_blank">📄 Read the paper <span class="arrow">↗</span></a>`);
+  }
+  if (cfg.license) {
+    accessLinks.push(`<span class="license">License · ${esc(cfg.license)}</span>`);
+  }
+  const accessHTML = accessLinks.length
+    ? `<div class="ds-access" style="--c:${color}">${accessLinks.join('')}</div>`
     : '';
 
   const flagged = _dsPapers.filter(p => p.status === 'flagged').length;
@@ -744,6 +1099,7 @@ async function renderDataset(id) {
       <div class="ds-title">${esc(data.meta?.display_name || id)}</div>
       ${doiLine}
       <div class="ds-desc">${esc(data.meta?.description || '')}</div>
+      ${accessHTML}
       <div class="stat-row">
         <div><div class="stat-val" style="color:${color}">${s.total_citations || _dsPapers.length}</div><div class="stat-lbl">Total</div></div>
         ${s.directly_used != null ? `<div><div class="stat-val">${s.directly_used}</div><div class="stat-lbl">Direct use <span class="info-tip" data-tip="AI-judged from each paper&#39;s abstract: the paper directly uses ${esc(cfg.display_name || id)} for training, evaluation, or experiments. These three buckets (Direct / Reference / Incidental) are auto-computed from connection_strength — they&#39;re interpretive guesses, not verified counts. Override in the tracker if you disagree.">i</span></div></div>` : ''}
@@ -756,6 +1112,7 @@ async function renderDataset(id) {
         <div class="narrative-text" id="narrativeText"></div>
         <button class="btn-action" onclick="copyNarrative(this)">Copy summary</button>
       </div>
+      ${citeBlockHTML(cfg)}
     </div>
 
     <div class="pill-row">
@@ -766,12 +1123,74 @@ async function renderDataset(id) {
       <button class="pill" onclick="dsFilt('weak', this)">Weak</button>
       ${flagged ? `<button class="pill" onclick="dsFilt('flagged', this)">⚑ Flagged (${flagged})</button>` : ''}
       <input class="pill-search" type="search" placeholder="Search papers…" oninput="dsSrch(this.value)">
+      <div class="export-wrap" style="margin-left:0.4rem">
+        <button class="export-btn" onclick="toggleExportMenu(event)">Export ▾</button>
+        <div class="export-menu" id="exportMenu">
+          <button onclick="exportDataset('${esc(id)}','csv')">CSV <span class="meta">.csv</span></button>
+          <button onclick="exportDataset('${esc(id)}','bibtex')">BibTeX <span class="meta">.bib</span></button>
+          <button onclick="exportDataset('${esc(id)}','json')">Raw JSON <span class="meta">.json</span></button>
+        </div>
+      </div>
     </div>
     <div id="dsList" class="papers"></div>
   `;
 
   document.getElementById('narrativeText').textContent = generateNarrative(cfg, data);
   renderDsPapers();
+
+  // Deep-link: if route specified ?paper=ID, scroll to + flash-highlight it
+  if (focusPaperId) {
+    setTimeout(() => focusPaper(focusPaperId), 60);
+  }
+
+  // Close export menu on outside click
+  document.addEventListener('click', closeExportMenuOnOutsideClick);
+}
+
+function citeBlockHTML(cfg) {
+  // Build a citation: prefer explicit citation_string from metadata, then
+  // construct minimal fallback from what we know. Never invent author names.
+  let body;
+  if (cfg.citation_string) {
+    body = `<div class="cite-text">${esc(cfg.citation_string)}</div>`;
+  } else if (cfg.paper_doi) {
+    body = `<div class="cite-text">Cite via DOI: <a href="https://doi.org/${esc(cfg.paper_doi)}" target="_blank">https://doi.org/${esc(cfg.paper_doi)}</a>
+Use a citation manager (Zotero, Mendeley, doi.org/cite) to render in your preferred style.</div>`;
+  } else if (cfg.kaggle_url) {
+    body = `<div class="cite-text">Cite the dataset's Kaggle page:
+${esc(cfg.kaggle_url)}
+
+Kaggle provides a "Cite this dataset" button on the competition / dataset page itself.</div>`;
+  } else {
+    return '';  // nothing to cite — skip the block
+  }
+  return `
+    <div class="cite-block">
+      <div class="cite-lbl">Cite this dataset</div>
+      ${body}
+      <button class="btn-action" onclick="copyCiteBlock(this)">Copy citation</button>
+    </div>
+  `;
+}
+
+function copyCiteBlock(btn) {
+  const txt = btn.parentElement.querySelector('.cite-text')?.textContent || '';
+  copyText(txt.trim(), btn);
+}
+
+function focusPaper(paperId) {
+  const cards = document.querySelectorAll('#dsList .paper');
+  let target = null;
+  cards.forEach(c => { if (c.dataset.paperId === paperId) target = c; });
+  if (!target) return;
+  target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  target.classList.add('deep-linked');
+  // Auto-expand the detail panel if not already open
+  const detail = target.querySelector('.paper-detail');
+  const toggleBtn = target.querySelector('.btn-action');
+  if (detail && detail.style.display === 'none' && toggleBtn) toggleBtn.click();
+  // Flash highlight fades after 4s
+  setTimeout(() => target.classList.remove('deep-linked'), 4000);
 }
 
 function generateNarrative(cfg, data) {
@@ -917,8 +1336,12 @@ function paperCard(p, key, showDs) {
     ? `<a href="https://doi.org/${esc(p.doi)}" target="_blank">${esc(p.title || 'Untitled')}</a>`
     : esc(p.title || 'Untitled');
 
+  // dataset id for the permalink button — try _ds (cross-context) then fall
+  // back to p.dataset (set on per-dataset papers)
+  const dsIdForLink = p._ds?.id || p.dataset || '';
+
   return `
-    <div class="paper" id="p-${key}">
+    <div class="paper" id="p-${key}" data-paper-id="${esc(p.id)}">
       <div class="paper-head">
         <div class="paper-title">${titleHTML}</div>
         <div class="paper-badges">${dsBadge}${newPill}${strengthBadge}</div>
@@ -932,6 +1355,7 @@ function paperCard(p, key, showDs) {
         <div class="paper-actions">
           <button class="btn-action" onclick="toggleDetail('${key}', this)">Show details</button>
           ${p.full_citation ? `<button class="btn-action" onclick="copyCitation('${key}', this)">Copy citation</button>` : ''}
+          ${dsIdForLink ? `<button class="btn-permalink" title="Copy link to this paper" onclick="copyPermalink('${esc(dsIdForLink)}','${esc(p.id)}', this)">🔗</button>` : ''}
         </div>
         <div class="paper-detail" id="d-${key}" style="display:none">
           ${paperDetail(p, key)}
@@ -980,6 +1404,83 @@ function toggleDetail(key, btn) {
 function copyCitation(key, btn) {
   const el = document.getElementById(`cite-${key}`);
   if (el) copyText(el.textContent, btn);
+}
+
+// ── EXPORT (CSV / BibTeX / JSON) ──────────────────────────────────
+function toggleExportMenu(e) {
+  e.stopPropagation();
+  document.getElementById('exportMenu')?.classList.toggle('open');
+}
+function closeExportMenuOnOutsideClick(e) {
+  const menu = document.getElementById('exportMenu');
+  if (menu && !e.target.closest('.export-wrap')) menu.classList.remove('open');
+}
+
+function downloadBlob(content, mime, filename) {
+  const blob = new Blob([content], { type: mime + ';charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  document.getElementById('exportMenu')?.classList.remove('open');
+}
+
+function csvCell(v) {
+  if (v == null) return '';
+  if (Array.isArray(v)) v = v.join('; ');
+  const s = String(v);
+  // Always quote — safer when fields contain commas, newlines, quotes.
+  return '"' + s.replace(/"/g, '""').replace(/\r?\n/g, ' ') + '"';
+}
+
+function exportDataset(dsId, format) {
+  const cfg = meta?.datasets.find(d => d.id === dsId);
+  const papers = _dsPapers || [];
+  const date = new Date().toISOString().slice(0, 10);
+  const safeName = dsId.replace(/[^a-z0-9_-]/gi, '_');
+
+  if (format === 'csv') {
+    const cols = ['id','title','authors','year','venue','doi','connection_strength',
+                  'research_type','key_takeaway','also_cites','first_tracked','gs_link'];
+    const lines = [cols.map(csvCell).join(',')];
+    for (const p of papers) {
+      lines.push(cols.map(c => csvCell(p[c])).join(','));
+    }
+    downloadBlob(lines.join('\n'), 'text/csv', `${safeName}-citations-${date}.csv`);
+  }
+  else if (format === 'bibtex') {
+    const entries = papers.map(p => {
+      const key = (p.id || 'paper').replace(/[^a-z0-9_-]/gi, '_');
+      const type = p.doi ? '@article' : '@misc';
+      const fields = [];
+      if (p.authors) {
+        const auths = Array.isArray(p.authors) ? p.authors.join(' and ') : p.authors;
+        fields.push(`  author    = {${auths}}`);
+      }
+      if (p.title)  fields.push(`  title     = {${p.title}}`);
+      if (p.venue)  fields.push(`  journal   = {${p.venue}}`);
+      if (p.year)   fields.push(`  year      = {${p.year}}`);
+      if (p.doi)    fields.push(`  doi       = {${p.doi}}`);
+      if (p.gs_link && !p.doi) fields.push(`  url       = {${p.gs_link}}`);
+      return `${type}{${key},\n${fields.join(',\n')}\n}`;
+    });
+    const header = `% ${cfg?.display_name || dsId} — citations exported from TLA Impact Tracker (${date})\n% ${papers.length} entries\n\n`;
+    downloadBlob(header + entries.join('\n\n') + '\n', 'application/x-bibtex', `${safeName}-citations-${date}.bib`);
+  }
+  else if (format === 'json') {
+    // Just stream the raw data file the user can already access
+    const payload = JSON.stringify({ dataset: dsId, exported: date, papers }, null, 2);
+    downloadBlob(payload, 'application/json', `${safeName}-citations-${date}.json`);
+  }
+}
+
+// ── PERMALINK (deep-link to a paper) ──────────────────────────────
+function copyPermalink(dsId, paperId, btn) {
+  const url = `${location.origin}${location.pathname}#/dataset/${dsId}?paper=${paperId}`;
+  copyText(url, btn);
+  btn.classList.add('copied');
+  setTimeout(() => btn.classList.remove('copied'), 1500);
 }
 
 function copyText(text, btn) {
