@@ -9,15 +9,17 @@
     "last_updated": "2026-05"
   },
   "summary": {
-    "total_citations": 9,
-    "directly_used": 1,
-    "reference_comparison": 7,
+    "total_citations": 11,
+    "directly_used": 2,
+    "reference_comparison": 8,
     "incidental_peripheral": 1,
     "countries": [
       "Egypt",
       "Finland",
       "Germany",
+      "Italy",
       "Netherlands",
+      "Norway",
       "South Korea",
       "Sweden",
       "USA"
@@ -300,6 +302,70 @@
       "connection_strength": "moderate",
       "research_type": "PII NER / Data Leakage Prevention",
       "key_takeaway": "Moderate connection. Trains a BERT-CRF model for PII NER on a 43,000-record corpus across 109 PII labels. F1 0.9236, beating RoBERTa-DLP (0.9012) and BiLSTM-CRF (0.8421). Same problem domain as PIILO; uses its own DLP-focused dataset.",
+      "also_cites": [],
+      "first_tracked": "2026-05",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "piilo-detecting-2025",
+      "dataset": "piilo",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://www.mdpi.com/2571-5577/8/2/55",
+      "title": "Detecting personally identifiable information through natural language processing: A step forward",
+      "authors": [
+        "Luca Mainetti",
+        "Andrea Elia"
+      ],
+      "institutions": [
+        "University of Salento"
+      ],
+      "country": [
+        "Italy"
+      ],
+      "year": 2025,
+      "published_date": null,
+      "doi": "10.3390/asi8020055",
+      "venue": "Applied System Innovation",
+      "venue_type": null,
+      "full_citation": "Mainetti, L., & Elia, A. (2025). Detecting personally identifiable information through natural language processing: A step forward. Applied System Innovation, 8(2), 55.",
+      "abstract": "The protection of personally identifiable information (PII) is being increasingly demanded by customers and governments via data protection regulations. Private and public organizations store and exchange through the Internet a large amount of data that include the personal information of users, employees, and customers. While discovering PII from a large unstructured text corpus is still challenging, a lot of research work has focused on identifying methods and tools for the detection of PII in real-time scenarios and the ability to discover data exfiltration attacks. In those research attempts, natural language processing (NLP)-based schemas are widely adopted. Our work combines NLP with deep learning to identify PII in unstructured texts. NLP is used to extract semantic information and the syntactic structure of the text. This information is then processed by a pre-trained Bidirectional Encoder Representations from Transformers (BERT) algorithm. We achieved high performance in detecting PII, reaching an accuracy of 99.558%. This represents an improvement of 7.47 percentage points over the current state-of-the-art model that we analyzed. However, the experimental results show that there is still room for improvement to obtain better accuracy in detecting PII, including working on a new, balanced, and higher-quality training dataset for pre-trained models. Our study contributions encourage researchers to enhance NLP-based PII detection models and practitioners to transform those models into privacy detection tools to be deployed in security operation centers.",
+      "abstract_source": "openalex",
+      "connection_strength": "strong",
+      "research_type": "PII detection / BERT-NLP",
+      "key_takeaway": "Strong connection. NLP + deep-learning approach to PII detection in unstructured text, using BERT for semantic + syntactic features. Reports 99.558% accuracy — a 7.47pp improvement over prior methods. Directly in PIILO's problem space; almost certainly benchmarks against or extends PIILO-style work.",
+      "also_cites": [],
+      "first_tracked": "2026-05",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "piilo-contextual-2026",
+      "dataset": "piilo",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://www.mdpi.com/2624-800X/6/2/74",
+      "title": "Contextual Integrity in Large Language Models: A Review",
+      "authors": [
+        "Ahmad Hassanpour",
+        "Bian Yang"
+      ],
+      "institutions": [
+        "Norwegian University of Science and Technology"
+      ],
+      "country": [
+        "Norway"
+      ],
+      "year": 2026,
+      "published_date": null,
+      "doi": "10.3390/jcp6020074",
+      "venue": "Journal of Cybersecurity and Privacy",
+      "venue_type": null,
+      "full_citation": "Hassanpour, A., & Yang, B. (2026). Contextual Integrity in Large Language Models: A Review. Journal of Cybersecurity and Privacy, 6(2), 74.",
+      "abstract": "The rapid advancements in large language models (LLMs) have transformed natural language processing, enabling their application in diverse domains such as conversational agents and decision-support systems in sensitive areas like healthcare, finance, and eldercare. However, as LLMs are increasingly integrated into real-world contexts, concerns about their adherence to ethical principles, privacy norms, and contextual expectations have become critical. Privacy preservation is particularly pressing in interactions involving personal or sensitive data, where ensuring that LLMs align with societal norms while mitigating risks of information leakage is essential to fostering trust and ensuring responsible deployment. Contextual integrity (CI) provides a robust framework to address these challenges, emphasizing that information flows should adhere to context-specific social norms. This principle is especially vital in sensitive applications, where LLMs must evaluate roles, information attributes, and transmission principles to maintain ethical behavior. Despite their linguistic proficiency, LLMs often fail to recognize and adapt to nuanced contextual norms, a limitation exacerbated by their probabilistic nature and the biases in their training data, which can lead to inappropriate or harmful outputs. Addressing these shortcomings requires rigorous evaluation methodologies and fine-tuning strategies that embed societal and contextual norms into the models.",
+      "abstract_source": "openalex",
+      "connection_strength": "moderate",
+      "research_type": "LLM privacy / contextual-integrity review",
+      "key_takeaway": "Moderate connection. Review paper on Contextual Integrity as a framework for LLM privacy preservation (healthcare/finance/eldercare contexts). Closely related to PIILO's domain — PII handling in LLM-mediated interactions — and likely cites PIILO as an example educational PII resource within a broader survey.",
       "also_cites": [],
       "first_tracked": "2026-05",
       "status": "confirmed",

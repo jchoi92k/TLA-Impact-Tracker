@@ -105,6 +105,8 @@ These principles **resolve tensions** that recur in dashboard design:
 
 **Applied:** The home hero is informational, not promotional. Stats are the largest type on the page, not headlines. Motion is reserved for state confirmation (a copy button briefly turning teal).
 
+**No emojis in public UI.** Pictograms like 📊 📄 🔗 ⚑ look casual and inconsistent across platforms (they render differently on Windows/macOS/Linux/mobile). Use text labels and typographic Unicode arrows (`↗`, `→`, `←`) instead. Internal-only tooling (`misc/tracker.html`) is free to use emojis where they improve editor affordances (e.g. `⚠` next to a missing-abstract banner). The boundary is "is this rendered to org-external visitors": if yes, no emojis.
+
 ---
 
 ## Applying the recurring tensions

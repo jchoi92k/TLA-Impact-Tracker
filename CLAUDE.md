@@ -6,6 +6,26 @@
 
 **Only `connection_strength`, `research_type`, `key_takeaway`, and `also_cites` are allowed to be judgment calls** — these are explicitly analytical fields that require interpretation. `ai_suggestion` is also a judgment field (AI-generated, user-reviewable). The `use_of_dataset` field was removed in 2026-05 as too speculative when generated from abstract alone.
 
+## Internal vs public fields
+
+These fields are **internal-only** and must NOT appear in the public UI:
+- `summary.note` (in `data/*.json`) — annotation for maintainers ("Tracked via two GS clusters", "First sweep pending"). The narrative blurb generator in `index.html` does not include this; do not change that.
+- `gs_link`, `metadata_source`, `abstract_source`, `ai_suggestion` — provenance tags useful for the tracker UI / data integrity, but not rendered publicly.
+
+These fields are **public-facing**:
+- All other paper fields (title, authors, year, venue, doi, abstract, country, institutions, connection_strength, research_type, key_takeaway, also_cites, full_citation).
+- Per-dataset `meta.description`, `meta.paper_doi`, `kaggle_url`, `citation_string`, `license`.
+
+## Metadata schema (per dataset in `data/metadata.json`)
+
+- `citation_string`: explicit, hand-curated APA-style citation for the dataset itself. Used by the "Cite this dataset" block on each dataset page. If null, the block is hidden entirely — do not auto-generate citations from partial info.
+- `license`: short license label (e.g. "CC BY 4.0"). Renders next to the dataset access buttons when present.
+- `kaggle_url`, `paper_doi`: drive the access buttons in the dataset page header.
+
+## Public UI styling rules
+
+- **No emojis** in `index.html`. Typographic Unicode arrows (`↗`, `→`) are fine — emoji pictograms (📊, 📄, 🔗, etc.) are not. The internal `misc/tracker.html` may use emojis for editor affordances.
+
 ### `connection_strength` rubric (AI-judged from abstract)
 
 Used by Claude during the AI-judging step. Document anywhere it changes.

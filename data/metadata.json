@@ -26,10 +26,10 @@
       "published_year": 2023,
       "data_file": "data/piilo.json",
       "kaggle_url": null,
-      "paper_doi": null,
-      "citation_string": null,
+      "paper_doi": "10.1108/ILS-04-2023-0032",
+      "citation_string": "Holmes, L., Crossley, S., Sikka, H., & Morris, W. (2023). PIILO: an open-source system for personally identifiable information labeling and obfuscation. Information and Learning Sciences, 124(9-10), 266–284. https://doi.org/10.1108/ILS-04-2023-0032",
       "license": null,
-      "citation_count": 9,
+      "citation_count": 11,
       "color": "#60A5FA"
     },
     {

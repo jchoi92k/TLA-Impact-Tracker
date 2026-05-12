@@ -594,15 +594,7 @@
       font-family: 'JetBrains Mono', monospace;
     }
 
-    /* ─── PERMALINK ICON (deep-link to paper) ─── */
-    .btn-permalink {
-      background: none; border: none; cursor: pointer;
-      font-size: 0.95rem; color: var(--slate-3);
-      padding: 0 0.2rem; line-height: 1;
-      transition: color 0.12s;
-    }
-    .btn-permalink:hover { color: var(--teal); }
-    .btn-permalink.copied { color: var(--strong); }
+    /* ─── DEEP-LINKED PAPER HIGHLIGHT ─── */
     .paper.deep-linked {
       border-color: var(--teal);
       box-shadow: 0 0 0 3px var(--teal-bg);
@@ -1079,10 +1071,10 @@ async function renderDataset(id, focusPaperId) {
   // Dataset access buttons (Kaggle / DOI / license)
   const accessLinks = [];
   if (cfg.kaggle_url) {
-    accessLinks.push(`<a href="${esc(cfg.kaggle_url)}" target="_blank">📊 Get the dataset on Kaggle <span class="arrow">↗</span></a>`);
+    accessLinks.push(`<a href="${esc(cfg.kaggle_url)}" target="_blank">Get the dataset on Kaggle <span class="arrow">↗</span></a>`);
   }
   if (cfg.paper_doi) {
-    accessLinks.push(`<a href="https://doi.org/${esc(cfg.paper_doi)}" target="_blank">📄 Read the paper <span class="arrow">↗</span></a>`);
+    accessLinks.push(`<a href="https://doi.org/${esc(cfg.paper_doi)}" target="_blank">Read the paper <span class="arrow">↗</span></a>`);
   }
   if (cfg.license) {
     accessLinks.push(`<span class="license">License · ${esc(cfg.license)}</span>`);
@@ -1121,7 +1113,7 @@ async function renderDataset(id, focusPaperId) {
       <button class="pill" onclick="dsFilt('strong', this)">Strong</button>
       <button class="pill" onclick="dsFilt('moderate', this)">Moderate</button>
       <button class="pill" onclick="dsFilt('weak', this)">Weak</button>
-      ${flagged ? `<button class="pill" onclick="dsFilt('flagged', this)">⚑ Flagged (${flagged})</button>` : ''}
+      ${flagged ? `<button class="pill" onclick="dsFilt('flagged', this)">Flagged (${flagged})</button>` : ''}
       <input class="pill-search" type="search" placeholder="Search papers…" oninput="dsSrch(this.value)">
       <div class="export-wrap" style="margin-left:0.4rem">
         <button class="export-btn" onclick="toggleExportMenu(event)">Export ▾</button>
@@ -1148,26 +1140,14 @@ async function renderDataset(id, focusPaperId) {
 }
 
 function citeBlockHTML(cfg) {
-  // Build a citation: prefer explicit citation_string from metadata, then
-  // construct minimal fallback from what we know. Never invent author names.
-  let body;
-  if (cfg.citation_string) {
-    body = `<div class="cite-text">${esc(cfg.citation_string)}</div>`;
-  } else if (cfg.paper_doi) {
-    body = `<div class="cite-text">Cite via DOI: <a href="https://doi.org/${esc(cfg.paper_doi)}" target="_blank">https://doi.org/${esc(cfg.paper_doi)}</a>
-Use a citation manager (Zotero, Mendeley, doi.org/cite) to render in your preferred style.</div>`;
-  } else if (cfg.kaggle_url) {
-    body = `<div class="cite-text">Cite the dataset's Kaggle page:
-${esc(cfg.kaggle_url)}
-
-Kaggle provides a "Cite this dataset" button on the competition / dataset page itself.</div>`;
-  } else {
-    return '';  // nothing to cite — skip the block
-  }
+  // Only show the cite block when we have a real, useful citation string.
+  // No fallbacks — pointing people at "use Zotero on this DOI" wasn't helpful.
+  // The "Read the paper" button at the top of the page already exposes the DOI.
+  if (!cfg.citation_string) return '';
   return `
     <div class="cite-block">
       <div class="cite-lbl">Cite this dataset</div>
-      ${body}
+      <div class="cite-text">${esc(cfg.citation_string)}</div>
       <button class="btn-action" onclick="copyCiteBlock(this)">Copy citation</button>
     </div>
   `;
@@ -1200,21 +1180,29 @@ function generateNarrative(cfg, data) {
   const years = papers.map(p => p.year).filter(Boolean).sort((a, b) => a - b);
   const yr = years.length
     ? (years[0] === years[years.length-1] ? `${years[0]}` : `${years[0]}–${years[years.length-1]}`)
-    : '—';
+    : null;
   const direct = s.directly_used, ref = s.reference_comparison, inc = s.incidental_peripheral;
 
-  let blurb = `${cfg.display_name} has been cited ${total} times across ${yr}.`;
+  // Opening sentence: include year-range only when we have publication years
+  const timesWord = total === 1 ? 'time' : 'times';
+  let blurb = yr
+    ? `${cfg.display_name} has been cited ${total} ${timesWord} across ${yr}.`
+    : `${cfg.display_name} has been cited ${total} ${timesWord}.`;
+
   const parts = [];
   if (direct) parts.push(`${direct} ${direct === 1 ? 'paper uses' : 'papers use'} the dataset directly`);
-  if (ref) parts.push(`${ref} reference it for benchmarking or comparison`);
-  if (inc) parts.push(`${inc} ${inc === 1 ? 'is an incidental mention' : 'are incidental mentions'}`);
+  if (ref)    parts.push(`${ref} ${ref === 1 ? 'references' : 'reference'} it for benchmarking or comparison`);
+  if (inc)    parts.push(`${inc} ${inc === 1 ? 'is an incidental mention' : 'are incidental mentions'}`);
   if (parts.length) blurb += ` ${parts.join('; ')}.`;
+
   const countries = s.countries || [];
   if (countries.length) {
     const top = countries.slice(0, 6);
     blurb += ` Research originates from ${countries.length} ${countries.length === 1 ? 'country' : 'countries'} (${top.join(', ')}${countries.length > 6 ? ', and others' : ''}).`;
   }
-  if (s.note) blurb += ` ${s.note}`;
+  // NOTE: summary.note is an internal annotation field (e.g. "Tracked via two
+  // GS clusters", "First sweep pending") and is intentionally NOT included in
+  // the public-facing narrative.
   return blurb;
 }
 
@@ -1320,7 +1308,7 @@ function paperCard(p, key, showDs) {
 
   const strength = p.connection_strength;
   const strengthBadge =
-    p.status === 'flagged' ? '<span class="badge b-flagged">⚑ Flagged</span>' :
+    p.status === 'flagged' ? '<span class="badge b-flagged">Flagged</span>' :
     strength === 'strong'   ? '<span class="badge b-strong">Strong</span>' :
     strength === 'moderate' ? '<span class="badge b-moderate">Moderate</span>' :
     strength === 'weak'     ? '<span class="badge b-weak">Weak</span>' : '';
@@ -1355,7 +1343,7 @@ function paperCard(p, key, showDs) {
         <div class="paper-actions">
           <button class="btn-action" onclick="toggleDetail('${key}', this)">Show details</button>
           ${p.full_citation ? `<button class="btn-action" onclick="copyCitation('${key}', this)">Copy citation</button>` : ''}
-          ${dsIdForLink ? `<button class="btn-permalink" title="Copy link to this paper" onclick="copyPermalink('${esc(dsIdForLink)}','${esc(p.id)}', this)">🔗</button>` : ''}
+          ${dsIdForLink ? `<button class="btn-action btn-permalink" onclick="copyPermalink('${esc(dsIdForLink)}','${esc(p.id)}', this)">Copy link</button>` : ''}
         </div>
         <div class="paper-detail" id="d-${key}" style="display:none">
           ${paperDetail(p, key)}
@@ -1477,10 +1465,9 @@ function exportDataset(dsId, format) {
 
 // ── PERMALINK (deep-link to a paper) ──────────────────────────────
 function copyPermalink(dsId, paperId, btn) {
+  // copyText handles the .copied class + button-text flash; just build URL
   const url = `${location.origin}${location.pathname}#/dataset/${dsId}?paper=${paperId}`;
   copyText(url, btn);
-  btn.classList.add('copied');
-  setTimeout(() => btn.classList.remove('copied'), 1500);
 }
 
 function copyText(text, btn) {
