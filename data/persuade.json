@@ -6,10 +6,10 @@
     "description": "Persuasive Essays for Rating, Selecting, and Understanding Argumentative and Discourse Elements — a large-scale corpus of 25,000+ argumentative essays by US middle and high school students with holistic and trait-level scores.",
     "kaggle_url": "https://www.kaggle.com/competitions/feedback-prize-effectiveness",
     "paper_doi": "10.1016/j.asw.2024.100865",
-    "last_updated": "2026-05"
+    "last_updated": "2026-06"
   },
   "summary": {
-    "total_citations": 57,
+    "total_citations": 59,
     "directly_used": 24,
     "reference_comparison": 27,
     "incidental_peripheral": 6,
@@ -20,6 +20,7 @@
       "Hong Kong",
       "IR",
       "India",
+      "Indonesia",
       "Japan",
       "Romania",
       "South Korea",
@@ -1796,6 +1797,68 @@
       "first_tracked": "2026-05",
       "status": "confirmed",
       "ai_suggestion": "approve"
+    },
+    {
+      "id": "persuade-triangulated-2026",
+      "dataset": "persuade",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://ejournal.undip.ac.id/index.php/parole/article/view/83693",
+      "title": "Triangulated Corpus-Informed Assessment of Multilingual Academic Writing",
+      "authors": [
+        "Intan Pradita",
+        "Adi Sutrisno",
+        "Tofan Dwi Hardjanto",
+        "Cihad Gündüz"
+      ],
+      "institutions": [
+        "Universitas Gadjah Mada",
+        "Trilogi University"
+      ],
+      "country": [
+        "Indonesia"
+      ],
+      "year": 2026,
+      "published_date": null,
+      "doi": "10.14710/parole.v16i1.93-102",
+      "venue": "PAROLE: Journal of Linguistics and Education",
+      "venue_type": null,
+      "full_citation": "Pradita, I., Sutrisno, A., Hardjanto, T. D., & Gündüz, C. (2026). Triangulated Corpus-Informed Assessment of Multilingual Academic Writing. PAROLE: Journal of Linguistics and Education, 16(1), 93-102.",
+      "abstract": "The naturalness of formulaic language is a key variable in the acceptability of multilingual academic writing. Such naturalness is best reflected by lexical collocations between linguistic units. However, no well-established framework has systematically studied collocational acceptability in multilingual academic contexts. This study fills the gap by proposing a triangulated model to assess academic lexical collocations produced by Indonesian authors in English Language Teaching (ELT) research publications.The model integrates three components: corpus data, statistical metrics, and cross-group speaker judgments based on Kachru's (1985) three circles of English.Findings show that many recurrent collocations, such as specific Adverb-Verb and Verb-Noun structures, are semantically transparent and moderately acceptable, even when they diverge from prototypical native-speaker norms. By applying a decision logic of MI Score &gt; 3.0, a negative T-score, and I-CVI &gt; 0.78, the proposed model contributes to research on corpus linguistics in education by linking phraseology competence and multilingual academic communication.",
+      "abstract_source": "openalex",
+      "connection_strength": "weak",
+      "research_type": "Corpus linguistics",
+      "key_takeaway": "Studies collocational acceptability in Indonesian-authored English academic writing via a triangulated corpus model. Does not appear to use PERSUADE; topically tangential, surfaced only through GS cited-by.",
+      "also_cites": [],
+      "first_tracked": "2026-06",
+      "status": "confirmed"
+    },
+    {
+      "id": "persuade-representation-2026",
+      "dataset": "persuade",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://rr.ets.org/index.php/etsrr/article/view/44",
+      "title": "On the Representation of Racial and Ethnic Subgroups in AI-generated Texts: A Case Study in Automated Essay Scoring",
+      "authors": [
+        "Akshay Badola",
+        "Mo Zhang",
+        "Chen Li"
+      ],
+      "institutions": null,
+      "country": [],
+      "year": 2026,
+      "published_date": null,
+      "doi": "10.64634/ac01td58",
+      "venue": "ETS Research Report Series",
+      "venue_type": null,
+      "full_citation": "Badola, A., Zhang, M., & Li, C. (2026). On the Representation of Racial and Ethnic Subgroups in AI-generated Texts: A Case Study in Automated Essay Scoring. ETS Research Report Series.",
+      "abstract": "In this study, we assess the capability of LLMs in generating essays of a specific race/ethnicity after being given example essays and rubric, and investigate the efficacy of data augmented in this manner for Automated Essay Scoring with respect to model performance and bias. In a series of experiments, we use models GPT-4 and GPT-4o, and ask them to generate essays from a given subgroup after inferring the race/ethnicity of the writer. We find that while LLMs can be directed to generate essays for specific demographic groups, the inferred racial and ethnic distribution in the generated data does not closely mirror the actual distribution observed in the source dataset. We augment existing data for underrepresented subgroups with LLM generated data separated into two groups with correct LLM race prediction and with incorrect race prediction and assess the improvement in agreement with human scores with quadratic weighted Kappa and bias mitigation as change in standardized mean difference. Our analysis shows that while LLMs struggle to predict the race accurately from given samples, augmentation with such data can be helpful to mitigate bias regardless. Suggested citation: Badola, A., Zhang, M., &amp; Li, Chen. (in press). On the representation of racial and ethnic subgroups in AI-generated texts: A case study in automated essay scoring. ETS Research Report Series. https://doi.org/10.64634/ac01td58",
+      "abstract_source": "openalex",
+      "connection_strength": "moderate",
+      "research_type": "Bias & fairness in AES",
+      "key_takeaway": "Uses GPT-4/4o to generate race/ethnicity-conditioned essays and tests data augmentation for AES bias mitigation (QWK, standardized mean difference). AES-adjacent and cites PERSUADE, but the abstract does not name the corpus it scores.",
+      "also_cites": [],
+      "first_tracked": "2026-06",
+      "status": "confirmed"
     }
   ]
 }

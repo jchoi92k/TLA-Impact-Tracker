@@ -79,7 +79,9 @@ git push
 - **No duplicates** — sweep skips titles already in `data/*.json` (approved) AND in `rejected.json`. Both checks are title-normalized (lowercase, whitespace-collapsed).
 - **Auto-backups** before `approve_pending.py` modifies `data/*.json` (keeps last 5).
 - **One API trip per paper, max** — OpenAlex enrichment packs everything (abstract, doi, authorships, institutions, countries) into one `select=` query. Never chain follow-ups.
-- **Throttling** — GS interactions ≥2.5s apart; arXiv ≥3s; OpenAlex ≥1s. Per-API throttle tracker prevents back-to-back hits.
+- **Throttling** — GS interactions ≥10s apart; arXiv ≥3s; OpenAlex ≥1s. Per-API throttle tracker prevents back-to-back hits.
+- **Recency filter** — GS cited-by/search URLs append `&scisbd=1&as_ylo={current_year}` (`GS_RECENCY` in `sweep_gs.py`): sort by date, current year only. Keeps sweeps focused on new citations and reduces pages loaded.
+- **Early-stop** — because results are date-sorted, the scrape stops a dataset after `EARLY_STOP_KNOWN_STREAK` (=3) consecutive already-triaged papers (approved or rejected). Streak persists across pages, resets on any new paper. Gated on `scisbd=1` being in the URL — won't fire if date-sort is removed.
 
 ## Pipeline file roles
 

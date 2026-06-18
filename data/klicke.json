@@ -7,10 +7,10 @@
     "kaggle_url": null,
     "paper_doi": "10.17239/jowr-2025.17.01.02",
     "openalex_id": "W4410999734",
-    "last_updated": "2026-05"
+    "last_updated": "2026-06"
   },
   "summary": {
-    "total_citations": 6,
+    "total_citations": 9,
     "directly_used": 2,
     "reference_comparison": 3,
     "incidental_peripheral": 1,
@@ -200,6 +200,90 @@
       "first_tracked": "2026-05",
       "status": "confirmed",
       "ai_suggestion": "review"
+    },
+    {
+      "id": "klicke-process-2026",
+      "dataset": "klicke",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://arxiv.org/abs/2606.15583",
+      "title": "Process-Oriented Evaluation of AI-Assisted Scientific Writing",
+      "authors": [
+        "PQ Da Silva",
+        "S Hazra",
+        "D Lee",
+        "S Kumar"
+      ],
+      "institutions": null,
+      "country": [],
+      "year": 2026,
+      "published_date": null,
+      "doi": null,
+      "venue": "arXiv preprint arXiv:2606.15583",
+      "venue_type": null,
+      "full_citation": "Da Silva, P. Q., Hazra, S., Lee, D., Kumar, S., & Majumder, B. P. (2026). Process-Oriented Evaluation of AI-Assisted Scientific Writing. arXiv preprint arXiv:2606.15583.",
+      "abstract": "Bad writing hinders the publication of science. The role of artificial intelligence (AI) in generating and editing scientific texts remains unsettled. Abstracts serve as the critical gateway to scientific manuscripts, often shaping readers' interest. We inspect how individuals revise AI-generated abstracts compared to human-authored abstracts when incentivized to communicate scientific content. Using 869 keystroke-level edit logs with 240k total edits, we construct behavioral labels and measure linguistic properties of edit bursts to investigate the edit trajectories. AI abstracts exhibit higher sentence-level agency, whereas human-authored abstracts outperform in global coherence, even with edits. Experts engage in stigmatic behavior, switching their strategy from predominantly restructuring to substitution when AI source is disclosed. Language Models (LMs) improve edit outcomes through a mix of local and global features, but still actively struggle with global coherence. Both humans and LMs often target the weakest sections of abstracts, but fail to improve stronger areas. Our large-scale process-oriented evaluation highlights the perks and pitfalls of both human and LM editing processes as machine-generated texts emerge in scientific communication.",
+      "abstract_source": "arxiv_api",
+      "connection_strength": "moderate",
+      "research_type": "Keystroke / writing-process analysis",
+      "key_takeaway": "Analyzes 869 keystroke-level edit logs (240k edits) to compare human vs. LM revision of scientific abstracts. Closely related to KLiCKe's keystroke writing-process focus, though it appears to use its own edit-log collection.",
+      "also_cites": [],
+      "first_tracked": "2026-06",
+      "status": "confirmed"
+    },
+    {
+      "id": "klicke-what-0000",
+      "dataset": "klicke",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://learninganalytics.upenn.edu/ryanbaker/Deho%202026%20Paper%202%20Camera%20Ready.pdf",
+      "title": "To What Extent Do Keystroke Dynamics Differentiate Correct from Incorrect Problem Solving",
+      "authors": [
+        "OB Deho",
+        "RS Baker",
+        "D Smith",
+        "S Woodhead"
+      ],
+      "institutions": null,
+      "country": [],
+      "year": null,
+      "published_date": null,
+      "doi": null,
+      "venue": "learninganalytics.upenn.edu",
+      "venue_type": null,
+      "full_citation": "Deho, O. B., Baker, R. S., Smith, D., & Woodhead, S. To What Extent Do Keystroke Dynamics Differentiate Correct from Incorrect Problem Solving.",
+      "abstract": "Understanding what behavioral patterns distinguish successful from unsuccessful problem solving could inform the design of more responsive learning environments. We investigated whether keystroke dynamics during typed mathematics responses reflect differences between correct and incorrect problem solving. Because problem format may influence student engagement and solution strategies, we also examined whether these keystroke patterns vary when problems include images versus text alone. Analyzing 21,938 responses from 570 students, we found that correct responses were characterized by slower, more variable typing with greater use of revision, while incorrect responses often showed patterns suggesting minimal engagement. Responses completed in under five seconds were almost never correct, suggesting a threshold below which meaningful problem solving appears not to occur. Machine learning models achieved modest but stable performance in distinguishing correct from incorrect responses based solely on typing patterns. Counterfactual analysis indicated that these models learned theoretically sensible relationships: the behavioral changes most frequently associated with shifting predictions from incorrect to correct aligned with increased deliberation and engagement. Notably, keystroke patterns remained largely stable across different problem formats, suggesting these behavioral signals may generalize across varied task presentations. These findings contribute to understanding how typing behavior during problem solving relates to correctness.",
+      "abstract_source": "manual",
+      "connection_strength": "moderate",
+      "research_type": "Keystroke dynamics",
+      "key_takeaway": "Uses keystroke dynamics across 21,938 typed math responses to separate correct from incorrect problem solving. Methodologically close to KLiCKe; relies on its own dataset rather than naming KLiCKe.",
+      "also_cites": [],
+      "first_tracked": "2026-06",
+      "status": "confirmed"
+    },
+    {
+      "id": "klicke-privacy-2026",
+      "dataset": "klicke",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://arxiv.org/abs/2603.00179",
+      "title": "Privacy-Preserving Proof of Human Authorship via Zero-Knowledge Process Attestation",
+      "authors": [
+        "D Condrey"
+      ],
+      "institutions": null,
+      "country": [],
+      "year": 2026,
+      "published_date": null,
+      "doi": null,
+      "venue": "arXiv preprint arXiv:2603.00179",
+      "venue_type": null,
+      "full_citation": "Condrey, D. (2026). Privacy-Preserving Proof of Human Authorship via Zero-Knowledge Process Attestation. arXiv preprint arXiv:2603.00179.",
+      "abstract": "Process attestation verifies human authorship by collecting behavioral biometric evidence, including keystroke dynamics, typing patterns, and editing behavior, during the creative process. However, the very data needed to prove authenticity can reveal intimate details about an author's cognitive state, health conditions, and identity, constituting sensitive biometric data under GDPR Article 9. We resolve this privacy-attestation paradox using zero-knowledge proofs. We present ZK-PoP, a construction that allows a verifier to confirm that (a) sequential work function chains were computed correctly, (b) behavioral feature vectors fall within human population distributions, and (c) content evolution is consistent with incremental human editing, all without learning the underlying behavioral data, exact timing, or intermediate content. Our construction uses Groth16 proofs over arithmetic circuits with Pedersen commitments and Bulletproof range proofs. We prove that ZK-PoP is computationally zero-knowledge, computationally sound, and achieves unlinkability across sessions. Evaluation shows proof generation in under 30 seconds for a 1-hour writing session, with 192-byte proofs verifiable in 8.2 ms, while incurring less than 5% accuracy loss in simulation at practical privacy levels (epsilon &gt;= 1.0) compared to non-private baselines.",
+      "abstract_source": "arxiv_api",
+      "connection_strength": "weak",
+      "research_type": "Privacy / cryptography (keystroke authorship)",
+      "key_takeaway": "Proposes zero-knowledge proofs to attest human authorship from keystroke/behavioral biometrics without revealing the data. Keystroke dynamics is motivation rather than dataset use; the link to KLiCKe is peripheral.",
+      "also_cites": [],
+      "first_tracked": "2026-06",
+      "status": "confirmed"
     }
   ]
 }
