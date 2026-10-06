@@ -6,14 +6,17 @@
     "description": "Updated Automated Student Assessment Prize dataset (ASAP 2.0), released as a Kaggle competition focused on English language learning essay scoring.",
     "kaggle_url": "https://www.kaggle.com/competitions/asap2-ell",
     "paper_doi": null,
-    "last_updated": "2026-06"
+    "last_updated": "2026-10"
   },
   "summary": {
-    "total_citations": 13,
-    "directly_used": 1,
-    "reference_comparison": 4,
-    "incidental_peripheral": 0,
+    "total_citations": 25,
+    "directly_used": 12,
+    "reference_comparison": 12,
+    "incidental_peripheral": 1,
     "countries": [
+      "China",
+      "Germany",
+      "Pakistan",
       "USA"
     ],
     "note": "Early stage. Citations reflect ASAP 2.0's role as a go-to benchmark in the AES space. March 2026 was the first systematic sweep."
@@ -391,6 +394,389 @@
       "also_cites": [],
       "first_tracked": "2026-06",
       "status": "confirmed"
+    },
+    {
+      "id": "asap2-more-2026",
+      "dataset": "asap2",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://arxiv.org/abs/2609.38827",
+      "title": "More Choices, Fewer Decisions: Ordinal-Scale Bias in JEV-like Direct-Decision Models",
+      "authors": [
+        "T Gao",
+        "J Li",
+        "Z Li",
+        "Y Chang",
+        "Y Wu"
+      ],
+      "institutions": null,
+      "country": [],
+      "year": 2026,
+      "published_date": null,
+      "doi": null,
+      "venue": "arXiv preprint arXiv:2609.38827",
+      "venue_type": null,
+      "full_citation": "Gao, T., Li, J., Li, Z., Chang, Y., & Wu, Y. (2026). More Choices, Fewer Decisions: Ordinal-Scale Bias in JEV-like Direct-Decision Models. arXiv preprint arXiv:2609.38827.",
+      "abstract": "Direct-decision models turn text into low-latency structured labels and scores, making them attractive for classification and automatic evaluation. Yet reliability requires more than accuracy: a model must also use the ordinal decision scale supplied by the user faithfully. We analyze JEV~1.13 and three open KEV models. Our investigation begins with ANLI, where JEV assigns 38.8\\% of all predictions and 51.3\\% of errors to Neutral despite 74.95\\% accuracy, nearly balanced gold labels, and balanced candidate positions. Across 36 ordinal datasets, final decisions use only 67--76\\% of the effective gold support, versus 87--102\\% on four nominal tasks. Randomizing candidate order weakens but does not remove this compression. Holding items and source scores fixed while balancing gold support and positions, we refine scales from $K=2$ to $14$; utilization falls for every model and reaches 26--75\\% at $K=14$, although candidate probabilities remain broad for most models. Targeted BA-LoRA post-training raises gold-relative utilization from roughly 47\\% to 86\\% on eight supervised scales at both KEV sizes, showing that the compression is learned and modifiable rather than an immutable architectural limit. We call this ordinal scale-utilization bias: decision-stage candidate-space compression distinct from accuracy, gold imbalance, fixed position, and candidate count alone. The code and data are available at https://github.com/Glax147/jev_ordinal_scale_bia",
+      "abstract_source": "arxiv_api",
+      "connection_strength": "moderate",
+      "research_type": "LLM evaluation / ordinal scoring",
+      "key_takeaway": "Moderate connection. Identifies an ordinal scale-utilization bias in direct-decision scoring models across 36 ordinal datasets, and shows targeted post-training reduces it. Relevant to rubric-based essay scoring; the abstract does not name the datasets used.",
+      "also_cites": [],
+      "first_tracked": "2026-10",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "asap2-pair-2026",
+      "dataset": "asap2",
+      "metadata_source": "arxiv_api",
+      "gs_link": "https://arxiv.org/abs/2609.37577",
+      "title": "Pair Difficulty Matters: Rethinking Pairwise LLM-as-a-Judge Evaluation and Consistency",
+      "authors": [
+        "Bruno Brocai",
+        "Maria Becker"
+      ],
+      "institutions": null,
+      "country": [],
+      "year": 2026,
+      "published_date": null,
+      "doi": null,
+      "venue": "arXiv preprint arXiv:2609.37577",
+      "venue_type": null,
+      "full_citation": "Brocai, B., & Becker, M. (2026). Pair Difficulty Matters: Rethinking Pairwise LLM-as-a-Judge Evaluation and Consistency. arXiv preprint arXiv:2609.37577.",
+      "abstract": "Large Language Model judges are widely used to rank texts and text-generating systems through pairwise comparison, and their reliability is typically assessed via three proxies: position bias, transitivity, and pairwise agreement (self- or human-labeled). Because these proxies drive judge selection and benchmarking, a substantial literature reporting that judges perform poorly on them risks steering practitioners away from otherwise capable evaluators. We argue this assessment is misleading. Under the Bradley--Terry geometry underlying pairwise aggregation, each proxy is dominated by close-rank-gap pairs, where inconsistency is information-theoretically expected and individual verdicts contribute little to the aggregate ranking; far-gap pairs carry the ranking signal but barely move the proxies. We formalize this argument and validate it in a controlled simulation and on two human-rated corpora: the proxies correlate only weakly with ranking accuracy against gold, and their predictive component concentrates in the far-gap regime. Judges should therefore be assessed on rank-gap-conditional metrics, ideally against human rankings. Code at https://github.com/brunobrocai/PairDifficulty.",
+      "abstract_source": "arxiv_api",
+      "connection_strength": "moderate",
+      "research_type": "LLM-as-judge evaluation",
+      "key_takeaway": "Moderate connection. Argues common reliability proxies for pairwise LLM judges are dominated by close-rank pairs and proposes rank-gap-conditional metrics, validated in simulation and on two human-rated corpora. The abstract does not name the corpora.",
+      "also_cites": [],
+      "first_tracked": "2026-10",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "asap2-evaluating-2026",
+      "dataset": "asap2",
+      "metadata_source": "arxiv_api",
+      "gs_link": "https://arxiv.org/abs/2609.28026",
+      "title": "Evaluating Feedback Focus and Pedagogical Adaptivity in LLM-Generated Feedback on Student Writing",
+      "authors": [
+        "Norah Almousa",
+        "Shayan Peyghambari Oskoui",
+        "Raquel Coelho",
+        "Gayle Rogers",
+        "Xiang Lorraine Li",
+        "Diane Litman"
+      ],
+      "institutions": null,
+      "country": [],
+      "year": 2026,
+      "published_date": null,
+      "doi": null,
+      "venue": "arXiv preprint arXiv:2609.28026",
+      "venue_type": null,
+      "full_citation": "Almousa, N., Oskoui, S. P., Coelho, R., Rogers, G., Li, X. L., & Litman, D. (2026). Evaluating Feedback Focus and Pedagogical Adaptivity in LLM-Generated Feedback on Student Writing. arXiv preprint arXiv:2609.28026.",
+      "abstract": "We investigate whether state-of-the-art large language models (LLMs) generate feedback that reflects the pedagogical practices of expert teachers in terms of feedback focus and adaptivity. Previous evaluation efforts have examined feedback characteristics, its impact on learning, and its target, yet the focus of feedback and its adaptivity remains largely overlooked. To bridge this gap, we adopt and refine Narciss's taxonomy into seven feedback focus types to annotate teacher and LLM-generated feedback across three university writing courses. We release FeedType, a benchmark containing annotated teacher and LLM feedback from six LLMs under three prompting strategies. We assess the coverage and distribution of feedback focus types, and examine whether LLMs adapt their feedback across draft stages and student performance levels as an expert instructor does. Our findings show that while most LLMs cover most feedback focus types, they fail to reflect teacher feedback distributions and show varying levels of adaptivity, with none matching the teachers' adaptive behavior. We believe FeedType will support future research on pedagogical alignment in LLM feedback generation.",
+      "abstract_source": "arxiv_api",
+      "connection_strength": "moderate",
+      "research_type": "LLM writing feedback",
+      "key_takeaway": "Moderate connection. Releases FeedType, a benchmark of teacher and LLM feedback on university student writing annotated for feedback focus, and finds LLMs do not match teachers' adaptivity. Student-writing assessment neighborhood; uses its own data.",
+      "also_cites": [],
+      "first_tracked": "2026-10",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "asap2-diagnosis-2026",
+      "dataset": "asap2",
+      "metadata_source": "arxiv_api",
+      "gs_link": "https://arxiv.org/abs/2608.22566",
+      "title": "From Diagnosis to Redesign: Using Quantitative Ethnography to Improve Multi-Agent LLM Reasoning",
+      "authors": [
+        "Vedant Khatri",
+        "Anthony Cusimano",
+        "Zachari Swiecki",
+        "Zhen Xu",
+        "Xiner Liu",
+        "Renzhe Yu"
+      ],
+      "institutions": null,
+      "country": [],
+      "year": 2026,
+      "published_date": null,
+      "doi": null,
+      "venue": "arXiv preprint arXiv:2608.22566",
+      "venue_type": null,
+      "full_citation": "Khatri, V., Cusimano, A., Swiecki, Z., Xu, Z., Liu, X., & Yu, R. (2026). From Diagnosis to Redesign: Using Quantitative Ethnography to Improve Multi-Agent LLM Reasoning. arXiv preprint arXiv:2608.22566.",
+      "abstract": "Multi-agent large language model (LLM) systems are designed to improve reasoning by decomposing tasks across multiple agents with specialized functions, but the presence of multiple agents does not inherently guarantee coherent reasoning or outputs that align with task objectives. This paper introduces a quantitative ethnographic (QE) approach for diagnosing and redesigning multi-agent LLM systems based on the discourse produced through agent interactions. We test this approach using automated essay scoring as an example context, applying Epistemic Network Analysis (ENA) to model a five-agent multi-agent debate system and examine differences between debates that produced correct versus incorrect scoring decisions. Results show that, in the initial system, correct scoring decisions were characterized by rubric-grounded justification, agreement, and elaboration. Incorrect scoring decisions, in contrast, were characterized by extended proposition-challenge-response exchanges that were less consistently tied to rubric criteria. We then used the findings to revise the agents' prompts. The revised system improved exact scoring accuracy from 27.78% to 40.28% and shifted the discourse of incorrect debates toward the rubric-grounded pattern of correct ones, making the two nearly indistinguishable. Based on these results, we argue that QE can support a diagnostic-to-redesign loop for AI reasoning by tracing how patterns of agent interaction relate to system performance, informing prompt redesign, and evaluating whether those redesigns change both outcomes and interaction patterns.",
+      "abstract_source": "arxiv_api",
+      "connection_strength": "strong",
+      "research_type": "Multi-agent AES / ENA",
+      "key_takeaway": "Strong connection. Uses Epistemic Network Analysis to diagnose a five-agent LLM debate system for automated essay scoring, then redesigns prompts, raising exact scoring accuracy from 27.78% to 40.28%. Essay scoring is the test context.",
+      "also_cites": [],
+      "first_tracked": "2026-10",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "asap2-llmassisted-2026",
+      "dataset": "asap2",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://www.mdpi.com/2227-7390/14/17/3033",
+      "title": "LLM-Assisted Scoring for College English Writing Assessment: Statistical Calibration Against Teacher Standards",
+      "authors": [
+        "Yongping Wang",
+        "Ning Liu",
+        "Xizhi Chu",
+        "Tuo Wang",
+        "Xuan Cheng",
+        "Yapeng Wang"
+      ],
+      "institutions": [
+        "Xihang University",
+        "Macao Polytechnic University"
+      ],
+      "country": [
+        "China"
+      ],
+      "year": 2026,
+      "published_date": "2026-08-23",
+      "doi": "10.3390/math14173033",
+      "venue": "Mathematics",
+      "venue_type": null,
+      "full_citation": "Wang, Y., Liu, N., Chu, X., Wang, T., Cheng, X., & Wang, Y. (2026). LLM-Assisted Scoring for College English Writing Assessment: Statistical Calibration Against Teacher Standards. Mathematics, 14(17), 3033.",
+      "abstract": "Large classes in Chinese College English programmes make frequent analytic assessment of student writing difficult. Large language models (LLMs) may support more frequent formative assessment, but their scores may vary across queries and be systematically harsher or more lenient than local teacher ratings. Using a corpus-based, five-fold cross-validated comparative rater-evaluation design, this study examined whether statistical calibration could make LLM-assisted scores more interpretable for College English writing assessment and where their use should remain limited. Data comprised 414 timed argumentative essays written by Chinese non-English majors at one applied undergraduate institution. Two trained College English teachers independently rated the essays on a seven-dimension analytic rubric informed by China’s Standards of English Language Ability, providing the local reference standard. Three LLMs rated each essay–dimension pair on five occasions. Under five-fold cross-validation, uncalibrated scores were compared with location–scale correction, isotonic calibration, and equipercentile linking, using quadratic weighted kappa, Spearman correlation, mean absolute error, signed bias, and half-point tolerance accuracy. Agreement between models did not imply agreement with teachers: two models showed inter-model kappa values of 0.70–0.78 but an average kappa of only 0.15 with teacher ratings while rating the essays about one band more severely. Calibration removed most of this severity difference and raised pooled kappa to 0.61–0.70 depending on the method (0.63–0.64 under equipercentile linking), compared with a teacher–teacher agreement benchmark of 0.747. The three methods differed little, and the improvement mainly reflected closer alignment of score distributions rather than better judgement of writing quality. Agreement was higher for vocabulary, syntax, and grammar but remained low for cohesion and conventions. The findings suggest that LLM-assisted scoring may support low-stakes formative feedback when calibrated to local teacher standards and used under teacher supervision, while teachers retain responsibility for judging content, coherence, argumentation, and communicative quality.",
+      "abstract_source": "openalex",
+      "connection_strength": "moderate",
+      "research_type": "LLM essay scoring / calibration",
+      "key_takeaway": "Moderate connection. Shows statistical calibration brings LLM scores of 414 Chinese College English essays much closer to teacher ratings. Uses its own corpus; in ASAP 2.0's AES neighborhood.",
+      "also_cites": [],
+      "first_tracked": "2026-10",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "asap2-modelagnostic-2026",
+      "dataset": "asap2",
+      "metadata_source": "openalex",
+      "gs_link": "https://doi.org/10.71317/jgst.2.7.2026.263",
+      "title": "A Model-Agnostic Framework for Transparent, Fair, and Reproducible Automated Essay Scoring",
+      "authors": [
+        "Ahsan Javed"
+      ],
+      "institutions": [
+        "IU International University of Applied Sciences"
+      ],
+      "country": [
+        "Germany"
+      ],
+      "year": 2026,
+      "published_date": "2026-07-21",
+      "doi": "10.71317/jgst.2.7.2026.263",
+      "venue": "Journal of Global Social Transformation",
+      "venue_type": null,
+      "full_citation": "Javed, A. (2026). A Model-Agnostic Framework for Transparent, Fair, and Reproducible Automated Essay Scoring. Journal of Global Social Transformation, 2(7), 311-335.",
+      "abstract": "The most accurate automated essay scoring systems function as opaque black boxes. This lack of transparency presents a significant obstacle to trust among the students, teachers, and policymakers who rely on these tools, as fairness and accountability are non-negotiable. The design and evaluation of a model-agnostic framework for explainable AI in essay scoring are detailed, with a foundational focus on reproducibility and algorithmic fairness. By addressing these longstanding challenges, the proposed framework delivers a tool that is understandable and trustworthy for students, educators, and policymakers. The contributions of this work are threefold. First, a prompt-aware binning strategy is introduced to normalize essay scores into three proficiency tiers, which enhances model stability and enables a more meaningful fairness analysis. Second, both classic and state-of-the-art transformer models are benchmarked within a reproducible pipeline that utilizes deterministic controls and a manifest system to track every data artifact, ensuring that all findings are auditable and verifiable. Third, rather than focusing on fairness or interpretability in isolation, this work integrates both dimensions, using SHAP and LIME to dissect model logic and to identify and measure disparities across demographic groups. On the ASAP2.0 dataset, a fine-tuned DeBERTa-v3-large model achieves a macro-F1 of 0.898. An XGBoost model trained on a fused set of linguistic and transformer features achieves a competitive 0.890. This framework aims to set a new standard for transparent and trustworthy AI in educational assessment and offers a foundation for future research in explainable educational technology.",
+      "abstract_source": "openalex",
+      "connection_strength": "strong",
+      "research_type": "Explainable & fair AES",
+      "key_takeaway": "Strong connection. Builds a reproducible, explainable and fairness-audited AES pipeline evaluated on the ASAP 2.0 dataset, where fine-tuned DeBERTa-v3-large reaches macro-F1 0.898.",
+      "also_cites": [],
+      "first_tracked": "2026-10",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "asap2-buntai-2026",
+      "dataset": "asap2",
+      "metadata_source": "manual",
+      "gs_link": null,
+      "title": "文体的特徴と順序尺度の特性を考慮した自動作文評価モデルに関する一考察",
+      "authors": [
+        "Ryuga Fuji",
+        "Minami Hotta",
+        "Sirui Sun",
+        "Yuta Sakai",
+        "Masayuki Goto"
+      ],
+      "institutions": [
+        "Waseda University"
+      ],
+      "country": [],
+      "year": 2026,
+      "published_date": null,
+      "doi": null,
+      "venue": "人工知能学会全国大会論文集 第40回 (2026)",
+      "venue_type": null,
+      "full_citation": "藤流河, 阪井優太, 堀田南, 孫思鋭, & 後藤正幸. (2026). 文体的特徴と順序尺度の特性を考慮した自動作文評価モデルに関する一考察. In 人工知能学会全国大会論文集 第 40 回 (2026) (pp. 5N3GS10i05-5N3GS10i05). 一般社団法人 人工知能学会.",
+      "abstract": "Automated Essay Scoring (AES) is a promising technology for improving grading consistency and reducing administrative workloads. While recent models leverage pre-trained language models to capture content-related features, they often fail to explicitly account for stylistic features, such as grammatical accuracy and fluency. Furthermore, many existing methods treat scores as interval scales, overlooking the fact that the gaps between adjacent scores are not necessarily uniform. To address these issues, we propose a new AES model that integrates BERT with LISA for stylistic feature embedding and CORAL for ordinal regression. This framework allows for the simultaneous evaluation of content and style while treating scores as ordinal scales. Experimental results on essay datasets demonstrate the effectiveness of the proposed method.",
+      "abstract_source": "manual",
+      "connection_strength": "strong",
+      "research_type": "AES / ordinal regression",
+      "key_takeaway": "Strong connection. Proposes an AES model combining BERT with LISA stylistic embeddings and CORAL ordinal regression, so content and style are scored together and scores are treated as ordinal. Evaluated on essay datasets, which the abstract does not name.",
+      "also_cites": [],
+      "first_tracked": "2026-10",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "asap2-maple-2026",
+      "dataset": "asap2",
+      "metadata_source": "manual",
+      "gs_link": null,
+      "title": "MAPLE: 複数評価基準と複数 LLM を用いた自由記述回答の自動評価手法",
+      "authors": [
+        "Michinori Jinji",
+        "Kyohei Atarashi",
+        "Koh Takeuchi",
+        "Hisashi Kashima"
+      ],
+      "institutions": [
+        "Kyoto University"
+      ],
+      "country": [],
+      "year": 2026,
+      "published_date": null,
+      "doi": null,
+      "venue": "人工知能学会全国大会論文集 第40回 (2026)",
+      "venue_type": null,
+      "full_citation": "神事倫紀, 新恭兵, 竹内孝, & 鹿島久嗣. (2026). MAPLE: 複数評価基準と複数 LLM を用いた自由記述回答の自動評価手法. In 人工知能学会全国大会論文集 第 40 回 (2026) (pp. 1H3OS4005-1H3OS4005). 一般社団法人 人工知能学会.",
+      "abstract": "Although LLM-as-a-Judge can substantially reduce the need of human assessment, which is costly in terms of time and money, the gap between human and LLM evaluations remains a key challenge. To improve the alignment of LLM evaluations with human evaluations, we propose Multi-Aspect Panels of LLM Evaluators (MAPLE), a framework that conducts evaluation using multiple criteria and multiple LLMs and then integrates the results. MAPLE aggregates criterion-wise comparative evaluations from several LLM evaluators by estimating both the importance of each criterion and the reliability of each evaluator. In experiments on an essay scoring task, we compare MAPLE against multiple baselines and show that MAPLE consistently improves agreement with human evaluations and outperforms the baselines. These results indicate that integrating evaluations across multiple LLMs and multiple criteria is an effective strategy for LLM-as-a-Judge.",
+      "abstract_source": "manual",
+      "connection_strength": "strong",
+      "research_type": "LLM-as-judge essay scoring",
+      "key_takeaway": "Strong connection. Proposes MAPLE, which aggregates criterion-wise judgments from several LLM evaluators, weighting criteria and evaluator reliability, and improves agreement with human scores on an essay scoring task.",
+      "also_cites": [],
+      "first_tracked": "2026-10",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "asap2-assessing-2026",
+      "dataset": "asap2",
+      "metadata_source": "openalex",
+      "gs_link": "https://doi.org/10.1016/j.asw.2026.101082",
+      "title": "Assessing the reliability and validity of large language models in automatic essay scoring",
+      "authors": [
+        "Scott A. Crossley",
+        "Langdon Holmes",
+        "Wesley Morris"
+      ],
+      "institutions": [
+        "Vanderbilt University"
+      ],
+      "country": [
+        "USA"
+      ],
+      "year": 2026,
+      "published_date": "2026-06-26",
+      "doi": "10.1016/j.asw.2026.101082",
+      "venue": "Assessing Writing",
+      "venue_type": null,
+      "full_citation": "Crossley, S., Holmes, L., & Morris, W. (2026). Assessing the reliability and validity of large language models in automatic essay scoring. Assessing Writing, 69, 101082.",
+      "abstract": "With the advent of artificial intelligence, large language model (LLM) based Automated Essay Scoring (AES) systems have been developed that can consistently make human-like decisions that do not depend fully on surface level linguistic features. However, research into the use of LLM-based AES systems is limited and little is known about the reliability, agreement, or validity of the systems. The goal of this study was to provide evidence for the reliability, agreement, and validity of LLM-based AES systems in a standardized writing assessment used for secondary school students. Both representation and generative LLM-based AES systems were developed to score persuasive essays and assessed for reliability. Then the agreement of the developed AES systems with human raters was assessed through correlational analyses. We used extrinsic convergent validation approaches to examine if the human and LLM scores correlated with linguistic components. Results indicate strong reliability and agreement for the LLM scores. In terms of convergent validity, initial correlational analyses indicated that the representation LLM AES system showed differential correlations with the human scores in terms of a text length and type-token ratio component. This result contrasts with the correlational results from the generative LLM AES model, which indicated no differences in associations between the model and human scores with regards to the linguistic components.",
+      "abstract_source": "openalex",
+      "connection_strength": "strong",
+      "research_type": "LLM AES reliability & validity",
+      "key_takeaway": "Strong connection. Develops representation and generative LLM-based AES systems for persuasive essays from a standardized secondary-school writing assessment and tests their reliability, agreement with human raters and convergent validity. Squarely in ASAP 2.0's problem space.",
+      "also_cites": [],
+      "first_tracked": "2026-10",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "asap2-feature-2026",
+      "dataset": "asap2",
+      "metadata_source": "manual",
+      "gs_link": null,
+      "title": "Feature Vulnerability in Automated Essay Scoring",
+      "authors": [
+        "Z Hader"
+      ],
+      "institutions": [
+        "University of Amsterdam"
+      ],
+      "country": [],
+      "year": 2026,
+      "published_date": null,
+      "doi": null,
+      "venue": "Doctoral dissertation, University of Amsterdam",
+      "venue_type": null,
+      "full_citation": "Hader, Z. (2026). Feature Vulnerability in Automated Essay Scoring (Doctoral dissertation, University of Amsterdam).",
+      "abstract": "Feature-based automated essay scoring systems (AES) rely on linguistic features of human-written text. Widespread AI writing assistance raises a validity concern: AI may alter the features AES depends on, so scores increasingly reflect AI access rather than writing ability. AES and AI detection research have developed independently, leaving open whether AES features remain reliable under AI assistance. This thesis uses a detection-based approach to identify which AES features are affected: a classifier trained to distinguish AI-assisted from human-written essays assigns feature importance scores via SHAP, which are used to label features as fragile (high importance) or robust (low importance). Using ASAP 2.0, essays were rewritten by GPT-4o-mini at three intensities. Detection accuracy increased consistently with the intervention intensity (AUC 0.719 to 0.999). SHAP analysis identified seven fragile features, dominated by average word length, and seven robust features, stable across folds. A quality model using only robust features did not consistently exceed the conventional QWK ≥ 0.70 threshold, but degraded less under heavy intervention than a model using all features (9.6% vs. 19.5% relative drop). Restricting to stable features improved the consistency of quality assessment under AI assistance. However, absolute performance remains limited.",
+      "abstract_source": "manual",
+      "connection_strength": "strong",
+      "research_type": "AES validity / AI writing",
+      "key_takeaway": "Strong connection. Uses ASAP 2.0 essays rewritten by GPT-4o-mini at three intensities to identify which AES features are fragile under AI assistance (SHAP over a detection classifier); a robust-feature model degrades less (9.6% vs. 19.5% drop).",
+      "also_cites": [],
+      "first_tracked": "2026-10",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "asap2-demographic-2026",
+      "dataset": "asap2",
+      "metadata_source": "arxiv_api",
+      "gs_link": "https://arxiv.org/abs/2606.21066",
+      "title": "Demographic Metadata as Construct-Irrelevant Noise in DistilBERT-Based Automated Essay Scoring",
+      "authors": [
+        "Teik Peng Ch'ng",
+        "Hui Na Chua"
+      ],
+      "institutions": null,
+      "country": [],
+      "year": 2026,
+      "published_date": null,
+      "doi": null,
+      "venue": "arXiv preprint arXiv:2606.21066",
+      "venue_type": null,
+      "full_citation": "Ch'ng, T. P., & Chua, H. N. (2026). Demographic Metadata as Construct-Irrelevant Noise in DistilBERT-Based Automated Essay Scoring. arXiv preprint arXiv:2606.21066.",
+      "abstract": "Automated Essay Scoring (AES) systems are increasingly used to support teachers in managing grading workloads and to provide a supplementary rater in large-scale assessments. While human grading is frequently influenced by students' demographic characteristics, the efficacy of different strategies for integrating demographic metadata with textual input used to train AES models remains underexplored. This study investigates the impact of a specific multimodal fusion strategy - naive metadata concatenation - on the predictive accuracy, training convergence, and score parity of a DistilBERT-based AES model. A comparative analysis was conducted using the ASAP 2.0 dataset to evaluate a baseline model against an experimental model trained with input that concatenates tokenised text and demographic metadata using a naive multimodal fusion strategy. Evaluated via 10-fold cross-validation, the findings reveal that the early fusion of demographic metadata and the input significantly degrades the model's overall predictive accuracy. The baseline model achieved a Quadratic Weighted Kappa (QWK) of 0.727, which dropped to 0.656 upon integrating metadata. Furthermore, the experimental model exhibited higher validation loss (1.29) compared to the baseline model (1.25). The experimental model also displayed exacerbated scoring bias, reducing score parity instances from 15 to 12 out of 19 tests.",
+      "abstract_source": "arxiv_api",
+      "connection_strength": "strong",
+      "research_type": "Bias & fairness in AES",
+      "key_takeaway": "Strong connection. Uses the ASAP 2.0 dataset to show that naively concatenating demographic metadata with essay text lowers DistilBERT AES accuracy (QWK 0.727 to 0.656) and worsens score parity.",
+      "also_cites": [],
+      "first_tracked": "2026-10",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "asap2-trustworthy-2026",
+      "dataset": "asap2",
+      "metadata_source": "openalex",
+      "gs_link": "https://doi.org/10.22555/pjets.v14i1.1565",
+      "title": "Towards Trustworthy Automated Essay Scoring: Explainable Transformers and Efficient Fine-Tuning Strategies",
+      "authors": [
+        "Abdul Rehman Qureshi",
+        "Zakria",
+        "Muhammad Asif",
+        "Muhammad Saddam Khokhar",
+        "Safdar Hussain Mangnejo"
+      ],
+      "institutions": [
+        "Sukkur IBA University",
+        "Yangzhou University"
+      ],
+      "country": [
+        "Pakistan",
+        "China"
+      ],
+      "year": 2026,
+      "published_date": "2026-06-16",
+      "doi": "10.22555/pjets.v14i1.1565",
+      "venue": "Pakistan Journal of Engineering Technology & Science",
+      "venue_type": null,
+      "full_citation": null,
+      "abstract": "Artificial intelligence allowed instructors to automate the grading of students’ work. Many studies show the high performance of neural networks in automated grading. However, their “Blackbox” nature reduces the educators’ trust in adopting it in the educational context. In this study, we propose a framework for automated essay scoring using Transformer-based models and Explainable AI (XAI). We evaluated the five models on two different benchmarking datasets, ASAP 2.0 and Learning Agency Lab, on models: Linear Regression, Random Forest, BiLSTM with attention, BERT, and FLAN-T5. Our studies show the BERT model achieved a Quadratic Weighted Kappa (QWK) score of 0.8431, which is 19.5% better than traditional machine learning models. Moreover, the study also shows the cross-prompt generalisation with 70.3% QWK degradation in leave-one-prompt-out evaluation, but it improves when training data contains diverse prompts. For resource optimisation, we apply Parameter-Efficient Fine-Tuning (PEFT) using LoRA on FLAN-T5. This approach achieves 86.2% of BERT’s Pearson correlation while training only 1.8% of parameters. Additionally, we integrated LIME and SHAP to provide pedagogically transparent explanations across all model families. Overall, the results show that training strategies play a more important role than model architecture, and parameter-efficient methods provide practical solutions for real educational systems.",
+      "abstract_source": "openalex",
+      "connection_strength": "strong",
+      "research_type": "Explainable AES / PEFT",
+      "key_takeaway": "Strong connection. Benchmarks five model families for explainable automated essay scoring on ASAP 2.0 and a Learning Agency Lab dataset (BERT QWK 0.843), with cross-prompt tests, LoRA fine-tuning and LIME/SHAP explanations.",
+      "also_cites": [],
+      "first_tracked": "2026-10",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
     }
   ]
 }

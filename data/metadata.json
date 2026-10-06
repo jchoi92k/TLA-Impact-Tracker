@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-06",
-  "last_sweep_date": "2026-06",
-  "next_sweep_due": "2026-07",
+  "last_updated": "2026-10",
+  "last_sweep_date": "2026-10",
+  "next_sweep_due": "2026-11",
   "sweep_sources": [
     "google_scholar",
     "openalex",
@@ -17,7 +17,7 @@
       "paper_doi": "10.1016/j.asw.2024.100865",
       "citation_string": null,
       "license": null,
-      "citation_count": 59,
+      "citation_count": 79,
       "color": "#F59E0B"
     },
     {
@@ -29,7 +29,7 @@
       "paper_doi": "10.1108/ILS-04-2023-0032",
       "citation_string": "Holmes, L., Crossley, S., Sikka, H., & Morris, W. (2023). PIILO: an open-source system for personally identifiable information labeling and obfuscation. Information and Learning Sciences, 124(9-10), 266–284. https://doi.org/10.1108/ILS-04-2023-0032",
       "license": null,
-      "citation_count": 12,
+      "citation_count": 14,
       "color": "#60A5FA"
     },
     {
@@ -41,7 +41,7 @@
       "paper_doi": "10.17239/jowr-2025.17.01.02",
       "citation_string": null,
       "license": null,
-      "citation_count": 9,
+      "citation_count": 13,
       "color": "#34D399"
     },
     {
@@ -53,7 +53,7 @@
       "paper_doi": null,
       "citation_string": null,
       "license": null,
-      "citation_count": 13,
+      "citation_count": 25,
       "color": "#A78BFA"
     },
     {
@@ -65,7 +65,7 @@
       "paper_doi": null,
       "citation_string": "King, J., Baffour, P., Crossley, S., Holbrook, R., & Demkin, M. (2023). LLM - Detect AI Generated Text. Kaggle. https://kaggle.com/competitions/llm-detect-ai-generated-text",
       "license": "CC BY 4.0",
-      "citation_count": 16,
+      "citation_count": 19,
       "color": "#F43F5E"
     },
     {

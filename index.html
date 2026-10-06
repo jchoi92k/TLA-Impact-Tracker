@@ -1191,11 +1191,17 @@ function generateNarrative(cfg, data) {
 
   const parts = [];
   if (direct) parts.push(`${direct} ${direct === 1 ? 'paper uses' : 'papers use'} the dataset directly`);
-  if (ref)    parts.push(`${ref} ${ref === 1 ? 'references' : 'reference'} it for benchmarking or comparison`);
-  if (inc)    parts.push(`${inc} ${inc === 1 ? 'is an incidental mention' : 'are incidental mentions'}`);
+  // Lead with "paper(s)" only in the first clause; later clauses read as a list
+  const lead = (n, one, many) => `${n} ${parts.length ? '' : (n === 1 ? 'paper ' : 'papers ')}${n === 1 ? one : many}`;
+  if (ref)    parts.push(lead(ref, 'references it for benchmarking or comparison', 'reference it for benchmarking or comparison'));
+  if (inc)    parts.push(lead(inc, 'is an incidental mention', 'are incidental mentions'));
   if (parts.length) blurb += ` ${parts.join('; ')}.`;
 
-  const countries = s.countries || [];
+  // Most-represented countries first (paper count, then name)
+  const counts = {};
+  papers.forEach(p => (p.country || []).forEach(c => { counts[c] = (counts[c] || 0) + 1; }));
+  const countries = (s.countries || []).slice()
+    .sort((a, b) => (counts[b] || 0) - (counts[a] || 0) || a.localeCompare(b));
   if (countries.length) {
     const top = countries.slice(0, 6);
     blurb += ` Research originates from ${countries.length} ${countries.length === 1 ? 'country' : 'countries'} (${top.join(', ')}${countries.length > 6 ? ', and others' : ''}).`;

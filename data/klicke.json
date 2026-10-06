@@ -7,16 +7,18 @@
     "kaggle_url": null,
     "paper_doi": "10.17239/jowr-2025.17.01.02",
     "openalex_id": "W4410999734",
-    "last_updated": "2026-06"
+    "last_updated": "2026-10"
   },
   "summary": {
-    "total_citations": 9,
-    "directly_used": 2,
-    "reference_comparison": 3,
-    "incidental_peripheral": 1,
+    "total_citations": 13,
+    "directly_used": 3,
+    "reference_comparison": 7,
+    "incidental_peripheral": 3,
     "countries": [
-      "GB",
-      "US"
+      "Germany",
+      "Saudi Arabia",
+      "UK",
+      "USA"
     ],
     "note": "Two papers directly use KLiCKe data; three reference it as a related corpus. One entry (Supriyadi et al.) flagged as likely false positive by tracker. One title discrepancy: tracker lists a Tian & Crossley paper titled 'Linking Writing Processes to Argument Elements' but OpenAlex indexes a different Tian & Crossley paper ('Keystroke logging' book chapter) also citing KLiCKe — may be two separate papers."
   },
@@ -35,7 +37,7 @@
         "University of Glasgow"
       ],
       "country": [
-        "GB"
+        "UK"
       ],
       "year": 2025,
       "published_date": "2025-06-27",
@@ -69,7 +71,7 @@
         "Riverside Technology"
       ],
       "country": [
-        "US"
+        "USA"
       ],
       "year": 2025,
       "published_date": "2025-10-27",
@@ -101,7 +103,7 @@
         "Vanderbilt University"
       ],
       "country": [
-        "US"
+        "USA"
       ],
       "year": 2026,
       "published_date": "2026-01-05",
@@ -284,6 +286,136 @@
       "also_cites": [],
       "first_tracked": "2026-06",
       "status": "confirmed"
+    },
+    {
+      "id": "klicke-designing-2026",
+      "dataset": "klicke",
+      "metadata_source": "manual",
+      "gs_link": null,
+      "title": "Designing Proactive Thought Partners for Writing",
+      "authors": [
+        "Chao Zhang",
+        "Abe Davis",
+        "Chih-Wei Chen",
+        "Chin-Chia Hsu"
+      ],
+      "institutions": [
+        "Cornell University",
+        "Google DeepMind"
+      ],
+      "country": [],
+      "year": 2026,
+      "published_date": null,
+      "doi": null,
+      "venue": "arXiv preprint arXiv:2609.01588",
+      "venue_type": null,
+      "full_citation": "Zhang, C., Davis, A., Chen, C. W., & Hsu, C. C. (2026). Designing Proactive Thought Partners for Writing. arXiv preprint arXiv:2609.01588.",
+      "abstract": "Writing involves diverse cognitive activities, from ideation to revision, and writers’ needs vary across individuals and moments. Proactive AI promises to provide the right support at the right time, yet existing proactive tools largely focus on generic textual assistance, such as autocomplete. This paper studies the design space of proactive thought partners: AI agents that proactively offer customizable, higher-level cognitive support during writing. We instantiated this concept in a technology probe and deployed it with 16 participants for one week. The probe allows users to create partners by configuring their roles and proactivity. As users write, relevant partners take the initiative at appropriate moments to offer suggestions. Our findings show that participants configured proactive support through prospective planning, used suggestions for both idea generation and self-monitoring, and valued lightweight visual representations alongside non-directive rhetorical framing for non-intrusive interventions. We derive implications for designing proactive writing assistants around customization, timing, engagement, and representation.",
+      "abstract_source": "manual",
+      "connection_strength": "weak",
+      "research_type": "AI writing assistants / HCI",
+      "key_takeaway": "Weak connection. Studies proactive AI 'thought partners' that offer higher-level cognitive support during writing, via a one-week deployment with 16 participants. Writing-process adjacent, but no keystroke logging or use of KLiCKe.",
+      "also_cites": [],
+      "first_tracked": "2026-10",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "klicke-metacognitive-2026",
+      "dataset": "klicke",
+      "metadata_source": "manual",
+      "gs_link": null,
+      "title": "Metacognitive Filtering and Cognitive Offloading in AI-Assisted L2 Writing: A PRISMA Guided Process-Tracing Synthesis",
+      "authors": [
+        "Latifah Hamdan Alghamdi",
+        "Talal Musaed Alghizzi"
+      ],
+      "institutions": [
+        "King Khalid University",
+        "Imam Mohammad Ibn Saud Islamic University"
+      ],
+      "country": [
+        "Saudi Arabia"
+      ],
+      "year": 2026,
+      "published_date": "2026-07-20",
+      "doi": "10.3390/bs16071229",
+      "venue": "Behavioral Sciences",
+      "venue_type": null,
+      "full_citation": "Alghamdi, L. H., & Alghizzi, T. M. (2026). Metacognitive Filtering and Cognitive Offloading in AI-Assisted L2 Writing: A PRISMA Guided Process-Tracing Synthesis. Behavioral Sciences, 16(7), 1229.",
+      "abstract": "This study conducted a PRISMA-guided systematic review of 33 empirical studies examining learner interactions with AI-mediated feedback in L2 writing between 2010 and 2025. Evidence was synthesized from process-tracing methods, including keystroke logging, eye-tracking, screen capture, interaction logs, and draft-history analytics. The findings revealed two recurring interaction profiles. Higher-regulation learners typically engaged in selective uptake, recursive evaluation, and extended processing of AI feedback, whereas lower-regulation learners more frequently indicate rapid acceptance and reduced evaluative engagement. Across studies, micro-level feedback was associated with shorter revision latencies and burst-editing patterns, whereas macro-level feedback was associated with longer processing times and repeated revision cycles. The review also identified substantial methodological variability in trace precision, AI transparency, multimodal triangulation, and reproducibility practices. Overall, the evidence suggests that the effectiveness of AI-mediated feedback depends not only on the quality of the feedback provided but also on how learners regulate and engage with it during revision. Greater methodological transparency and more rigorous process-tracing designs are needed to strengthen future research on AI-supported writing development.",
+      "abstract_source": "manual",
+      "connection_strength": "moderate",
+      "research_type": "Process-tracing review (L2 writing)",
+      "key_takeaway": "Moderate connection. Systematic review of 33 studies on how L2 writers engage with AI feedback, synthesized from process-tracing data including keystroke logging. Close to KLiCKe's keystroke and L2 writing focus.",
+      "also_cites": [],
+      "first_tracked": "2026-10",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "klicke-keystrokes-2026",
+      "dataset": "klicke",
+      "metadata_source": "manual",
+      "gs_link": null,
+      "title": "From keystrokes to scores: Toward a multidimensional predictive model of writing evaluation by humans and large language models across linguistic, cognitive, and social dimensions",
+      "authors": [
+        "Qiao Gan",
+        "Benjamin Adams"
+      ],
+      "institutions": null,
+      "country": [],
+      "year": 2026,
+      "published_date": null,
+      "doi": "10.1016/j.asw.2026.101090",
+      "venue": "Assessing Writing",
+      "venue_type": null,
+      "full_citation": "Gan, Q., & Adams, B. (2026). From keystrokes to scores: Toward a multidimensional predictive model of writing evaluation by humans and large language models across linguistic, cognitive, and social dimensions. Assessing Writing, 69, 101090.",
+      "abstract": "Automated writing evaluation (AWE) has traditionally emphasized textual features such as vocabulary and syntax, while often overlooking writers’ social identities and cognitive behaviors – factors central to understanding writing as a multidimensional construct. With the increasing integration of large language models (LLMs) into AWE, questions remain about how their assessments align with human judgments and the sources of potential divergences. This study investigates how linguistic (e.g., lexical diversity), cognitive (e.g., pausing behavior), and social (e.g., gender) factors covary with essay scores assigned by human raters and LLMs. We analyzed 4245 argumentative essays paired with demographic metadata and keystroke-logging data, using correlation analyses, random forest models, and regression-based approaches to examine relationships among writer characteristics, writing-process features, textual features, and essay scores. Results showed moderate agreement between human and LLM scores, but the two scoring systems exhibited different patterns of association with linguistic, cognitive, and social variables. These findings suggest that human and LLM evaluations rely on partially different cues and demonstrate how socio-cognitive metadata can be used to examine the factors associated with writing assessment decisions. By moving beyond text-only comparisons, this approach provides a complementary lens for understanding why and how human and machine judgments converge or diverge.",
+      "abstract_source": "manual",
+      "connection_strength": "strong",
+      "research_type": "Keystroke + LLM essay scoring",
+      "key_takeaway": "Strong connection. Analyzes 4,245 argumentative essays paired with demographic metadata and keystroke logs to compare which linguistic, cognitive and social features predict human vs. LLM scores. Data profile matches KLiCKe's keystroke-logged argumentative essays.",
+      "also_cites": [],
+      "first_tracked": "2026-10",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "klicke-genius-2026",
+      "dataset": "klicke",
+      "metadata_source": "manual",
+      "gs_link": null,
+      "title": "GENIUS Keylog Corpus - A German High School Student Corpus with Keystroke Logging Data",
+      "authors": [
+        "Nils-Jonathan Schaller",
+        "Thorben Jansen",
+        "Lars Höft",
+        "Hannah Pünjer",
+        "Andrea Horbach"
+      ],
+      "institutions": [
+        "Leibniz Institute for Science and Mathematics Education",
+        "Kiel University"
+      ],
+      "country": [
+        "Germany"
+      ],
+      "year": 2026,
+      "published_date": null,
+      "doi": null,
+      "venue": "Proceedings of the Fifteenth Language Resources and Evaluation Conference (LREC 2026)",
+      "venue_type": null,
+      "full_citation": "Schaller, N. J., Jansen, T., Höft, L., Pünjer, H., & Horbach, A. (2026, May). GENIUS Keylog Corpus-A German High School Student Corpus with Keystroke Logging Data. In Proceedings of the Fifteenth Language Resources and Evaluation Conference (LREC 2026) (Vol. 11, No. 16, pp. 6919-6928).",
+      "abstract": "We present the GENIUS Keylog corpus: 259 German high school student essays with keystroke logging data and comprehensive argumentative annotations. The corpus enables temporal alignment between writing processes and linguistic structure—showing when and how argumentative elements were produced. We provide corpus statistics, methodologies for linking keystroke data to linguistic annotations, and first analyses of the dataset. The corpus enables the investigation of relationships between writing processes and argumentative structure, supporting research on process-aware feedback systems and writing under time pressure.",
+      "abstract_source": "manual",
+      "connection_strength": "moderate",
+      "research_type": "Keystroke corpus (sister resource)",
+      "key_takeaway": "Moderate connection. Releases GENIUS Keylog, 259 German high school essays with keystroke logs and argumentative annotations. A sister keystroke-logging corpus in another language.",
+      "also_cites": [],
+      "first_tracked": "2026-10",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
     }
   ]
 }

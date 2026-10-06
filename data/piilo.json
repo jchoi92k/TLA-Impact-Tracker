@@ -6,13 +6,13 @@
     "description": "Personally Identifiable Information in Learning Objects — a dataset and tagset for PII detection and de-identification in educational text (student essays and forum posts).",
     "kaggle_url": null,
     "paper_doi": null,
-    "last_updated": "2026-06"
+    "last_updated": "2026-10"
   },
   "summary": {
-    "total_citations": 12,
-    "directly_used": 2,
+    "total_citations": 14,
+    "directly_used": 4,
     "reference_comparison": 8,
-    "incidental_peripheral": 1,
+    "incidental_peripheral": 2,
     "countries": [
       "Egypt",
       "Finland",
@@ -79,34 +79,6 @@
       "connection_strength": "weak",
       "research_type": "Empirical benchmarking",
       "key_takeaway": "LLMs outperform traditional methods at extracting PII; prompt injection can mitigate attacks. PIILO referenced as an existing study.",
-      "also_cites": [],
-      "first_tracked": "2026-03",
-      "status": "confirmed",
-      "dataset": "piilo"
-    },
-    {
-      "id": "piilo-ochs-2024",
-      "title": "The Conundrum of Trustworthy Research on Attacking PII Removal Techniques",
-      "authors": [
-        "Ochs",
-        "Habernal"
-      ],
-      "institutions": [
-        "TU Darmstadt"
-      ],
-      "country": [
-        "Germany"
-      ],
-      "year": 2024,
-      "published_date": "2024",
-      "doi": null,
-      "venue": null,
-      "venue_type": null,
-      "abstract": "Removing personally identifiable information (PII) from texts is necessary to comply with various data protection regulations and to enable data sharing without compromising privacy. However, recent works show that documents sanitized by PII-removal techniques are vulnerable to reconstruction attacks. Yet, we suspect that the reported success of these attacks is largely overestimated. We critically analyze the evaluation of existing attacks and find that data leakage and data contamination are not properly mitigated, leaving the question whether or not PII removal techniques truly protect privacy in real-world scenarios unaddressed. We investigate possible data sources and attack setups that avoid data leakage and conclude that only truly private data can allow us to objectively evaluate vulnerabilities in PII removal techniques. However, access to private data is heavily restricted—and for good reasons—which also means that the public research community cannot address this problem in a transparent, reproducible, and trustworthy manner.",
-      "abstract_source": "manual",
-      "connection_strength": "moderate",
-      "research_type": "Critical analysis / position paper",
-      "key_takeaway": "Existing PII removal evaluations are overestimated due to data leakage. Argues only truly private data can objectively evaluate vulnerabilities — directly relevant to PIILO's design rationale.",
       "also_cites": [],
       "first_tracked": "2026-03",
       "status": "confirmed",
@@ -398,6 +370,97 @@
       "also_cites": [],
       "first_tracked": "2026-06",
       "status": "confirmed"
+    },
+    {
+      "id": "piilo-redact-2026",
+      "dataset": "piilo",
+      "metadata_source": "gs_scrape",
+      "gs_link": "https://arxiv.org/abs/2606.18372",
+      "title": "Redact or Keep? A Fully Local AI Cascade for Educational Dialogue De-Identification",
+      "authors": [
+        "H Zhang",
+        "Z Zhou",
+        "K Vanacore",
+        "B Ahtisham"
+      ],
+      "institutions": null,
+      "country": [],
+      "year": 2026,
+      "published_date": null,
+      "doi": null,
+      "venue": "arXiv preprint arXiv:2606.18372",
+      "venue_type": null,
+      "full_citation": "Zhang, H., Zhou, Z., Vanacore, K., Ahtisham, B., & Kizilcec, R. F. (2026). Redact or Keep? A Fully Local AI Cascade for Educational Dialogue De-Identification. arXiv preprint arXiv:2606.18372.",
+      "abstract": "Educational dialogue is a valuable but sensitive resource for research: the same transcripts that capture authentic learning often capture personally identifiable information (PII) entangled with curricular content, where \"Riemann\" may refer to a real student or to a mathematical concept. Existing approaches force a tradeoff between governance and accuracy. Commercial Large Language Models (LLMs) can handle this ambiguity but require sending student data to third parties, while local named entity recognition (NER) systems preserve governance but over-redact curricular terms. We propose a fully local cascade framework that reframes de-identification from open-ended entity recognition to constrained privacy triage. A recall-first union proposer combines two lightweight encoders with deterministic rules to over-generate candidate spans; a context-aware reviewer then makes a binary Redact/Keep decision for each candidate using surrounding dialogue and speaker role. We evaluate three reviewer configurations against same-family LLM-only baselines and a commercial API on math tutoring transcripts from two large platforms. The strongest local configuration reaches 0.958 macro F1, compared with 0.767 for a same-family LLM-only baseline and 0.706 for the commercial API, while running entirely on a single laptop. On a targeted challenge set of curricular-personal name ambiguity, the same configuration degrades by only 0.03 F1 versus 0.19 to 0.25 for smaller reviewers. These results suggest that for educational de-identification, problem formulation matters more than model scale.",
+      "abstract_source": "manual",
+      "connection_strength": "strong",
+      "research_type": "PII de-identification / education",
+      "key_takeaway": "Strong connection. A fully local cascade (recall-first span proposer plus context-aware Redact/Keep reviewer) de-identifies math tutoring transcripts at 0.958 macro F1, beating LLM-only and commercial API baselines. Directly in PIILO's educational PII space.",
+      "also_cites": [],
+      "first_tracked": "2026-10",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "piilo-dlgnet-2026",
+      "dataset": "piilo",
+      "metadata_source": "manual",
+      "gs_link": null,
+      "title": "DLGNet: A Deep Learning and Generative Framework for Privacy-preserving PII De-identification with Semantic Verification",
+      "authors": [
+        "Venkata Sai Aditya Kondru",
+        "Venkata Rao Kasukurthi"
+      ],
+      "institutions": null,
+      "country": [],
+      "year": 2026,
+      "published_date": null,
+      "doi": "10.22266/ijies2026.0930.53",
+      "venue": "International Journal of Intelligent Engineering & Systems",
+      "venue_type": null,
+      "full_citation": "Kondru, V. S. A., & Kasukurthi, V. R. (2026). DLGNet: A Deep Learning and Generative Framework for Privacy-preserving PII De-identification with Semantic Verification. International Journal of Intelligent Engineering & Systems, 19(9), 1078.",
+      "abstract": "The rapid growth of unstructured textual data in domains such as healthcare, education, and enterprise systems has increased the risk of inadvertent exposure of Personally Identifiable Information (PII). Effective de-identification is essential to enable secure data sharing while preserving privacy and regulatory compliance. Existing approaches, including rule-based and deep learning--based Named Entity Recognition (NER) methods, primarily focus on detection and often lack contextual validation and robust replacement mechanisms, leading to information loss or residual privacy risks. This work proposes DLGNet, a pipeline-based integrated framework PII de-identification framework that integrates DeBERTa-based token-level detection, LLM-based semantic verification, and type-aware replacement. A BIO-tagged DeBERTa model identifies candidate PII spans, which are refined using a TinyLlama-based semantic verification module for contextual validation. Detected entities are then replaced using a hybrid generative and rule-based strategy to ensure irreversible transformation while preserving textual coherence. Experimental results demonstrate strong recall-oriented performance, achieving precision of 90.3%, recall of 94.7%, F1-score of 92.4%, and Fβ-score (β = 5) of 94.52%. Utility evaluation shows a length ratio of 0.96 and token overlap of 0.73, indicating effective preservation of textual structure and semantics. The proposed framework provides a unified and practical solution for privacy-preserving text processing by jointly improving detection accuracy, contextual reliability, and data utility.",
+      "abstract_source": "manual",
+      "connection_strength": "strong",
+      "research_type": "PII de-identification",
+      "key_takeaway": "Strong connection. DLGNet combines DeBERTa token-level PII detection, LLM semantic verification and type-aware replacement for de-identifying unstructured text, including education data. Directly in PIILO's PII detection and obfuscation space.",
+      "also_cites": [],
+      "first_tracked": "2026-10",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "piilo-conundrum-2026",
+      "dataset": "piilo",
+      "metadata_source": "manual",
+      "gs_link": null,
+      "title": "The Conundrum of Trustworthy Research on Attacking Personally Identifiable Information Removal Techniques",
+      "authors": [
+        "Sebastian Ochs",
+        "Ivan Habernal"
+      ],
+      "institutions": [
+        "Technical University of Darmstadt",
+        "Ruhr University Bochum"
+      ],
+      "country": [
+        "Germany"
+      ],
+      "year": 2026,
+      "published_date": null,
+      "doi": null,
+      "venue": "Computational Linguistics",
+      "venue_type": null,
+      "full_citation": "Ochs, S., & Habernal, I. (2026). The Conundrum of Trustworthy Research on Attacking Personally Identifiable Information Removal Techniques. Computational Linguistics, 52(2), 725-757.",
+      "abstract": "Removing personally identifiable information (PII) from texts is necessary to comply with various data protection regulations and to enable data sharing without compromising privacy. However, recent works show that documents sanitized by PII-removal techniques are vulnerable to reconstruction attacks. Yet, we suspect that the reported success of these attacks is largely overestimated. We critically analyze the evaluation of existing attacks and find that data leakage and data contamination are not properly mitigated, leaving the question whether or not PII removal techniques truly protect privacy in real-world scenarios unaddressed. We investigate possible data sources and attack setups that avoid data leakage and conclude that only truly private data can allow us to objectively evaluate vulnerabilities in PII removal techniques. However, access to private data is heavily restricted—and for good reasons—which also means that the public research community cannot address this problem in a transparent, reproducible, and trustworthy manner.",
+      "abstract_source": "manual",
+      "connection_strength": "moderate",
+      "research_type": "PII removal / privacy attacks",
+      "key_takeaway": "Moderate connection. Argues reported reconstruction attacks on PII-removed text are overestimated because of data leakage and contamination. Closely related to PIILO's PII obfuscation work, though not focused on educational text.",
+      "also_cites": [],
+      "first_tracked": "2026-10",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
     }
   ]
 }

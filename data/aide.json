@@ -6,19 +6,20 @@
     "description": "AI Detection for Essays — a dataset of student-written and LLM-generated essays across seven prompts, released via a Kaggle competition (LLM – Detect AI Generated Text). Built by Vanderbilt University and The Learning Agency Lab to support open research on automatic detection of AI-generated student writing.",
     "kaggle_url": "https://kaggle.com/competitions/llm-detect-ai-generated-text",
     "paper_doi": null,
-    "last_updated": "2026-05"
+    "last_updated": "2026-10"
   },
   "summary": {
-    "total_citations": 16,
-    "directly_used": 8,
-    "reference_comparison": 5,
+    "total_citations": 19,
+    "directly_used": 9,
+    "reference_comparison": 7,
     "incidental_peripheral": 3,
     "countries": [
       "Canada",
       "China",
-      "HR",
+      "Croatia",
+      "Germany",
       "India",
-      "MA",
+      "Morocco",
       "New Zealand",
       "Romania",
       "UAE",
@@ -113,7 +114,7 @@
         "Université Moulay Ismail de Meknes"
       ],
       "country": [
-        "MA"
+        "Morocco"
       ],
       "year": 2025,
       "published_date": null,
@@ -406,7 +407,7 @@
         "University of Zagreb"
       ],
       "country": [
-        "HR"
+        "Croatia"
       ],
       "year": 2024,
       "published_date": null,
@@ -543,6 +544,95 @@
       "key_takeaway": "Strong connection. EMNLP 2025 paper analyzing where human and AI text differ across essay segments (intro/body/conclusion), framed via a chess-game analogy. AIDE likely among the detection benchmarks.",
       "also_cites": [],
       "first_tracked": "2026-05",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "aide-beyond-2026",
+      "dataset": "aide",
+      "metadata_source": "manual",
+      "gs_link": null,
+      "title": "Beyond AI-Text Detection: Revisiting Authorship and Collective Discourse in the Age of LLMs",
+      "authors": [
+        "N Tripto"
+      ],
+      "institutions": null,
+      "country": [],
+      "year": 2026,
+      "published_date": null,
+      "doi": null,
+      "venue": null,
+      "venue_type": null,
+      "full_citation": "Tripto, N. (2026). Beyond AI-Text Detection: Revisiting Authorship and Collective Discourse in the Age of LLMs.",
+      "abstract": "Authorship analysis has long been a central problem in Natural Language Processing (NLP). The rise of Large Language Models (LLMs) has renewed the importance of this problem while also making it substantially more complex. LLMs can now generate fluent human-like text, rewrite existing human-authored content, imitate different styles, and increasingly participate in online spaces. Much of the recent literature has framed this challenge as a binary detection problem, asking whether a text is human-written or AI-generated. However, authorship in the age of LLMs cannot be fully understood as a fixed label attached to a single document. It is shaped by the domain in which language appears, the transformations it undergoes, the internal structure of the text, and the broader distribution of discourse in which it participates. This dissertation develops a multi-level view of authorship analysis in the age of LLMs through four connected research questions. First, it expands authorship analysis beyond conventional written text by introducing HANSEN (Human and AI Spoken Text Benchmark), a large benchmark for spoken authorship analysis. Using HANSEN, we evaluate authorship attribution, authorship verification, and human vs. AI spoken text detection, showing that existing methods can be extended to spoken language, but AI-generated spoken text remains challenging to detect. Second, inspired by the Ship of Theseus paradox, this dissertation investigates how LLM-based paraphrasing complicates the definition of authorship. Through a study of successive paraphrasing, we show that ground-truth assumptions substantially affect authorship analysis, as paraphrasing often preserves content while shifting style. Third, this dissertation examines where human-AI differences emerge within a document by dividing texts into introduction, body, and conclusion, analogous to the opening, middlegame, and endgame of chess. Across different domains, we show that the middle segment often reveals stronger divergence under length-controlled settings and that human writing exhibits greater variation across segments. Finally, this dissertation moves from individual documents to collective discourse by studying whether LLM-generated comments can approximate the diversity of human online communication. Through a large-scale study of YouTube comments, we compare human comments with single-model, multi-model, and aspect-conditioned LLM generations, evaluating them through dispersion, coverage, and alignment across semantic, linguistic, and socio-pragmatic spaces, and examining their usefulness in future model scaling. Together, these studies argue that authorship in the age of LLMs should be understood as a contextual and distributional phenomenon shaped by modality, rewriting, document structure, and collective discourse. In doing so, it provides new benchmarks, empirical findings, and conceptual foundations for understanding how human and AI language differ, overlap, and reshape the future of communication.",
+      "abstract_source": "manual",
+      "connection_strength": "strong",
+      "research_type": "AI-text detection / authorship",
+      "key_takeaway": "Strong connection. Dissertation reframing AI-text detection as contextual authorship analysis: a spoken human-vs-AI benchmark (HANSEN), effects of successive paraphrasing, where human-AI differences emerge within documents, and LLM vs. human comment diversity. Squarely in AIDE's human-vs-AI text detection space.",
+      "also_cites": [],
+      "first_tracked": "2026-10",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "aide-stylometric-2026",
+      "dataset": "aide",
+      "metadata_source": "manual",
+      "gs_link": null,
+      "title": "Stylometric Analysis for Authorship Verification and Generative AI Detection",
+      "authors": [
+        "J Bevendorff"
+      ],
+      "institutions": [
+        "Bauhaus-Universität Weimar"
+      ],
+      "country": [
+        "Germany"
+      ],
+      "year": 2026,
+      "published_date": null,
+      "doi": null,
+      "venue": "Doctoral dissertation, Bauhaus-Universität Weimar",
+      "venue_type": null,
+      "full_citation": "Bevendorff, J. (2026). Stylometric Analysis for Authorship Verification and Generative AI Detection (Doctoral dissertation, Bauhaus-Universität Weimar Germany).",
+      "abstract": "Authorship attribution and stylometry have a very long history, dating back to the late 19th century, and computational methods also look back on decades of history. In practical forensic applications, however, computational stylometry has repeatedly hit hard limitations. The PAN shared tasks on authorship attribution and verification have long tried to bridge this gap. And while PAN has earned its firm foothold in the community, the effectiveness of modern authorship methods still paints a mixed picture. This dissertation asks four critical questions regarding (1) the state of authorship analytics (at PAN, but also elsewhere), (2) biases in the systems and evaluations, (3) the robustness of the developed systems, and (4) new emerging challenges that should receive attention from the research community. We tackle these questions with the following contributions: (1) We conduct a thorough review of the past performance of systems submitted to PAN and found elsewhere in the literature. (2) Following the analysis of existing authorship verification systems, we analyze the datasets and evaluation procedures for biases and propose best practices for avoiding them. (3) To assess and challenge the robustness of authorship verification methods, we develop a heuristic style obfuscation framework. (4) We highlight AI detection as a new and important challenge for authorship identification technology. Here, we lay the groundwork for understanding AI detection as an authorship verification problem, organize two new shared tasks at PAN, and conduct a longitudinal study that demonstrates the application of stylometric methods at web-scale to measure the quality of websites and the prevalence of AI-generated content. For this, we use online product reviews and affiliate spam in search engines as a test bed.",
+      "abstract_source": "manual",
+      "connection_strength": "moderate",
+      "research_type": "Stylometry / AI detection",
+      "key_takeaway": "Moderate connection. Dissertation on stylometric authorship verification at PAN, including framing generative-AI detection as an authorship verification problem and new PAN shared tasks. AI detection is one of four strands; its test beds are product reviews and web spam, not essays.",
+      "also_cites": [],
+      "first_tracked": "2026-10",
+      "status": "confirmed",
+      "ai_suggestion": "approve"
+    },
+    {
+      "id": "aide-ghostwriter-2026",
+      "dataset": "aide",
+      "metadata_source": "manual",
+      "gs_link": null,
+      "title": "GhostWriter: Hidden AI-Generated Texts Over Multiple Languages, Domains and Generators",
+      "authors": [
+        "Manuel Schaaf",
+        "Kevin Bönisch",
+        "Alexander Mehler"
+      ],
+      "institutions": [
+        "Goethe University Frankfurt"
+      ],
+      "country": [],
+      "year": 2026,
+      "published_date": null,
+      "doi": null,
+      "venue": "Proceedings of the Fifteenth Language Resources and Evaluation Conference (LREC 2026)",
+      "venue_type": null,
+      "full_citation": "Schaaf, M., Bönisch, K., & Mehler, A. (2026, May). GhostWriter: Hidden AI-Generated Texts Over Multiple Languages, Domains and Generators. In Proceedings of the Fifteenth Language Resources and Evaluation Conference (LREC 2026) (Vol. 11, No. 16, pp. 10497-10516).",
+      "abstract": "The advent of Transformer-based Large Language Models (LLMs) has led to an unprecedented surge of AI-generated text (AIGT) across online platforms and academic domains. While these models exhibit near-human fluency and stylistic coherence, their widespread adoption has raised concerns about authorship integrity, research quality, and the recursive contamination of training corpora with synthetic data. These developments underscore the need for reliable AIGT detection methods and benchmark datasets, particularly for malicious or deceptive ghostwriting scenarios where AIGT is intentionally crafted to evade detection. To address this, we present GhostWriter, a large-scale, bilingual (German and English), multi-generator, and multi-domain dataset for AIGT detection. The dataset comprises human- and AI-authored texts produced under domain-specific ghostwriting conditions, including examples intentionally embedded within otherwise human-written texts to obscure their AI origin. With GhostWriter, we (i) aim to expand the resources available for German AIGT datasets, (ii) emphasize mixed or fused synthesizations—since most existing corpora are limited to the document level—and (iii) introduce specifically crafted malicious ghostwriting scenarios across multiple domains and generators.",
+      "abstract_source": "manual",
+      "connection_strength": "moderate",
+      "research_type": "AI-text detection corpus (sister resource)",
+      "key_takeaway": "Moderate connection. Releases GhostWriter, a bilingual (German/English), multi-domain, multi-generator dataset for AI-generated text detection, including AI text embedded within human-written documents. A sister detection corpus to AIDE.",
+      "also_cites": [],
+      "first_tracked": "2026-10",
       "status": "confirmed",
       "ai_suggestion": "approve"
     }
