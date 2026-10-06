@@ -934,7 +934,7 @@
       "abstract_source": "manual",
       "connection_strength": "strong",
       "research_type": "Argument mining / small LLMs",
-      "key_takeaway": "Strong connection. Uses the Feedback Prize – Predicting Effective Arguments dataset (= PERSUADE 2.0) to evaluate small open-source LLMs (Llama 3.1 8B) for argument classification and assessment. Likely the conference version of persuade-leveraging-2025 — dedupe at promotion time.",
+      "key_takeaway": "Strong connection. Uses the Feedback Prize – Predicting Effective Arguments dataset (= PERSUADE 2.0) to evaluate small open-source LLMs (Llama 3.1 8B) for argument classification and assessment.",
       "also_cites": [],
       "first_tracked": "2026-05",
       "status": "confirmed",
