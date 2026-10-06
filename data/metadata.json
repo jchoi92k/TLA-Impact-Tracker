@@ -18,7 +18,7 @@
       "citation_string": null,
       "license": null,
       "citation_count": 79,
-      "color": "#F59E0B"
+      "color": "#94661C"
     },
     {
       "id": "piilo",
@@ -30,7 +30,7 @@
       "citation_string": "Holmes, L., Crossley, S., Sikka, H., & Morris, W. (2023). PIILO: an open-source system for personally identifiable information labeling and obfuscation. Information and Learning Sciences, 124(9-10), 266–284. https://doi.org/10.1108/ILS-04-2023-0032",
       "license": null,
       "citation_count": 14,
-      "color": "#60A5FA"
+      "color": "#3D6894"
     },
     {
       "id": "klicke",
@@ -42,7 +42,7 @@
       "citation_string": null,
       "license": null,
       "citation_count": 13,
-      "color": "#34D399"
+      "color": "#3B7560"
     },
     {
       "id": "asap2",
@@ -54,7 +54,7 @@
       "citation_string": null,
       "license": null,
       "citation_count": 25,
-      "color": "#A78BFA"
+      "color": "#6B5790"
     },
     {
       "id": "aide",
@@ -66,7 +66,7 @@
       "citation_string": "King, J., Baffour, P., Crossley, S., Holbrook, R., & Demkin, M. (2023). LLM - Detect AI Generated Text. Kaggle. https://kaggle.com/competitions/llm-detect-ai-generated-text",
       "license": "CC BY 4.0",
       "citation_count": 19,
-      "color": "#F43F5E"
+      "color": "#A14A3E"
     },
     {
       "id": "joewillder",
@@ -78,7 +78,7 @@
       "citation_string": null,
       "license": null,
       "citation_count": 1,
-      "color": "#F472B6"
+      "color": "#8A5374"
     }
   ]
 }

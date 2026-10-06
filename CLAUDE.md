@@ -108,6 +108,23 @@ git push
 
 Brand tokens, typography, components, and UX principles live in `/design/`. Start with `design/README.md`. Any new TLA-themed app should reuse this package.
 
+### The public site intentionally diverges from `/design/` (since 2026-10)
+
+The 2026-10 redesign of `index.html` was scoped to the site only (user decision). `/design/` was deliberately NOT updated and still describes the earlier look; it remains the reference for other TLA tools and for `misc/tracker.html`. Do not "fix" either one to match the other without asking.
+
+For `index.html`, the source of truth is the `:root` tokens at the top of its `<style>` block, not `design/tokens.css`. Differences:
+
+| | `/design/` (unchanged) | Public site `index.html` |
+|---|---|---|
+| Fonts | Montserrat + JetBrains Mono | Montserrat (interface) + Source Serif 4 (headings, paper titles, summaries). No monospace. |
+| Dataset colors | Bright Tailwind 400s (`--ds-*` in tokens.css) | Muted, AA-contrast hues in `data/metadata.json` `color`: PERSUADE #94661C, PIILO #3D6894, KLiCKe #3B7560, ASAP 2.0 #6B5790, AIDE #A14A3E, Jo Wilder #8A5374. Used only as dots and bars, never fills or text color. |
+| Accent | `--teal` #1ea69a | `--accent` #0F766E (teal deepened for text contrast) |
+| Strength display | Green/amber/red "Strong/Moderate/Weak" badges | Gray 3-dot meter labeled "Direct use / Reference / Incidental". Data values are unchanged (`connection_strength` = strong/moderate/weak); the mapping is the `STRENGTH` object in `index.html`. |
+| Takeaways | Shown verbatim | Leading "Strong/Moderate/Weak connection." is stripped at render (`publicTakeaway()`); the data keeps it for tracker review. |
+| Layout | Card grid, bordered paper cards, all-caps labels | Home "citation ledger" table, rule-separated paper list, sentence-case labels |
+
+`misc/tracker.html` (internal) still uses the old palette and strong/moderate/weak wording.
+
 ## What stays gitignored
 
 All `misc/` content is gitignored. Never commit:
